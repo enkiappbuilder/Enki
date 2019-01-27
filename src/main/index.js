@@ -40,22 +40,28 @@ function createMainWindow() {
 }
 //dialog window for saving a file
 
-ipcMain.on('exportProject', (event, path) => {
-  const { dialog } = require('electron')
-  const fs = require('fs-extra')
-  const path = require('path')
+const fs = require('fs-extra')
+const path = require('path')
 
-  dialog.showSaveDialog((path) => {
-    fs.copy(path, '../', function (err) {
-      if (err) {
-        console.error(err)
-      } else {
-        console.log('saving was a success!')
-      }
-    })
-  });
+const copy = (filePath) => fs.copy(path.join(__dirname, filePath), '../../testFolder', function (err) {
 
+  console.log('inside of copy and paste')
+  if (err) {
+    console.error(err)
+  } else {
+    console.log('success!')
+  }
 })
+
+// ipcMain.on('exportProject', async (event, path) => {
+//   const { dialog } = require('electron')
+//   // await dialog.showSaveDialog((whereToSave) => {
+//   //   console.log('where to save', whereToSave)
+//   //   await copy(whereToSave)
+//   // });
+
+// })
+
 
 
 // quit application when all windows are closed
