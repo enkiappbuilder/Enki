@@ -4,14 +4,17 @@ import { Card, Icon } from 'semantic-ui-react'
 import img from '../../../public/images/template1.png'
 
 const style = {
-  align
+  alignContent: 'center',
+  color: '#4a4b4c'
 }
 
-const CardExampleCardProps = () => (
+const TemplateContainer = ({ header }) => (
   <Card
+    className='templateContainer'
+    style={style}
     image={img}
-    header='Artist App'
+    header={header}
   />
 )
 
-export default CardExampleCardProps
+export default TemplateContainer

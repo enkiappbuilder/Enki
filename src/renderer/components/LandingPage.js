@@ -10,7 +10,7 @@ class LandingPage extends Component {
           <Link to='/templates'>
             <button >
               CLICK ME TO GO TO TEMPLATES
-</button>
+            </button>
           </Link>
           <button onClick={() => copy()}> CLICK ME TO MAKE COPY OF APP TEMPLATE </button>
         </div>

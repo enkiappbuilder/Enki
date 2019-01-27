@@ -6,3 +6,4 @@
 export { default as LandingPage } from './LandingPage'
 export { default as Templates } from './Templates'
 export { default as Creation } from './Creation'
+export { default as TemplateContainer } from './TemplateContainer'
