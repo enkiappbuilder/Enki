@@ -1,5 +1,6 @@
 
-import { app, BrowserWindow, ipcMain } from 'electron'
+import { app, BrowserWindow, ipcMain, dialog } from 'electron'
+const fs = require('fs-extra')
 import * as path from 'path'
 import { format as formatUrl, } from 'url'
 
@@ -38,31 +39,6 @@ function createMainWindow() {
 
   return window
 }
-//dialog window for saving a file
-
-const fs = require('fs-extra')
-const path = require('path')
-
-const copy = (filePath) => fs.copy(path.join(__dirname, filePath), '../../testFolder', function (err) {
-
-  console.log('inside of copy and paste')
-  if (err) {
-    console.error(err)
-  } else {
-    console.log('success!')
-  }
-})
-
-// ipcMain.on('exportProject', async (event, path) => {
-//   const { dialog } = require('electron')
-//   // await dialog.showSaveDialog((whereToSave) => {
-//   //   console.log('where to save', whereToSave)
-//   //   await copy(whereToSave)
-//   // });
-
-// })
-
-
 
 // quit application when all windows are closed
 app.on('window-all-closed', () => {
@@ -83,5 +59,28 @@ app.on('activate', () => {
 app.on('ready', () => {
   mainWindow = createMainWindow()
 })
+
+//dialog window for saving project to computer
+
+ipcMain.on('exportProject', createProject)
+
+// Create new project directory
+async function createProject() {
+  const directory = dialog.showSaveDialog(mainWindow)
+  const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
+
+  await fs.mkdir(directory, err => {
+    if (err) return console.log(err)
+  })
+
+  await fs.copy(pathToCopyOfProject, directory,
+    function (err) {
+      if (err) {
+        console.error(err)
+      } else {
+        console.log('success!')
+      }
+    })
+}
 
 
