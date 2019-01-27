@@ -1,5 +1,5 @@
 
-import { app, BrowserWindow, } from 'electron'
+import { app, BrowserWindow, protocol} from 'electron'
 import * as path from 'path'
 import { format as formatUrl, } from 'url'
 
@@ -9,7 +9,9 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 let mainWindow
 
 function createMainWindow() {
-  const window = new BrowserWindow()
+  const window = new BrowserWindow({  webPreferences: {
+    webSecurity: false
+  }})
 
   if (isDevelopment) {
     window.webContents.openDevTools()
@@ -56,5 +58,11 @@ app.on('activate', () => {
 
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
+  protocol.interceptFileProtocol('file', (request, callback) => {
+    const url = request.url.substr(7)    /* all urls start with 'file://' */
+    callback({ path: path.normalize(`${__dirname}/${url}`)})
+  }, (err) => {
+    if (err) console.error('Failed to register protocol')
+  })
   mainWindow = createMainWindow()
 })
