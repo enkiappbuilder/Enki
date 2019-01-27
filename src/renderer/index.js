@@ -1,9 +1,9 @@
 // Initial welcome page. Delete the following line to remove it.
 import React from "react";
 import ReactDOM from "react-dom";
+import { BrowserRouter as Router } from 'react-router-dom'
 
 import App from "./app";
-// import 'semantic-ui-css/semantic.min.css'
 
 ReactDOM.render(
   <>
@@ -11,7 +11,9 @@ ReactDOM.render(
       rel="stylesheet"
       href="//cdn.jsdelivr.net/npm/semantic-ui@2.4.1/dist/semantic.min.css"
     />
-    <App />
+    <Router>
+      <App />
+    </Router>
   </>,
   document.getElementById("app")
 );
