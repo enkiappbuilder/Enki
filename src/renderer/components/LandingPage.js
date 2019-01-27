@@ -1,10 +1,15 @@
 import React, { Component } from "react";
 import copy from '../../functions/fsCopy'
 import { Link } from 'react-router-dom'
+import { Header, Container } from 'semantic-ui-react'
 
 class LandingPage extends Component {
   render() {
     return (
+      <Container>
+        <Header>Create your app</Header>
+        <Header>Choose a template</Header>
+      </Container>
       <div>
         <h1> HI I AM LANDING PAGE </h1>
         <div>
