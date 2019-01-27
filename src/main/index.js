@@ -1,5 +1,5 @@
 
-import { app, BrowserWindow, } from 'electron'
+import { app, BrowserWindow, ipcMain } from 'electron'
 import * as path from 'path'
 import { format as formatUrl, } from 'url'
 
@@ -38,6 +38,25 @@ function createMainWindow() {
 
   return window
 }
+//dialog window for saving a file
+
+ipcMain.on('exportProject', (event, path) => {
+  const { dialog } = require('electron')
+  const fs = require('fs-extra')
+  const path = require('path')
+
+  dialog.showSaveDialog((path) => {
+    fs.copy(path, '../', function (err) {
+      if (err) {
+        console.error(err)
+      } else {
+        console.log('saving was a success!')
+      }
+    })
+  });
+
+})
+
 
 // quit application when all windows are closed
 app.on('window-all-closed', () => {
@@ -58,3 +77,5 @@ app.on('activate', () => {
 app.on('ready', () => {
   mainWindow = createMainWindow()
 })
+
+
