@@ -45,11 +45,27 @@ export default class HomeScreen extends React.Component {
 
             </Card>
           </View>
-
-          <View style={styles.container}>
-            <Text style={styles.getStartedText}>
-              Let's change this text team Enki!
+          <View style={styles.cardContainer}>
+            <Card
+            image = {require('../assets/images/sample_art.jpeg')}
+            >
+            <Text h2> Sample Title 2</Text>
+            <Text style={{marginBottom: 10}}>
+              This is a sample text under the title
             </Text>
+
+            </Card>
+          </View>
+          <View style={styles.cardContainer}>
+            <Card
+            image = {require('../assets/images/sample_art.jpeg')}
+            >
+            <Text h2> Sample Title 2</Text>
+            <Text style={{marginBottom: 10}}>
+              This is a sample text under the title
+            </Text>
+
+            </Card>
           </View>
         </ScrollView>
       </View>
