@@ -64,7 +64,7 @@ app.on('ready', () => {
 
 ipcMain.on('exportProject', createProject)
 
-// Create new project directory
+// Create new project function
 async function createProject() {
   const directory = dialog.showSaveDialog(mainWindow)
   const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
@@ -81,4 +81,31 @@ async function createProject() {
         console.log('success!')
       }
     })
+}
+
+//dialog window for uploading image to project
+
+ipcMain.on('uploadPhoto', uploadNewPhoto)
+
+//upload photo helper function
+
+function uploadNewPhoto(fileName, location) {
+  const pathToImage = dialog.showOpenDialog(mainWindow)
+  const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
+
+  const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
+
+  //copying image to assets folder
+  fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
+    function (err) {
+      console.log('inside of copy')
+      if (err) {
+        console.error(err)
+      } else {
+        console.log('success!')
+      }
+    })
+
+  //updating image path in appropriate file in the template
+
 }
