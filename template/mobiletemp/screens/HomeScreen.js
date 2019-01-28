@@ -13,8 +13,10 @@ import {
   Header,
   Card
 } from 'react-native-elements'
-
+import { createAppContainer, createDrawerNavigator} from 'react-navigation'
 import { MonoText } from '../components/StyledText';
+import {Icon} from 'react-native-elements'
+// import { Icon } from 'semantic-ui-react';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -25,8 +27,8 @@ export default class HomeScreen extends React.Component {
     return (
       <View style={styles.container}>
             <Header
-              leftComponent={{ icon: 'menu', color: '#132029'}}
-              centerComponent={{ text: 'Test Text', style: { color: '#132029'}}}
+              leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
+              centerComponent={{ text: 'Template 1', style: { color: '#132029'}}}
               rightComponent = {{ icon: 'home', color: '#132029' }}
               backgroundColor = '#FF69B4'
             />
@@ -87,6 +89,25 @@ export default class HomeScreen extends React.Component {
     );
   };
 }
+
+class Hamburger extends React.Component {
+  toggleDrawer = () => {
+    this.props.navigationProps.toggleDrawer();
+  }
+
+  render() {
+    return(
+      <View style = {{flexDirection: 'row'}}>
+        <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
+          <Icon
+          name = 'menu'
+          />
+        </TouchableOpacity>
+      </View>
+    )
+  }
+}
+
 
 const styles = StyleSheet.create({
   container: {
