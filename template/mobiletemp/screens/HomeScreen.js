@@ -115,11 +115,13 @@ class Hamburger extends React.Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
+    backgroundColor: '#000000',
+    color: '#fff'
   },
   cardContainer: {
     flex: 1,
-    backgroundColor: '#fff'
+    backgroundColor: '#000000',
+    color: '#fff'
   },
   developmentModeText: {
     marginBottom: 20,
