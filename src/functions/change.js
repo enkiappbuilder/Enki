@@ -1,4 +1,3 @@
-<div>
-  <Text>{text1}123{text1}</Text>
-  <Text>{/*text2*/}dog{/*text2*/}</Text>
-</div>
+//this is a test file used for testing utility functions.
+
+const image = require( /*image1*/ "../../.../sdsds/sdsds" /*image1*/)

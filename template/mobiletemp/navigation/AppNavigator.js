@@ -3,6 +3,7 @@ import { createAppContainer, createSwitchNavigator, createDrawerNavigator } from
 
 // import MainTabNavigator from './MainTabNavigator';
 import HomeScreen from '../screens/HomeScreen';
+import Gallery from '../screens/Gallery'
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -11,11 +12,6 @@ export default createAppContainer(createDrawerNavigator({
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
   Main: HomeScreen,
   Gallery: {
-    screen: HomeScreen
+    screen: Gallery
   } ,
-  About: {
-    screen: LinksScreen
-  },
-  Contact: LinksScreen,
-
 }));
