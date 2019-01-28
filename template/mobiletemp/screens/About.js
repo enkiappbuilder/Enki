@@ -18,7 +18,6 @@ import { MonoText } from '../components/StyledText';
 import {Icon} from 'react-native-elements'
 // import { Icon } from 'semantic-ui-react';
 
-
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -29,27 +28,20 @@ export default class HomeScreen extends React.Component {
       <View style={styles.container}>
             <Header
               leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: /*AppName*/'Template 1'/*AppName*/, style: { color: '#132029'}}}
+              centerComponent={{ text: 'Template 1', style: { color: '#132029'}}}
               rightComponent = {{ icon: 'home', color: '#132029' }}
               backgroundColor = '#FF69B4'
             />
 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.cardContainer}>
-            <Card
-            image = {require(/*ImagePath*/'../assets/images/sample_art.jpeg'/*ImagePath*/)}
-            >
-            <Text h2> {/*TitleText1*/}Sample Title 2{/*TitleText1*/}</Text>
-            <Text style={{marginBottom: 10}}>
-              {/*DescriptionText1*/}This is a sample text under the title{/*DescriptionText1*/}
+          <View style = {styles.textComp}>
+            <Text style = {{color: 'white', textAlign: 'center', fontSize: 35}}>
+              About Me
             </Text>
-
-            </Card>
           </View>
-
-          <View style={styles.container}>
-            <Text style={styles.getStartedText}>
-              {/*WelcomeText*/}Let's change this text team Enki!{/*WelcomeText*/}
+          <View style = {styles.textComp}>
+            <Text style = {{color: 'white', }}>
+              This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah!
             </Text>
           </View>
         </ScrollView>
@@ -116,10 +108,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     color: '#fff'
   },
+  textComp: {
+    backgroundColor: '#000000',
+    alignContent: 'center'
+
+  },
   cardContainer: {
     flex: 1,
-    backgroundColor: '#000000',
-    color: '#fff'
+    backgroundColor: '#000000'
   },
   developmentModeText: {
     marginBottom: 20,

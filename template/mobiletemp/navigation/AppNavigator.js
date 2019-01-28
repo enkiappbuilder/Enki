@@ -4,6 +4,7 @@ import { createAppContainer, createSwitchNavigator, createDrawerNavigator } from
 // import MainTabNavigator from './MainTabNavigator';
 import HomeScreen from '../screens/HomeScreen';
 import Gallery from '../screens/Gallery'
+import About from '../screens/About'
 import LinksScreen from '../screens/LinksScreen';
 import SettingsScreen from '../screens/SettingsScreen';
 
@@ -14,4 +15,7 @@ export default createAppContainer(createDrawerNavigator({
   Gallery: {
     screen: Gallery
   } ,
+  About: {
+    screen: About
+  }
 }));
