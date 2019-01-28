@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import copy from '../../functions/fsCopy'
 import { Link } from 'react-router-dom'
-
 class LandingPage extends Component {
   render() {
     return (
@@ -14,11 +13,10 @@ class LandingPage extends Component {
             </button>
           </Link>
           <button onClick={() => copy()}> CLICK ME TO MAKE COPY OF APP TEMPLATE </button>
-
         </div>
       </div>
     );
   }
 }
-
 export default LandingPage;
+
