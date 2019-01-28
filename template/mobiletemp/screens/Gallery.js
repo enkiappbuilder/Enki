@@ -18,7 +18,6 @@ import { MonoText } from '../components/StyledText';
 import {Icon} from 'react-native-elements'
 // import { Icon } from 'semantic-ui-react';
 
-
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
     header: null,
@@ -37,11 +36,11 @@ export default class HomeScreen extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.cardContainer}>
             <Card
-            image = {require(/*imagePath*/'../assets/images/sample_art.jpeg'/*imagePath*/)}
+            image = {require('../assets/images/sample_art.jpeg')}
             >
-            <Text h2> {/*TitleText1*/}Sample Title 2{/*TitleText1*/}</Text>
+            <Text h2> Sample Title 2</Text>
             <Text style={{marginBottom: 10}}>
-              {/*DescriptionText1*/}This is a sample text under the title{/*DescriptionText1*/}
+              This is a sample text under the title
             </Text>
 
             </Card>
@@ -49,7 +48,7 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.container}>
             <Text style={styles.getStartedText}>
-              {/*WelcomeText*/}Let's change this text team Enki!{/*WelcomeText*/}
+              Let's change this text team Enki!
             </Text>
           </View>
         </ScrollView>
