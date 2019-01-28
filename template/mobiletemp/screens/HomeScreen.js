@@ -13,9 +13,9 @@ import {
   Header,
   Card
 } from 'react-native-elements'
-import { createAppContainer, createDrawerNavigator} from 'react-navigation'
+import { createAppContainer, createDrawerNavigator } from 'react-navigation'
 import { MonoText } from '../components/StyledText';
-import {Icon} from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 // import { Icon } from 'semantic-ui-react';
 
 
@@ -27,6 +27,7 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
+
             <Header
               leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
               centerComponent={{ text: /*AppName*/'Template 1'/*AppName*/, style: { color: '#132029'}}}
@@ -34,15 +35,16 @@ export default class HomeScreen extends React.Component {
               backgroundColor = '#FF69B4'
             />
 
+
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.cardContainer}>
             <Card
             image = {require(/*ImagePath*/'../assets/images/sample_art.jpeg'/*ImagePath*/)}
             >
-            <Text h2> {/*TitleText1*/}Sample Title 2{/*TitleText1*/}</Text>
-            <Text style={{marginBottom: 10}}>
-              {/*DescriptionText1*/}This is a sample text under the title{/*DescriptionText1*/}
-            </Text>
+              <Text h2> {/*TitleText1*/}Sample Title 2{/*TitleText1*/}</Text>
+              <Text style={{ marginBottom: 10 }}>
+                {/*DescriptionText1*/}This is a sample text under the title{/*DescriptionText1*/}
+              </Text>
 
             </Card>
           </View>
@@ -97,11 +99,11 @@ class Hamburger extends React.Component {
   }
 
   render() {
-    return(
-      <View style = {{flexDirection: 'row'}}>
+    return (
+      <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           <Icon
-          name = 'menu'
+            name='menu'
           />
         </TouchableOpacity>
       </View>
