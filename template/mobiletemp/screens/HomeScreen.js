@@ -27,17 +27,19 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-        <Header
-          leftComponent={<Hamburger navigationProps={this.props.navigation} />}
-          centerComponent={{ text: 'Template 1', style: { color: '#132029' } }}
-          rightComponent={{ icon: 'home', color: '#132029' }}
-          backgroundColor='#FF69B4'
-        />
+
+            <Header
+              leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
+              centerComponent={{ text: /*AppName*/'Template 1'/*AppName*/, style: { color: '#132029'}}}
+              rightComponent = {{ icon: 'home', color: '#132029' }}
+              backgroundColor = '#FF69B4'
+            />
+
 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.cardContainer}>
             <Card
-              image={require(/*imagePath*/'../assets/images/sample_art.jpeg'/*imagePath*/)}
+            image = {require(/*ImagePath*/'../assets/images/sample_art.jpeg'/*ImagePath*/)}
             >
               <Text h2> {/*TitleText1*/}Sample Title 2{/*TitleText1*/}</Text>
               <Text style={{ marginBottom: 10 }}>
