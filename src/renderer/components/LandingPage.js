@@ -3,7 +3,7 @@ import copy from '../../functions/fsCopy'
 import { Link } from 'react-router-dom'
 const { ipcRenderer } = window.require('electron')
 
-import { updateText } from '../../functions/rewrite'
+import { updateText, updateImageName } from '../../functions/rewrite'
 
 class LandingPage extends Component {
   constructor() {
@@ -17,8 +17,7 @@ class LandingPage extends Component {
   }
 
   handleClick() {
-    updateText('../../copyOfProject/screens/Gallery.js', 'text2', 'wooo!!')
-
+    updateImageName('../../copyOfProject/screens/Gallery.js', 'test', '../hey/ho')
   }
 
   render() {
@@ -33,7 +32,7 @@ class LandingPage extends Component {
           </Link>
           <button onClick={() => copy()}> CLICK ME TO MAKE COPY OF APP TEMPLATE </button>
           <button onClick={this.handleUpload}> CLICK ME TO UPLOAD A PHOTO! </button>
-          <button onClick={this.handleClick}> TEST ME!!!</button>
+          <button onClick={this.handleClick}> THIS BUTTON IS TEESTING THE UPDATTE IMAGE NAME FUNC</button>
         </div>
       </div>
     );

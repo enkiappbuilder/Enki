@@ -33,23 +33,23 @@ export function updateText(fileName, location, replacementText) {
 // BEFORE --- const image = require( /*image1*/ "../this/is/my/path" /*image1*/)
 // AFTER --- const image = require( /*image1*/ "../new/path" /*image1*/)
 
-function updateImageName(fileName, location, replacementText) {
+export function updateImageName(fileName, location, replacementText) {
   let tempRegex = "(?<= /\\*" + location + "\\*/)(.*)(?=/\\*" + location + "\\*/)"
   let regex = new RegExp(tempRegex)
 
-  console.log('file name!', fileName)
 
-  fs.readFile(path.join(path.join('../../copyOfProject/', fileName), 'utf8', function (err, data) {
+  fs.readFile(path.join(__dirname, fileName), 'utf8', function (err, data) {
     if (err) throw err
     let content = data
     content = content.replace(regex, ` "${replacementText}" `)
 
 
-    fs.writeFile(path.join('../../copyOfProject/', fileName), content, 'utf8', function (err) {
+    fs.writeFile(path.join(__dirname, fileName), content, 'utf8', function (err) {
       if (err) throw err
       console.log('FILE SAVED')
     })
-  }))
+  })
 
 }
+
 
