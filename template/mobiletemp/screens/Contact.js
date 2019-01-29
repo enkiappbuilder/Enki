@@ -11,14 +11,15 @@ import {
 import { WebBrowser } from 'expo';
 import {
   Header,
-  Card
-} from 'react-native-elements'
-import { createAppContainer, createDrawerNavigator} from 'react-navigation'
-import { MonoText } from '../components/StyledText';
-import {Icon} from 'react-native-elements'
-// import { Icon } from 'semantic-ui-react';
+  Card,
+  FormInput,
+  FormLabel,
+  FormValidationMessage
 
-export default class About extends React.Component {
+} from 'react-native-elements'
+import {Icon} from 'react-native-elements'
+
+export default class Contact extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -36,14 +37,27 @@ export default class About extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style = {styles.textComp}>
             <Text style = {{color: 'white', textAlign: 'center', fontSize: 35}}>
-              About Me
+              Contact Me!
             </Text>
           </View>
-          <View style = {styles.textComp}>
-            <Text style = {{color: 'white', }}>
-              This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah!
-            </Text>
+          <View>
+            <FormLabel>Name</FormLabel>
+            <View style= {{backgroundColor: 'white'}}>
+              <FormInput style= {{backgroundColor: 'white'}}/>
+            </View>
+            <FormValidationMessage>{'Please enter your name!'}</FormValidationMessage>
+            <FormLabel>Email</FormLabel>
+            <View style= {{backgroundColor: 'white'}}>
+              <FormInput style= {{backgroundColor: 'white'}}/>
+            </View>
+            <FormValidationMessage>{'Please enter your email!'}</FormValidationMessage>
+            <FormLabel>What's up?</FormLabel>
+            <View style= {{backgroundColor: 'white'}}>
+              <FormInput style= {{backgroundColor: 'white'}}/>
+            </View>
+            <FormValidationMessage>{'What do you want to tell us?'}</FormValidationMessage>
           </View>
+
         </ScrollView>
       </View>
     );

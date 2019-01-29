@@ -1,7 +1,26 @@
 import React, { Component } from "react";
 import copy from '../../functions/fsCopy'
 import { Link } from 'react-router-dom'
+const { ipcRenderer } = window.require('electron')
+
+import { updateText } from '../../functions/rewrite'
+
 class LandingPage extends Component {
+  constructor() {
+    super()
+    this.handleUpload = this.handleUpload.bind(this)
+    this.handleClick = this.handleClick.bind(this)
+  }
+
+  handleUpload() {
+    ipcRenderer.send('uploadPhoto')
+  }
+
+  handleClick() {
+    updateText('../../copyOfProject/screens/Gallery.js', 'text2', 'wooo!!')
+
+  }
+
   render() {
     return (
       <div>
@@ -13,6 +32,8 @@ class LandingPage extends Component {
             </button>
           </Link>
           <button onClick={() => copy()}> CLICK ME TO MAKE COPY OF APP TEMPLATE </button>
+          <button onClick={this.handleUpload}> CLICK ME TO UPLOAD A PHOTO! </button>
+          <button onClick={this.handleClick}> TEST ME!!!</button>
         </div>
       </div>
     );
