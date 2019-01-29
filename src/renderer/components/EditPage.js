@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 import { Form, Header, Divider, Segment, Button, Card, Grid, Image} from "semantic-ui-react";
-import Forms from "./TextForm";
+import Forms from "./Forms";
 import phone from './phone.png'
-
+import {updateText} from '../../functions/rewrite'
 class EditPage extends Component {
   constructor(){
     super()
@@ -14,12 +14,17 @@ class EditPage extends Component {
       WelcomeText : '',
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleChange (event, {value, name}) { 
     this.setState({[name]: value})
     // console.log('this.state.appName:', this.state.appName);
 }
+
+  handleClick (file, location, text){
+     return  () => updateText(file,this.state)
+  }
 
   render() {
     return (
@@ -28,7 +33,7 @@ class EditPage extends Component {
         <Segment>
           <Grid columns={2} relaxed="very" celled='internally'>
             <Grid.Column>
-              <Forms handleChange={this.handleChange} state={this.state} name='AppName'/>
+              <Forms handleChange={this.handleChange} state={this.state} name='AppName' />
               <Forms handleChange={this.handleChange} state={this.state} name='TitleText1'/>
               <Forms handleChange={this.handleChange} state={this.state} name='DescriptionText1'/>
               <Forms handleChange={this.handleChange} state={this.state} name='WelcomeText'/>
@@ -51,6 +56,7 @@ class EditPage extends Component {
 
           {/* <Divider vertical/> */}
         </Segment>
+        <Button onClick={this.handleClick('../../copyOfProject/screens/HomeScreen.js','AppName', 'changedsafasfasafa things')}/>
       </>
     );
   }
