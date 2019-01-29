@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import EditPage from "./EditPage";
 const { ipcRenderer } = window.require('electron')
 
 class LandingPage extends Component {
@@ -14,6 +15,7 @@ class LandingPage extends Component {
     return (
       <div>
         <h1> HERE IS WHERE YOU'LL CUSTOMIZE YOUR APP! </h1>
+        <EditPage/>
         <button onClick={this.handleExport}>export files, yeah!</button>
       </div>
     );

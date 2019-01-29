@@ -1,5 +1,6 @@
 import React from 'react'
 import {Form, StatisticLabel} from 'semantic-ui-react'
+import {updateText} from '../../functions/rewrite'
 
 const Forms = (props) => {
   const {  handleChange, upState, name } = props;
@@ -17,6 +18,7 @@ const Forms = (props) => {
         value={state.appName}
         onChange={handleChange}/>
       </Form.Field>
+      <Button > save to mobile App </Button>
     </Form>
   )
 }

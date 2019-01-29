@@ -7,7 +7,7 @@ const path = require('path')
 // BEFORE --- <Text> {/*textBox1*/} Hello, my name is Bob! {/*textBox1*/}</Text>
 // AFTER --- <Text> {/*textBox1*/} Bye, see you later! {/*textBox1*/} </Text>
 
-function updateText(fileName, location, replacementText) {
+export function updateText(fileName, location, replacementText) {
   let tempRegex = "(?<={/\\*" + location + "\\*/})(.*)(?={/\\*" + location + "\\*/})"
   let regex = new RegExp(tempRegex)
 

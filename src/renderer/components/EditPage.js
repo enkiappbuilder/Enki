@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import { Form, Header, Divider, Segment, Button, Card, Grid, Image} from "semantic-ui-react";
-import Forms from "./TextForm";
+import Forms from "./Forms";
 import phone from './phone.png'
 
 class EditPage extends Component {
