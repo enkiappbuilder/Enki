@@ -8,12 +8,13 @@ class EditPage extends Component {
   constructor(){
     super()
     this.state = {
-      AppName :'',
-      TitleText1 : '',
-      DescriptionText1 : '',
-      WelcomeText : '',
+      AppName :'jag',
+      TitleText1 : 'as',
+      DescriptionText1 : 'sad',
+      WelcomeText : 'asdad',
     }
     this.handleChange = this.handleChange.bind(this)
+    this.handleClick = this.handleClick.bind(this)
   }
 
   handleChange (event, {value, name}) { 
@@ -22,9 +23,7 @@ class EditPage extends Component {
 }
 
   handleClick (file, location, text){
-    file = file.toString()
-    console.log('file:', file);
-    return () => updateText(file,location, text)
+     return  () => updateText(file,this.state)
   }
 
   render() {
@@ -34,7 +33,7 @@ class EditPage extends Component {
         <Segment>
           <Grid columns={2} relaxed="very" celled='internally'>
             <Grid.Column>
-              <Forms handleChange={this.handleChange} state={this.state} name='AppName'/>
+              <Forms handleChange={this.handleChange} state={this.state} name='AppName' />
               <Forms handleChange={this.handleChange} state={this.state} name='TitleText1'/>
               <Forms handleChange={this.handleChange} state={this.state} name='DescriptionText1'/>
               <Forms handleChange={this.handleChange} state={this.state} name='WelcomeText'/>
@@ -57,7 +56,7 @@ class EditPage extends Component {
 
           {/* <Divider vertical/> */}
         </Segment>
-        <Button onClick={this.handleClick('../../copyOfProject/screens/HomeScreen.js','AppName', "'I WORKED'")}/>
+        <Button onClick={this.handleClick('../../copyOfProject/screens/HomeScreen.js','AppName', 'changedsafasfasafa things')}/>
       </>
     );
   }

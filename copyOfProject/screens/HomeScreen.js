@@ -30,7 +30,7 @@ export default class HomeScreen extends React.Component {
 
             <Header
               leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: /*AppName*/,'I WORKED',/*AppName*/, style: { color: '#132029'}}}
+              centerComponent={{ text: /*AppName*/ "NOW I WORK" /*AppName*/, style: { color: '#132029'}}}
               rightComponent = {{ icon: 'home', color: '#132029' }}
               backgroundColor = '#FF69B4'
             />
@@ -41,9 +41,9 @@ export default class HomeScreen extends React.Component {
             <Card
             image = {require(/*ImagePath*/'../assets/images/sample_art.jpeg'/*ImagePath*/)}
             >
-              <Text h2> {/*TitleText1*/}Sample Title 2{/*TitleText1*/}</Text>
+              <Text h2> {/*TitleText1*/}BARRY IS CONFIDENT{/*TitleText1*/}</Text>
               <Text style={{ marginBottom: 10 }}>
-                {/*DescriptionText1*/}This is a sample text under the title{/*DescriptionText1*/}
+                {/*DescriptionText1*/}BUT THE CLOSER TO THE BUTTON{/*DescriptionText1*/}
               </Text>
 
             </Card>
@@ -51,7 +51,7 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.container}>
             <Text style={styles.getStartedText}>
-              {/*WelcomeText*/}Let's change this text team Enki!{/*WelcomeText*/}
+              {/*WelcomeText*/}BARRY GETS, HE GETS SCARED{/*WelcomeText*/}
             </Text>
           </View>
         </ScrollView>
@@ -206,4 +206,4 @@ const styles = StyleSheet.create({
     fontSize: 14,
     color: '#2e78b7',
   },
-});
+});;}););;);;;);;;;;;;
