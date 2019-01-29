@@ -16,7 +16,6 @@ import {
 import { createAppContainer, createDrawerNavigator} from 'react-navigation'
 import { MonoText } from '../components/StyledText';
 import {Icon} from 'react-native-elements'
-// import { Icon } from 'semantic-ui-react';
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
