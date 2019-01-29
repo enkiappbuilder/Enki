@@ -18,7 +18,7 @@ async function asyncForEach(array, callback) {
 }
 
 export function updateText(fileName, state) {
-  fs.readFile(path.join(__dirname, fileName), "utf8", async function(
+  fs.readFile(path.join(__dirname, fileName), "utf8", async function (
     err,
     data
   ) {
@@ -42,7 +42,7 @@ export function updateText(fileName, state) {
       content = await content.replace(bracketRegex, ` "${replacementText}" `);
     });
 
-    fs.writeFile(path.join(__dirname, fileName), content, "utf8", function(
+    fs.writeFile(path.join(__dirname, fileName), content, "utf8", function (
       err
     ) {
       if (err) throw err;
