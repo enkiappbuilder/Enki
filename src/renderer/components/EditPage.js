@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import { Form, Header, Divider, Segment, Button, Card, Grid, Image} from "semantic-ui-react";
 import Forms from "./Forms";
 import phone from './phone.png'
-
+import {updateText} from '../../functions/rewrite'
 class EditPage extends Component {
   constructor(){
     super()
@@ -20,6 +20,12 @@ class EditPage extends Component {
     this.setState({[name]: value})
     // console.log('this.state.appName:', this.state.appName);
 }
+
+  handleClick (file, location, text){
+    file = file.toString()
+    console.log('file:', file);
+    return () => updateText(file,location, text)
+  }
 
   render() {
     return (
@@ -51,6 +57,7 @@ class EditPage extends Component {
 
           {/* <Divider vertical/> */}
         </Segment>
+        <Button onClick={this.handleClick('../../copyOfProject/screens/HomeScreen.js','AppName', "'I WORKED'")}/>
       </>
     );
   }

@@ -1,5 +1,5 @@
 import React from 'react'
-import {Form, StatisticLabel} from 'semantic-ui-react'
+import {Form, Button} from 'semantic-ui-react'
 import {updateText} from '../../functions/rewrite'
 
 const Forms = (props) => {
@@ -8,7 +8,6 @@ const Forms = (props) => {
   let title = name.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); })
   let state = {...upState}
 
-  const
 
   return(
     <Form>

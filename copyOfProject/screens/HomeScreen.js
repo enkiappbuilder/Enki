@@ -30,7 +30,7 @@ export default class HomeScreen extends React.Component {
 
             <Header
               leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: /*AppName*/'Template 1'/*AppName*/, style: { color: '#132029'}}}
+              centerComponent={{ text: /*AppName*/,'I WORKED',/*AppName*/, style: { color: '#132029'}}}
               rightComponent = {{ icon: 'home', color: '#132029' }}
               backgroundColor = '#FF69B4'
             />
