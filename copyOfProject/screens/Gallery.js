@@ -13,9 +13,9 @@ import {
   Header,
   Card
 } from 'react-native-elements'
-import { createAppContainer, createDrawerNavigator} from 'react-navigation'
+import { createAppContainer, createDrawerNavigator } from 'react-navigation'
 import { MonoText } from '../components/StyledText';
-import {Icon} from 'react-native-elements'
+import { Icon } from 'react-native-elements'
 // import { Icon } from 'semantic-ui-react';
 
 export default class HomeScreen extends React.Component {
@@ -26,21 +26,21 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-            <Header
-              leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: 'Template 1', style: { color: '#132029'}}}
-              rightComponent = {{ icon: 'home', color: '#132029' }}
-              backgroundColor = '#FF69B4'
-            />
+        <Header
+          leftComponent={<Hamburger navigationProps={this.props.navigation} />}
+          centerComponent={{ text: 'Template 1', style: { color: '#132029' } }}
+          rightComponent={{ icon: 'home', color: '#132029' }}
+          backgroundColor='#FF69B4'
+        />
 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.cardContainer}>
             <Card
-            image = {require('../assets/images/sample_art.jpeg')}
+              image={require( /*test*/ '../assets/images/sample_art.jpeg' /*test*/)}
             >
-            <Text h2> Sample Title 2</Text>
-            <Text style={{marginBottom: 10}}>
-              This is a sample text under the title
+              <Text h2> Sample Title 2</Text>
+              <Text style={{ marginBottom: 10 }}>
+                This is a sample text under the title
             </Text>
 
             </Card>
@@ -96,11 +96,11 @@ class Hamburger extends React.Component {
   }
 
   render() {
-    return(
-      <View style = {{flexDirection: 'row'}}>
+    return (
+      <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           <Icon
-          name = 'menu'
+            name='menu'
           />
         </TouchableOpacity>
       </View>
