@@ -2,7 +2,7 @@
 import { app, BrowserWindow, ipcMain, dialog } from 'electron'
 const fs = require('fs-extra')
 import * as path from 'path'
-import { format as formatUrl, } from 'url'
+import { format as formatUrl } from 'url'
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -64,7 +64,7 @@ app.on('ready', () => {
 
 ipcMain.on('exportProject', createProject)
 
-// Create new project directory
+// Create new project function
 async function createProject() {
   const directory = dialog.showSaveDialog(mainWindow)
   const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
@@ -82,3 +82,36 @@ async function createProject() {
       }
     })
 }
+
+//dialog window for uploading image to project
+
+ipcMain.on('uploadPhoto', uploadNewPhoto)
+
+//helper function to rewrite image path
+const { updateImageName } = require('../functions/rewrite')
+
+//upload photo helper function
+
+function uploadNewPhoto(fileName, location) {
+  const pathToImage = dialog.showOpenDialog(mainWindow)
+  const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
+  const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
+
+  // copying image to assets folder
+  fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
+    function (err) {
+      if (err) {
+        console.error(err)
+      } else {
+        console.log('success!')
+      }
+    })
+
+  //updating image path in appropriate file in the template
+
+  // updateImageName(fileName, location, mobileTempAssets)
+  updateImageName('screens/Gallery.js', 'test', mobileTempAssets)
+
+
+}
+
