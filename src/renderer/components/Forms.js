@@ -8,6 +8,8 @@ const Forms = (props) => {
   let title = name.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); })
   let state = {...upState}
 
+  const
+
   return(
     <Form>
       <Form.Field>
@@ -18,9 +20,13 @@ const Forms = (props) => {
         value={state.appName}
         onChange={handleChange}/>
       </Form.Field>
-      <Button > save to mobile App </Button>
+      <Button onClick={save(state)}> save to mobile App </Button>
     </Form>
   )
+}
+
+const save = (details) => {
+
 }
 
 export default Forms
