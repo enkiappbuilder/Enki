@@ -5,10 +5,12 @@ app name
 image 1
 
 
-## Getting Started
+# Getting Started
 
-# install dependencies
-yarn
+## install dependencies with [`yarn`](https://yarnpkg.com/en/)
+
+```bash
+yarn install
 ```
 
 ### Development Scripts
