@@ -36,7 +36,7 @@ export default class HomeScreen extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.cardContainer}>
             <Card
-              image={require( /*test*/ '../assets/images/sample_art.jpeg' /*test*/)}
+              image={require( /*test*/ "../hey/ho" /*test*/)}
             >
               <Text h2> Sample Title 2</Text>
               <Text style={{ marginBottom: 10 }}>
