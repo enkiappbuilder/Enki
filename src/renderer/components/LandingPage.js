@@ -32,7 +32,7 @@ class LandingPage extends Component {
           </Link>
           <button onClick={() => copy()}> CLICK ME TO MAKE COPY OF APP TEMPLATE </button>
           <button onClick={this.handleUpload}> CLICK ME TO UPLOAD A PHOTO! </button>
-          <button onClick={this.handleClick}> TEST ME!!!</button>
+          <button onClick={this.handleClick}> THIS BUTTON IS TEESTING THE UPDATTE IMAGE NAME FUNC</button>
         </div>
       </div>
     );
