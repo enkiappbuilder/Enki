@@ -7,13 +7,17 @@ const path = require('path')
 // BEFORE --- <Text> {/*textBox1*/} Hello, my name is Bob! {/*textBox1*/}</Text>
 // AFTER --- <Text> {/*textBox1*/} Bye, see you later! {/*textBox1*/} </Text>
 
-function updateText(fileName, location, replacementText) {
+//example of calling this function below
+//updateText('../../copyOfProject/screens/Gallery.js', 'text2', 'wooo!!')
+
+export function updateText(fileName, location, replacementText) {
   let tempRegex = "(?<={/\\*" + location + "\\*/})(.*)(?={/\\*" + location + "\\*/})"
+
   let regex = new RegExp(tempRegex)
 
   fs.readFile(path.join(__dirname, fileName), 'utf8', function (err, data) {
     if (err) throw err
-    content = data
+    let content = data
     content = content.replace(regex, replacementText)
     fs.writeFile(path.join(__dirname, fileName), content, 'utf8', function (err) {
       if (err) throw err
@@ -21,6 +25,7 @@ function updateText(fileName, location, replacementText) {
     })
   })
 }
+
 
 // comment format 2 (comments are in this format: /*image1*/) AND you would like a string to be the replacement text.
 
@@ -32,34 +37,19 @@ function updateImageName(fileName, location, replacementText) {
   let tempRegex = "(?<= /\\*" + location + "\\*/)(.*)(?=/\\*" + location + "\\*/)"
   let regex = new RegExp(tempRegex)
 
-  console.log('regex', regex)
+  console.log('file name!', fileName)
 
-  //----this is working for a local file
-  // fs.readFile(path.join(__dirname, '../../copyOfProject', fileName), 'utf8', function (err, data) {
-  //   if (err) throw err
-  //   content = data
-  //   content = content.replace(regex, ` "${replacementText}" `)
-  //   fs.writeFile(path.join(__dirname, fileName), content, 'utf8', function (err) {
-  //     if (err) throw err
-  //     console.log('FILE SAVED')
-  //   })
-  // })
-
-  // path.join(pathName, fileName)
-
-  fs.readFile(fileName, 'utf8', function (err, data) {
+  fs.readFile(path.join(path.join('../../copyOfProject/', fileName), 'utf8', function (err, data) {
     if (err) throw err
-    content = data
+    let content = data
     content = content.replace(regex, ` "${replacementText}" `)
 
-    console.log('content', content)
 
-    fs.writeFile(fileName, content, 'utf8', function (err) {
-      console.log('inside of write file yeah!')
+    fs.writeFile(path.join('../../copyOfProject/', fileName), content, 'utf8', function (err) {
       if (err) throw err
       console.log('FILE SAVED')
     })
-  })
+  }))
+
 }
 
-updateImageName('./test.js', 'test', 'bleep bleep')

@@ -100,7 +100,6 @@ function uploadNewPhoto(fileName, location) {
   // copying image to assets folder
   fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
     function (err) {
-      console.log('inside of copy')
       if (err) {
         console.error(err)
       } else {
@@ -111,7 +110,7 @@ function uploadNewPhoto(fileName, location) {
   //updating image path in appropriate file in the template
 
   // updateImageName(fileName, location, mobileTempAssets)
-  updateImageName('/screens/Gallery.js', 'test', mobileTempAssets)
+  updateImageName('screens/Gallery.js', 'test', mobileTempAssets)
 
 
 }
