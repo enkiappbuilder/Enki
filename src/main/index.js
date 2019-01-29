@@ -3,6 +3,7 @@ import { app, BrowserWindow, ipcMain, dialog } from 'electron'
 const fs = require('fs-extra')
 import * as path from 'path'
 import { format as formatUrl } from 'url'
+const { updateText } = require('../functions/rewrite')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -87,10 +88,9 @@ async function createProject() {
 
 ipcMain.on('uploadPhoto', uploadNewPhoto)
 
-//helper function to rewrite image path
-const { updateImageName } = require('../functions/rewrite')
-
-//upload photo helper function
+//function that allows us to upload a photo and save it in the copyOfProject assets folder, it will then replace the path in the desired mobile copyOfProject file so the new image is displayed.
+//example of calling this function
+//--- uploadNewPhoto('screens/Gallery.js', 'text1')
 
 function uploadNewPhoto(fileName, location) {
   const pathToImage = dialog.showOpenDialog(mainWindow)
@@ -107,10 +107,14 @@ function uploadNewPhoto(fileName, location) {
       }
     })
 
-  //updating image path in appropriate file in the template
+  //creating object to mimic state that is passed in from forms.
+  //key is the comment location e.g. 'text1', the value is the replacement text. When we are replacing an image, the replacement text is the URL on line 98 which is where we saved that image.
 
-  // updateImageName(fileName, location, mobileTempAssets)
-  updateImageName('screens/Gallery.js', 'test', mobileTempAssets)
+  let toChange = {}
+  toChange[location] = mobileTempAssets
+
+  //updating image path in appropriate file in the template
+  updateText(path.join('../../copyOfProject/', toChange), bloop)
 
 
 }
