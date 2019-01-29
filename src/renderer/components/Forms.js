@@ -19,7 +19,7 @@ const Forms = (props) => {
         value={state.appName}
         onChange={handleChange}/>
       </Form.Field>
-      <Button onClick={save(state)}> save to mobile App </Button>
+
     </Form>
   )
 }
