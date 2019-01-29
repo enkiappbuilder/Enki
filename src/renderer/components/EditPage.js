@@ -8,10 +8,10 @@ class EditPage extends Component {
   constructor(){
     super()
     this.state = {
-      AppName :'jag',
-      TitleText1 : 'as',
-      DescriptionText1 : 'sad',
-      WelcomeText : 'asdad',
+      AppName :'',
+      TitleText1 : '',
+      DescriptionText1 : '',
+      WelcomeText : '',
     }
     this.handleChange = this.handleChange.bind(this)
     this.handleClick = this.handleClick.bind(this)
