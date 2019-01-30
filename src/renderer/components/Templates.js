@@ -2,10 +2,16 @@ import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 import { Header, Container, Button, Grid } from 'semantic-ui-react'
 import TemplateContainer from './TemplateContainer'
+import {showSideBar} from '../store/sideBar'
+import {connect} from 'react-redux'
 
 class Templates extends Component {
   constructor() {
     super()
+  }
+
+  componentDidMount(){
+    this.props.showSideBar()
   }
   render() {
     return (
@@ -41,7 +47,13 @@ class Templates extends Component {
   }
 }
 
-export default Templates;
+const mapDispatchToProps = dispatch => {
+  return {
+    showSideBar: () => dispatch(showSideBar()),
+  }
+}
+
+export default connect(null,mapDispatchToProps)(Templates);
 
 
 const styles = {
