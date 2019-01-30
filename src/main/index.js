@@ -63,25 +63,36 @@ app.on('ready', () => {
 
 //dialog window for saving project to computer
 
-ipcMain.on('exportProject', createProject)
+ipcMain.on('exportProject', exportProject)
 
 // Create new project function
-async function createProject() {
-  const directory = dialog.showSaveDialog(mainWindow)
-  const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
+async function exportProject() {
 
-  await fs.mkdir(directory, err => {
-    if (err) return console.log(err)
-  })
+  try {
+    const directory = dialog.showSaveDialog(mainWindow)
 
-  await fs.copy(pathToCopyOfProject, directory,
-    function (err) {
-      if (err) {
-        console.error(err)
-      } else {
-        console.log('success!')
-      }
-    })
+    if (directory) {
+      const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
+
+      await fs.mkdir(directory, err => {
+        if (err) return console.log(err)
+      })
+
+      await fs.copy(pathToCopyOfProject, directory,
+        function (err) {
+          if (err) {
+            console.error(err)
+          } else {
+            console.log('success!')
+          }
+        })
+    }
+
+
+  } catch (error) {
+    console.log(error)
+  }
+
 }
 
 //dialog window for uploading image to project
@@ -93,28 +104,38 @@ ipcMain.on('uploadPhoto', uploadNewPhoto)
 //--- uploadNewPhoto('screens/Gallery.js', 'text1')
 
 function uploadNewPhoto(fileName, location) {
-  const pathToImage = dialog.showOpenDialog(mainWindow)
-  const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
-  const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
 
-  // copying image to assets folder
-  fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
-    function (err) {
-      if (err) {
-        console.error(err)
-      } else {
-        console.log('success!')
-      }
-    })
+  try {
 
-  //creating object to mimic state that is passed in from forms.
-  //key is the comment location e.g. 'text1', the value is the replacement text. When we are replacing an image, the replacement text is the URL on line 98 which is where we saved that image.
+    const pathToImage = dialog.showOpenDialog(mainWindow)
+    if (pathToImage) {
+      const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
+      const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
 
-  let toChange = {}
-  toChange[location] = mobileTempAssets
+      // copying image to assets folder
+      fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
+        function (err) {
+          if (err) {
+            console.error(err)
+          } else {
+            console.log('success!')
+          }
+        })
 
-  //updating image path in appropriate file in the template
-  updateText(path.join('../../copyOfProject/', toChange), bloop)
+      //creating object to mimic state that is passed in from forms.
+      //key is the comment location e.g. 'text1', the value is the replacement text. When we are replacing an image, the replacement text is the URL on line 98 which is where we saved that image.
+
+      let toChange = {}
+      toChange[location] = mobileTempAssets
+
+      //updating image path in appropriate file in the template
+      updateText(path.join('../../copyOfProject/', toChange), bloop)
+    }
+
+  } catch (error) {
+    console.log(error)
+  }
+
 
 
 }
