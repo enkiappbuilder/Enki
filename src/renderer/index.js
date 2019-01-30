@@ -1,8 +1,12 @@
 // Initial welcome page. Delete the following line to remove it.
 import React from "react";
 import ReactDOM from "react-dom";
+<<<<<<< HEAD
 import { HashRouter as Router } from "react-router-dom";
 import { Provider } from "react-redux";
+=======
+import { HashRouter as Router } from 'react-router-dom'
+>>>>>>> master
 
 import App from "./app";
 import store from './store'

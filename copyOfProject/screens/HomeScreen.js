@@ -16,6 +16,7 @@ import {
 import { createAppContainer, createDrawerNavigator } from 'react-navigation'
 import { MonoText } from '../components/StyledText';
 import { Icon } from 'react-native-elements'
+// import { Icon } from 'semantic-ui-react';
 
 
 export default class HomeScreen extends React.Component {
@@ -29,7 +30,7 @@ export default class HomeScreen extends React.Component {
 
             <Header
               leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: /*AppName*/WOW/*AppName*/, style: { color: '#132029'}}}
+              centerComponent={{ text: /*AppName*/'Template 1'/*AppName*/, style: { color: '#132029'}}}
               rightComponent = {{ icon: 'home', color: '#132029' }}
               backgroundColor = '#FF69B4'
             />
@@ -38,11 +39,11 @@ export default class HomeScreen extends React.Component {
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
           <View style={styles.cardContainer}>
             <Card
-            image = {require(/*ImagePath*/'../assets/images/sample_art.jpeg'/*ImagePath*/)}
+            image = {require(/*ImagePath*/ "../../copyOfProject/assets/images/Corey.jpg" /*ImagePath*/)}
             >
-              <Text h2> {/*TitleText1*/} "MUCH COOL" {/*TitleText1*/}</Text>
+              <Text h2> {/*TitleText1*/} "something else" {/*TitleText1*/}</Text>
               <Text style={{ marginBottom: 10 }}>
-                {/*DescriptionText1*/} "CAJLHALG" {/*DescriptionText1*/}
+                {/*DescriptionText1*/}This is a sample text under the title{/*DescriptionText1*/}
               </Text>
 
             </Card>
@@ -50,13 +51,46 @@ export default class HomeScreen extends React.Component {
 
           <View style={styles.container}>
             <Text style={styles.getStartedText}>
-              {/*WelcomeText*/} "AIOGJHALGJH" {/*WelcomeText*/}
+              {/*WelcomeText*/}Let's change this text team Enki!{/*WelcomeText*/}
             </Text>
           </View>
         </ScrollView>
       </View>
     );
   }
+
+  // _maybeRenderDevelopmentModeWarning() {
+  //   if (__DEV__) {
+  //     const learnMoreButton = (
+  //       <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
+  //         Learn more
+  //       </Text>
+  //     );
+
+  //     return (
+  //       <Text style={styles.developmentModeText}>
+  //         Development mode is enabled, your app will be slower but you can use useful development
+  //         tools. {learnMoreButton}
+  //       </Text>
+  //     );
+  //   } else {
+  //     return (
+  //       <Text style={styles.developmentModeText}>
+  //         You are not in development mode, your app will run at full speed.
+  //       </Text>
+  //     );
+  //   }
+  // }
+
+  // _handleLearnMorePress = () => {
+  //   WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
+  // };
+
+  // _handleHelpPress = () => {
+  //   WebBrowser.openBrowserAsync(
+  //     'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
+  //   );
+  // };
 }
 
 class Hamburger extends React.Component {

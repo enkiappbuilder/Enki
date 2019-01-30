@@ -24,22 +24,20 @@ export function updateText(fileName, state) {
   ) {
     if (err) throw err;
     let content = data;
-
     await asyncForEach(Object.keys(state), async key => {
       let location = key;
       let replacementText = state[key];
       let tempRegex =
-        "(?<= /\\*" + location + "\\*/)(.*)(?=/\\*" + location + "\\*/)";
+        "(?<=/\\*" + location + "\\*/)(.*)(?=/\\*" + location + "\\*/)";
 
       let regex = new RegExp(tempRegex);
-
       let bracketTempRegex =
         "(?<={/\\*" + location + "\\*/})(.*)(?={/\\*" + location + "\\*/})";
 
       let bracketRegex = new RegExp(bracketTempRegex);
 
-      content = await content.replace(regex, replacementText);
-      content = await content.replace(bracketRegex, ` "${replacementText}" `);
+      content = await content.replace(regex, ` "${replacementText}" `);
+      content = await content.replace(bracketRegex,replacementText);
     });
 
     fs.writeFile(path.join(__dirname, fileName), content, "utf8", function (

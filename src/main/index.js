@@ -98,7 +98,7 @@ async function createProject() {
 
 //dialog window for uploading image to project
 
-ipcMain.on('uploadPhoto', uploadNewPhoto)
+ipcMain.on('uploadPhoto', (event, fileName, location) => uploadNewPhoto(fileName, location))
 
 //function that allows us to upload a photo and save it in the copyOfProject assets folder, it will then replace the path in the desired mobile copyOfProject file so the new image is displayed.
 //example of calling this function
@@ -123,10 +123,13 @@ function uploadNewPhoto(fileName, location) {
   //key is the comment location e.g. 'text1', the value is the replacement text. When we are replacing an image, the replacement text is the URL on line 98 which is where we saved that image.
 
   let toChange = {}
+  let templocation = {
+    'TitleText1' : 'something else'
+  }
   toChange[location] = mobileTempAssets
 
   //updating image path in appropriate file in the template
-  updateText(path.join('../../copyOfProject/', toChange), bloop)
+  updateText(path.join('../../copyOfProject/', fileName), toChange)
 
 
 }
