@@ -1,5 +1,3 @@
-function bye () {
- //Text1Start
-<Text>Potato Cart</Text>
-//Text1End
-}
+//this is a test file used for testing utility functions.
+
+const image = require( /*image1*/ "../../.../sdsds/sdsds" /*image1*/)

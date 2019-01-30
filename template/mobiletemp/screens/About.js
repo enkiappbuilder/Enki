@@ -13,13 +13,12 @@ import {
   Header,
   Card
 } from 'react-native-elements'
-import { createAppContainer, createDrawerNavigator } from 'react-navigation'
+import { createAppContainer, createDrawerNavigator} from 'react-navigation'
 import { MonoText } from '../components/StyledText';
-import { Icon } from 'react-native-elements'
+import {Icon} from 'react-native-elements'
 // import { Icon } from 'semantic-ui-react';
 
-
-export default class HomeScreen extends React.Component {
+export default class About extends React.Component {
   static navigationOptions = {
     header: null,
   };
@@ -27,31 +26,22 @@ export default class HomeScreen extends React.Component {
   render() {
     return (
       <View style={styles.container}>
-
             <Header
               leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: /*AppName*/'Template 1'/*AppName*/, style: { color: '#132029'}}}
+              centerComponent={{ text: 'Template 1', style: { color: '#132029'}}}
               rightComponent = {{ icon: 'home', color: '#132029' }}
               backgroundColor = '#FF69B4'
             />
 
-
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.cardContainer}>
-            <Card
-            image = {require(/*ImagePath*/'../assets/images/sample_art.jpeg'/*ImagePath*/)}
-            >
-              <Text h2> {/*TitleText1*/}Sample Title 2{/*TitleText1*/}</Text>
-              <Text style={{ marginBottom: 10 }}>
-                {/*DescriptionText1*/}This is a sample text under the title{/*DescriptionText1*/}
-              </Text>
-
-            </Card>
+          <View style = {styles.textComp}>
+            <Text style = {{color: 'white', textAlign: 'center', fontSize: 35}}>
+              About Me
+            </Text>
           </View>
-
-          <View style={styles.container}>
-            <Text style={styles.getStartedText}>
-              {/*WelcomeText*/}Let's change this text team Enki!{/*WelcomeText*/}
+          <View style = {styles.textComp}>
+            <Text style = {{color: 'white', }}>
+              This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah!
             </Text>
           </View>
         </ScrollView>
@@ -59,38 +49,7 @@ export default class HomeScreen extends React.Component {
     );
   }
 
-  // _maybeRenderDevelopmentModeWarning() {
-  //   if (__DEV__) {
-  //     const learnMoreButton = (
-  //       <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-  //         Learn more
-  //       </Text>
-  //     );
 
-  //     return (
-  //       <Text style={styles.developmentModeText}>
-  //         Development mode is enabled, your app will be slower but you can use useful development
-  //         tools. {learnMoreButton}
-  //       </Text>
-  //     );
-  //   } else {
-  //     return (
-  //       <Text style={styles.developmentModeText}>
-  //         You are not in development mode, your app will run at full speed.
-  //       </Text>
-  //     );
-  //   }
-  // }
-
-  // _handleLearnMorePress = () => {
-  //   WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  // };
-
-  // _handleHelpPress = () => {
-  //   WebBrowser.openBrowserAsync(
-  //     'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-  //   );
-  // };
 }
 
 class Hamburger extends React.Component {
@@ -99,11 +58,11 @@ class Hamburger extends React.Component {
   }
 
   render() {
-    return (
-      <View style={{ flexDirection: 'row' }}>
+    return(
+      <View style = {{flexDirection: 'row'}}>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           <Icon
-            name='menu'
+          name = 'menu'
           />
         </TouchableOpacity>
       </View>
@@ -118,10 +77,14 @@ const styles = StyleSheet.create({
     backgroundColor: '#000000',
     color: '#fff'
   },
+  textComp: {
+    backgroundColor: '#000000',
+    alignContent: 'center'
+
+  },
   cardContainer: {
     flex: 1,
-    backgroundColor: '#000000',
-    color: '#fff'
+    backgroundColor: '#000000'
   },
   developmentModeText: {
     marginBottom: 20,

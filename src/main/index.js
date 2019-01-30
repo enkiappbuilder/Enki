@@ -1,7 +1,13 @@
 
+<<<<<<< HEAD
 import { app, BrowserWindow, protocol} from 'electron'
+=======
+import { app, BrowserWindow, ipcMain, dialog } from 'electron'
+const fs = require('fs-extra')
+>>>>>>> master
 import * as path from 'path'
-import { format as formatUrl, } from 'url'
+import { format as formatUrl } from 'url'
+const { updateText } = require('../functions/rewrite')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
 
@@ -66,3 +72,62 @@ app.on('ready', () => {
   })
   mainWindow = createMainWindow()
 })
+
+//dialog window for saving project to computer
+
+ipcMain.on('exportProject', createProject)
+
+// Create new project function
+async function createProject() {
+  const directory = dialog.showSaveDialog(mainWindow)
+  const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
+
+  await fs.mkdir(directory, err => {
+    if (err) return console.log(err)
+  })
+
+  await fs.copy(pathToCopyOfProject, directory,
+    function (err) {
+      if (err) {
+        console.error(err)
+      } else {
+        console.log('success!')
+      }
+    })
+}
+
+//dialog window for uploading image to project
+
+ipcMain.on('uploadPhoto', uploadNewPhoto)
+
+//function that allows us to upload a photo and save it in the copyOfProject assets folder, it will then replace the path in the desired mobile copyOfProject file so the new image is displayed.
+//example of calling this function
+//--- uploadNewPhoto('screens/Gallery.js', 'text1')
+
+function uploadNewPhoto(fileName, location) {
+  const pathToImage = dialog.showOpenDialog(mainWindow)
+  const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
+  const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
+
+  // copying image to assets folder
+  fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
+    function (err) {
+      if (err) {
+        console.error(err)
+      } else {
+        console.log('success!')
+      }
+    })
+
+  //creating object to mimic state that is passed in from forms.
+  //key is the comment location e.g. 'text1', the value is the replacement text. When we are replacing an image, the replacement text is the URL on line 98 which is where we saved that image.
+
+  let toChange = {}
+  toChange[location] = mobileTempAssets
+
+  //updating image path in appropriate file in the template
+  updateText(path.join('../../copyOfProject/', toChange), bloop)
+
+
+}
+
