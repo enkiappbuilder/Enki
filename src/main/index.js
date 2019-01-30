@@ -1,10 +1,6 @@
 
-<<<<<<< HEAD
-import { app, BrowserWindow, protocol} from 'electron'
-=======
 import { app, BrowserWindow, ipcMain, dialog } from 'electron'
 const fs = require('fs-extra')
->>>>>>> master
 import * as path from 'path'
 import { format as formatUrl } from 'url'
 const { updateText } = require('../functions/rewrite')
