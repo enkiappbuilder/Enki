@@ -31,7 +31,10 @@ class SideBar extends Component {
           <Menu.Item as={Link} to="/">
             <Image src={logopath} />
           </Menu.Item>
-          <Menu.Item> HI I AM ITEM </Menu.Item>
+
+
+          <Menu.Item as={Link} to='/templates'> Templates </Menu.Item>
+          <Menu.Item as={Link} to='/create'> Create </Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher basic="true">
