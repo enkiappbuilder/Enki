@@ -111,6 +111,9 @@ function uploadNewPhoto(fileName, location) {
   //key is the comment location e.g. 'text1', the value is the replacement text. When we are replacing an image, the replacement text is the URL on line 98 which is where we saved that image.
 
   let toChange = {}
+  let templocation = {
+    'TitleText1' : 'something else'
+  }
   toChange[location] = mobileTempAssets
 
   //updating image path in appropriate file in the template
