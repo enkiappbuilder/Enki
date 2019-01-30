@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-
+const { ipcRenderer } = require('electron')
 import {
   Form,
   Header,
@@ -22,9 +22,13 @@ class EditPage extends Component {
       DescriptionText1: "",
       WelcomeText: ""
     };
+    // this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
+  // handleUpload(fileName, location) {
+  //   ipcRenderer.send('uploadPhoto', fileName, location)
+  // }
 
   handleChange(event, { value, name }) {
     this.setState({ [name]: value });
@@ -78,6 +82,7 @@ class EditPage extends Component {
 
 
         </Segment>
+
         <Button
           onClick={this.handleClick(
             "../../copyOfProject/screens/HomeScreen.js",
