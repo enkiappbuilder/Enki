@@ -11,9 +11,8 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 let mainWindow
 
 function createMainWindow() {
-  const window = new BrowserWindow({  webPreferences: {
-    webSecurity: false
-  }})
+
+  const window = new BrowserWindow({ height: 800, width: 1024, webPreferences: { webSecurity: false } })
 
   if (isDevelopment) {
     window.webContents.openDevTools()
@@ -60,12 +59,6 @@ app.on('activate', () => {
 
 // create main BrowserWindow when electron is ready
 app.on('ready', () => {
-  protocol.interceptFileProtocol('file', (request, callback) => {
-    const url = request.url.substr(7)    /* all urls start with 'file://' */
-    callback({ path: path.normalize(`${__dirname}/${url}`)})
-  }, (err) => {
-    if (err) console.error('Failed to register protocol')
-  })
   mainWindow = createMainWindow()
 })
 
@@ -120,7 +113,7 @@ function uploadNewPhoto(fileName, location) {
 
   let toChange = {}
   let templocation = {
-    'TitleText1' : 'something else'
+    'TitleText1': 'something else'
   }
   toChange[location] = mobileTempAssets
 
