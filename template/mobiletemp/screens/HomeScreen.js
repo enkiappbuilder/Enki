@@ -1,8 +1,6 @@
 import React from 'react';
 import {
-  Platform,
   StyleSheet,
-  TouchableOpacity,
   View,
   ImageBackground,
   Text
@@ -13,7 +11,7 @@ import {
   Button
 } from 'react-native-elements'
 
-import { Icon } from 'react-native-elements'
+import Hamburger from '../components/Hamburger'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
@@ -47,7 +45,7 @@ export default class HomeScreen extends React.Component {
             <Text style={styles.homePageSubHeader}>{/*DescriptionText1*/}Photographer and designer.{/*DescriptionText1*/}</Text>
             <Button
               onPress={() => this.props.navigation.navigate('About')}
-              title='About Me'
+              title= /*HomescreenButtonText*/ 'About Me' /*HomescreenButtonText*/
               outline
               style={styles.homePageButton}
             />
@@ -59,28 +57,9 @@ export default class HomeScreen extends React.Component {
   }
 }
 
-class Hamburger extends React.Component {
-  toggleDrawer = () => {
-    this.props.navigationProps.toggleDrawer();
-  }
-
-  render() {
-    return (
-      <View style={{ flexDirection: 'row' }}>
-        <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
-          <Icon
-            name='menu'
-          />
-        </TouchableOpacity>
-      </View>
-    )
-  }
-}
-
-
 const styles = StyleSheet.create({
   homePageButton: {
-    backgroundColor: 'rgba(250,249,249,0.3)'
+    backgroundColor: /*HomeScreenButtonBackgroundColor*/ 'rgba(250,249,249,0.3)' /*HomeScreenButtonBackgroundColor*/
   },
   homePageFlex: {
     flex: 1,
@@ -90,12 +69,12 @@ const styles = StyleSheet.create({
   homePageHeader: {
     fontSize: 70,
     textAlign: 'center',
-    color: '#FFFFFF'
+    color: /*HomeScreenHeaderColor*/'#FFFFFF' /* HomeScreenHeaderColor*/
   },
   homePageSubHeader: {
     fontSize: 30,
     textAlign: 'center',
-    color: '#FFFFFF'
+    color: /*HomeScreenSubHeaderColor*/ '#FFFFFF' /*HomeScreenSubHeaderColor*/
   },
   header: {
     top: 0
