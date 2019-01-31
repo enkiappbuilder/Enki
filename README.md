@@ -24,7 +24,7 @@ yarn dist:dir
 
 # naming conventions
 
-##Home Screen contains:
+## Home Screen contains:
 
     * ImagePath
     * AppName
@@ -37,7 +37,7 @@ yarn dist:dir
     * HomeScreenHeaderColor
     * HomeScreenSubHeaderColor
 
-##Gallery contains:
+## Gallery contains:
 
     * image1Title
     * image1desc
@@ -61,14 +61,14 @@ yarn dist:dir
 
     * GalleryHeaderText
 
-    ####styles
+    #### styles
 
     * GalleryBackgroundColor
     * GalleryTitleColor
     * GalleryTitleWeight
     * GalleryDescriptionTextColor
 
-##About contains
+## About contains
 
     * AboutMeHeaderText
     * AboutMeImg
@@ -76,7 +76,7 @@ yarn dist:dir
     * AboutMeDescText
     * AboutMeButtonText
 
-    ####styles
+    #### styles
 
     * AboutMeButtonBackgroundColor
     * AboutMeBackGroundColor
