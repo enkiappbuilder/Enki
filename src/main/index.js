@@ -11,9 +11,8 @@ const isDevelopment = process.env.NODE_ENV !== 'production'
 let mainWindow
 
 function createMainWindow() {
-  const window = new BrowserWindow({  webPreferences: {
-    webSecurity: false
-  }})
+
+  const window = new BrowserWindow({height: 800, width: 1024, webPreferences: {webSecurity: false}})
 
   if (isDevelopment) {
     window.webContents.openDevTools()
