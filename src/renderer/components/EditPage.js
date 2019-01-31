@@ -15,7 +15,7 @@ import phone from "./phone.png";
 import { updateText } from "../../functions/rewrite";
 import {connect} from 'react-redux'
 import {saveAppDetails} from '../store/appDetails'
-import HomeScreen from ''
+
 class EditPage extends Component {
   constructor(props) {
     super(props);
@@ -59,7 +59,7 @@ class EditPage extends Component {
             </Grid.Column>
 
             <Grid.Column>
-              {/* <Card>
+              <Card>
                 <Header textAlign="center"> {this.state.AppName}</Header>
                 <Image src={phone} />
                 <Card.Content>
@@ -67,8 +67,8 @@ class EditPage extends Component {
                   <Card.Meta>{this.state.DescriptionText1}</Card.Meta>
                   <Card.Description>{this.state.WelcomeText}</Card.Description>
                 </Card.Content>
-              </Card> */}
-              <HomeScreen />
+              </Card>
+
             </Grid.Column>
           </Grid>
 
