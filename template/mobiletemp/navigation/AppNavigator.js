@@ -3,9 +3,9 @@ import { createAppContainer, createDrawerNavigator } from 'react-navigation';
 
 // import MainTabNavigator from './MainTabNavigator';
 import HomeScreen from '../screens/HomeScreen';
-import Gallery from '../screens/Gallery'
-import About from '../screens/About'
-import Contact from '../screens/Contact'
+import Gallery from '../screens/GalleryScreen'
+import About from '../screens/AboutScreen'
+import Contact from '../screens/ContactScreen'
 
 export default createAppContainer(createDrawerNavigator({
   Home: HomeScreen,

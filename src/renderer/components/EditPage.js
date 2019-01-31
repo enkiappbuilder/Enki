@@ -77,9 +77,7 @@ class EditPage extends Component {
 
         <Button
           onClick={this.handleClick(
-            "../../copyOfProject/screens/HomeScreen.js",
-            "AppName",
-            "changedsafasfasafa things"
+            `../../copyOfProject/screens/${this.props.page}Screen.js`,
           )}
         >
           Save To Mobile App
