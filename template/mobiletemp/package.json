@@ -14,10 +14,14 @@
     "@expo/samples": "2.1.1",
     "expo": "^32.0.0",
     "react": "16.5.0",
+    "react-dom": "^16.7.0",
     "react-native": "https://github.com/expo/react-native/archive/sdk-32.0.0.tar.gz",
     "react-native-elements": "^0.19.1",
+    "react-native-snap-carousel": "^3.7.5",
     "react-native-vector-icons": "^6.2.0",
-    "react-navigation": "^3.0.9"
+    "react-navigation": "^3.0.9",
+    "react-slick": "^0.23.2",
+    "slick-carousel": "^1.8.1"
   },
   "devDependencies": {
     "babel-preset-expo": "^5.0.0",

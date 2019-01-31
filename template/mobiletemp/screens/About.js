@@ -1,46 +1,38 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
   ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import { WebBrowser } from 'expo';
 import {
-  Header,
-  Card
+  Header
 } from 'react-native-elements'
-import { createAppContainer, createDrawerNavigator} from 'react-navigation'
-import { MonoText } from '../components/StyledText';
-import {Icon} from 'react-native-elements'
-// import { Icon } from 'semantic-ui-react';
-
+import { Icon } from 'react-native-elements'
 export default class About extends React.Component {
   static navigationOptions = {
-    header: null,
+    header: 'About me!',
   };
 
   render() {
     return (
       <View style={styles.container}>
-            <Header
-              leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: 'Template 1', style: { color: '#132029'}}}
-              rightComponent = {{ icon: 'home', color: '#132029' }}
-              backgroundColor = '#FF69B4'
-            />
+        <Header
+          leftComponent={<Hamburger navigationProps={this.props.navigation} />}
+          centerComponent={{ text: 'Joe Hu', style: { color: '#132029' } }}
+          rightComponent={{ icon: 'home', color: '#132029', onPress: () => this.props.navigation.navigate('Home') }}
+          backgroundColor='rgba(250,249,249,0.8)'
+        />
 
         <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style = {styles.textComp}>
-            <Text style = {{color: 'white', textAlign: 'center', fontSize: 35}}>
+          <View style={styles.textComp}>
+            <Text style={{ color: 'white', textAlign: 'center', fontSize: 35 }}>
               About Me
             </Text>
           </View>
-          <View style = {styles.textComp}>
-            <Text style = {{color: 'white', }}>
+          <View style={styles.textComp}>
+            <Text style={{ color: 'white', }}>
               This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah!
             </Text>
           </View>
@@ -48,8 +40,6 @@ export default class About extends React.Component {
       </View>
     );
   }
-
-
 }
 
 class Hamburger extends React.Component {
@@ -58,18 +48,17 @@ class Hamburger extends React.Component {
   }
 
   render() {
-    return(
-      <View style = {{flexDirection: 'row'}}>
+    return (
+      <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           <Icon
-          name = 'menu'
+            name='menu'
           />
         </TouchableOpacity>
       </View>
     )
   }
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -116,57 +105,7 @@ const styles = StyleSheet.create({
   homeScreenFilename: {
     marginVertical: 7,
   },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
   navigationFilename: {
     marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
-  },
+  }
 });

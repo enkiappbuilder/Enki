@@ -1,96 +1,61 @@
 import React from 'react';
 import {
-  Image,
   Platform,
-  ScrollView,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
+  ImageBackground,
+  Text
 } from 'react-native';
-import { WebBrowser } from 'expo';
 import {
   Header,
-  Card
+  Button
 } from 'react-native-elements'
-import { createAppContainer, createDrawerNavigator } from 'react-navigation'
-import { MonoText } from '../components/StyledText';
-import { Icon } from 'react-native-elements'
-// import { Icon } from 'semantic-ui-react';
 
+import { Icon } from 'react-native-elements'
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    header: 'null',
   };
 
   render() {
+    const myImg = require('../assets/images/sampleImages/ice.jpg')
     return (
       <View style={styles.container}>
 
-            <Header
-              leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: /*AppName*/'Template 1'/*AppName*/, style: { color: '#132029'}}}
-              rightComponent = {{ icon: 'home', color: '#132029' }}
-              backgroundColor = '#FF69B4'
+        <ImageBackground
+          style={{
+            backgroundColor: '#ccc',
+            flex: 1,
+            position: 'absolute',
+            width: '100%',
+            height: '100%'
+          }}
+          source={myImg}
+        >
+          <Header
+            leftComponent={<Hamburger navigationProps={this.props.navigation} />}
+            centerComponent={{ text: 'Joe Hu', style: { color: '#132029' } }}
+            rightComponent={{ icon: 'home', color: '#132029', onPress: () => this.props.navigation.navigate('Home') }}
+            backgroundColor='rgba(250,249,249,0.8)'
+          />
+
+          <View style={styles.homePageFlex}>
+            <Text style={styles.homePageHeader}>Joseph Hu</Text>
+            <Text style={styles.homePageSubHeader}>Photographer and designer.</Text>
+            <Button
+              onPress={() => this.props.navigation.navigate('About')}
+              title='About Me'
+              outline
+              style={styles.homePageButton}
             />
-
-
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.cardContainer}>
-            <Card
-            image = {require(/*ImagePath*/'../assets/images/sample_art.jpeg'/*ImagePath*/)}
-            >
-              <Text h2> {/*TitleText1*/}Sample Title 2{/*TitleText1*/}</Text>
-              <Text style={{ marginBottom: 10 }}>
-                {/*DescriptionText1*/}This is a sample text under the title{/*DescriptionText1*/}
-              </Text>
-
-            </Card>
           </View>
+        </ImageBackground>
 
-          <View style={styles.container}>
-            <Text style={styles.getStartedText}>
-              {/*WelcomeText*/}Let's change this text team Enki!{/*WelcomeText*/}
-            </Text>
-          </View>
-        </ScrollView>
       </View>
     );
   }
-
-  // _maybeRenderDevelopmentModeWarning() {
-  //   if (__DEV__) {
-  //     const learnMoreButton = (
-  //       <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-  //         Learn more
-  //       </Text>
-  //     );
-
-  //     return (
-  //       <Text style={styles.developmentModeText}>
-  //         Development mode is enabled, your app will be slower but you can use useful development
-  //         tools. {learnMoreButton}
-  //       </Text>
-  //     );
-  //   } else {
-  //     return (
-  //       <Text style={styles.developmentModeText}>
-  //         You are not in development mode, your app will run at full speed.
-  //       </Text>
-  //     );
-  //   }
-  // }
-
-  // _handleLearnMorePress = () => {
-  //   WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  // };
-
-  // _handleHelpPress = () => {
-  //   WebBrowser.openBrowserAsync(
-  //     'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-  //   );
-  // };
 }
 
 class Hamburger extends React.Component {
@@ -113,9 +78,29 @@ class Hamburger extends React.Component {
 
 
 const styles = StyleSheet.create({
+  homePageButton: {
+    backgroundColor: 'rgba(250,249,249,0.3)'
+  },
+  homePageFlex: {
+    flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  homePageHeader: {
+    fontSize: 70,
+    textAlign: 'center',
+    color: '#FFFFFF'
+  },
+  homePageSubHeader: {
+    fontSize: 30,
+    textAlign: 'center',
+    color: '#FFFFFF'
+  },
+  header: {
+    top: 0
+  },
   container: {
     flex: 1,
-    backgroundColor: '#000000',
     color: '#fff'
   },
   cardContainer: {
