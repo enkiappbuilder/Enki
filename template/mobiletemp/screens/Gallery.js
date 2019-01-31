@@ -1,109 +1,168 @@
 import React from 'react';
 import {
-  Image,
-  Platform,
-  ScrollView,
   StyleSheet,
   Text,
   TouchableOpacity,
   View,
+  Image,
+  Animated,
+  Dimensions,
+  ScrollView
 } from 'react-native';
-import { WebBrowser } from 'expo';
+
 import {
-  Header,
-  Card
+  Header
 } from 'react-native-elements'
-import { createAppContainer, createDrawerNavigator} from 'react-navigation'
-import { MonoText } from '../components/StyledText';
-import {Icon} from 'react-native-elements'
-// import { Icon } from 'semantic-ui-react';
+
+import { Icon } from 'react-native-elements'
+const deviceWidth = Dimensions.get('window').width
+const win = Dimensions.get('window');
+
+const FIXED_BAR_WIDTH = 280
+const BAR_SPACE = 10
+
+const images = [
+  {
+    title: /*image1Title*/'my photo title'/*image1Title*/,
+    description: /*image1desc*/"my photo description. This was taken in 2014 on a Nikon D810 with long exposure."/*image1desc*/,
+    location: /*image1Path*/require('../assets/images/sampleImages/cyberpunkStreet.jpg')/*image1Path*/
+  },
+  {
+    title: /*image2Title*/'Forest'/*image2Title*/,
+    description: /*image2desc*/"this is my photo desc."/*image2desc*/,
+    location: /*image2Path*/require('../assets/images/sampleImages/forest.jpg')/*image2Path*/
+  },
+  {
+    title: /*image3Title*/'Icy Winter'/*image3Title*/,
+    description: /*image3desc*/"this is my photo desc."/*image3desc*/,
+    location: /*image3Path*/require('../assets/images/sampleImages/ice.jpg')/*image3Path*/
+  },
+  {
+    Title: /*image4Title*/'This is my photo title'/*image4Title*/,
+    description: /*image4desc*/"this is my photo desc."/*image4desc*/,
+    location: /*image4Path*/require('../assets/images/sampleImages/lanternStreet.jpg')/*image4Path*/
+  },
+  {
+    title: /*image5Title*/'this is my photo title'/*image5Title*/,
+    description: /*image5desc*/"this is my photo desc."/*image5desc*/,
+    location: /*image5Path*/require('../assets/images/sampleImages/rainOnStreet.jpg')/*image5Path*/
+  }
+]
 
 export default class HomeScreen extends React.Component {
   static navigationOptions = {
-    header: null,
+    header: 'null',
   };
+  numItems = images.length
+  itemWidth = (FIXED_BAR_WIDTH / this.numItems) - ((this.numItems - 1) * BAR_SPACE)
+  animVal = new Animated.Value(0)
 
   render() {
+    let imageArray = []
+    let barArray = []
+    images.forEach((image, i) => {
+      const thisImage = (
+        <View style={{ flex: 1, flexDirection: 'column' }} key={`image${i}`}>
+          <Image
+            key={`image${i}`}
+            source={image.location}
+            style={{
+              alignSelf: 'center',
+              width: win.width,
+              height: win.height / 1.3,
+            }}
+            resizeMode="contain"
+          />
+          <View style={{
+            flex: 1,
+            flexDirection: 'column',
+            justifyContent: 'center',
+            alignSelf: 'center',
+            width: win.width
+          }}>
+            <Text style={{ top: 0, alignSelf: 'center' }} >{image.title}</Text>
+            <Text style={{ alignSelf: 'center' }}>{image.description}</Text>
+          </View>
+
+        </View >
+      )
+      imageArray.push(thisImage)
+
+      const scrollBarVal = this.animVal.interpolate({
+        inputRange: [deviceWidth * (i - 1), deviceWidth * (i + 1)],
+        outputRange: [-this.itemWidth, this.itemWidth],
+        extrapolate: 'clamp',
+      })
+
+      const thisBar = (
+        <View
+          key={`bar${i}`}
+          style={[
+            styles.track,
+            {
+              width: this.itemWidth,
+              marginLeft: i === 0 ? 0 : BAR_SPACE,
+            },
+          ]}
+        >
+          <Animated.View
+
+            style={[
+              styles.bar,
+              {
+                width: this.itemWidth,
+                transform: [
+                  { translateX: scrollBarVal },
+                ],
+              },
+            ]}
+          />
+        </View>
+      )
+      barArray.push(thisBar)
+    })
+
     return (
-      <View style={styles.container}>
-            <Header
-              leftComponent={<Hamburger navigationProps = {this.props.navigation}/>}
-              centerComponent={{ text: 'Template 1', style: { color: '#132029'}}}
-              rightComponent = {{ icon: 'home', color: '#132029' }}
-              backgroundColor = '#FF69B4'
-            />
+      <View
+        flex={1}
+      >
+        <Header
+          style={styles.header}
+          leftComponent={<Hamburger navigationProps={this.props.navigation} />}
+          centerComponent={{ text: 'Joe Hu', style: { color: '#132029' } }}
+          rightComponent={{ icon: 'home', color: '#132029', onPress: () => this.props.navigation.navigate('Home') }}
+          backgroundColor='rgba(250,249,249,0.8)'
+        />
 
-        <ScrollView style={styles.container} contentContainerStyle={styles.contentContainer}>
-          <View style={styles.cardContainer}>
-            <Card
-            image = {require('../assets/images/sample_art.jpeg')}
-            >
-            <Text h2> Sample Title 2</Text>
-            <Text style={{marginBottom: 10}}>
-              This is a sample text under the title
-            </Text>
+        <View
+          style={styles.container}
+          flex={1}
+        >
+          <ScrollView
+            horizontal
+            showsHorizontalScrollIndicator={false}
+            scrollEventThrottle={10}
+            pagingEnabled
+            onScroll={
+              Animated.event(
+                [{ nativeEvent: { contentOffset: { x: this.animVal } } }]
+              )
+            }
+          >
 
-            </Card>
+            {imageArray}
+
+          </ScrollView>
+          <View
+            style={styles.barContainer}
+          >
+            {barArray}
           </View>
-          <View style={styles.cardContainer}>
-            <Card
-            image = {require('../assets/images/sample_art.jpeg')}
-            >
-            <Text h2> Sample Title 2</Text>
-            <Text style={{marginBottom: 10}}>
-              This is a sample text under the title
-            </Text>
-
-            </Card>
-          </View>
-          <View style={styles.cardContainer}>
-            <Card
-            image = {require('../assets/images/sample_art.jpeg')}
-            >
-            <Text h2> Sample Title 2</Text>
-            <Text style={{marginBottom: 10}}>
-              This is a sample text under the title
-            </Text>
-
-            </Card>
-          </View>
-        </ScrollView>
+        </View>
       </View>
+
     );
   }
-
-  // _maybeRenderDevelopmentModeWarning() {
-  //   if (__DEV__) {
-  //     const learnMoreButton = (
-  //       <Text onPress={this._handleLearnMorePress} style={styles.helpLinkText}>
-  //         Learn more
-  //       </Text>
-  //     );
-
-  //     return (
-  //       <Text style={styles.developmentModeText}>
-  //         Development mode is enabled, your app will be slower but you can use useful development
-  //         tools. {learnMoreButton}
-  //       </Text>
-  //     );
-  //   } else {
-  //     return (
-  //       <Text style={styles.developmentModeText}>
-  //         You are not in development mode, your app will run at full speed.
-  //       </Text>
-  //     );
-  //   }
-  // }
-
-  // _handleLearnMorePress = () => {
-  //   WebBrowser.openBrowserAsync('https://docs.expo.io/versions/latest/guides/development-mode');
-  // };
-
-  // _handleHelpPress = () => {
-  //   WebBrowser.openBrowserAsync(
-  //     'https://docs.expo.io/versions/latest/guides/up-and-running.html#can-t-see-your-changes'
-  //   );
-  // };
 }
 
 class Hamburger extends React.Component {
@@ -112,11 +171,11 @@ class Hamburger extends React.Component {
   }
 
   render() {
-    return(
-      <View style = {{flexDirection: 'row'}}>
+    return (
+      <View style={{ flexDirection: 'row' }}>
         <TouchableOpacity onPress={this.toggleDrawer.bind(this)}>
           <Icon
-          name = 'menu'
+            name='menu'
           />
         </TouchableOpacity>
       </View>
@@ -126,95 +185,42 @@ class Hamburger extends React.Component {
 
 
 const styles = StyleSheet.create({
+  header: {
+    flex: 1,
+    color: '#fff',
+    width: '100%'
+  },
   container: {
     flex: 1,
-    backgroundColor: '#000000',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  barContainer: {
+    position: 'absolute',
+    zIndex: 2,
+    top: 40,
+    flexDirection: 'row',
+  },
+  track: {
+    backgroundColor: '#ccc',
+    overflow: 'hidden',
+    height: 2,
+  },
+  bar: {
+    backgroundColor: '#5294d6',
+    height: 2,
+    position: 'absolute',
+    left: 0,
+    top: 0,
   },
   cardContainer: {
     flex: 1,
     backgroundColor: '#000000'
   },
-  developmentModeText: {
-    marginBottom: 20,
-    color: 'rgba(0,0,0,0.4)',
-    fontSize: 14,
-    lineHeight: 19,
-    textAlign: 'center',
-  },
   contentContainer: {
     paddingTop: 30,
   },
-  welcomeContainer: {
-    alignItems: 'center',
-    width: '100%',
-    marginTop: 10,
-    marginBottom: 20,
-  },
-  welcomeImage: {
-    width: 100,
-    height: 80,
-    resizeMode: 'contain',
-    marginTop: 3,
-    marginLeft: -10,
-  },
-  getStartedContainer: {
-    alignItems: 'center',
-    marginHorizontal: 50,
-  },
-  homeScreenFilename: {
-    marginVertical: 7,
-  },
-  codeHighlightText: {
-    color: 'rgba(96,100,109, 0.8)',
-  },
-  codeHighlightContainer: {
-    backgroundColor: 'rgba(0,0,0,0.05)',
-    borderRadius: 3,
-    paddingHorizontal: 4,
-  },
-  getStartedText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    lineHeight: 24,
-    textAlign: 'center',
-  },
-  tabBarInfoContainer: {
-    position: 'absolute',
-    bottom: 0,
-    left: 0,
-    right: 0,
-    ...Platform.select({
-      ios: {
-        shadowColor: 'black',
-        shadowOffset: { height: -3 },
-        shadowOpacity: 0.1,
-        shadowRadius: 3,
-      },
-      android: {
-        elevation: 20,
-      },
-    }),
-    alignItems: 'center',
-    backgroundColor: '#fbfbfb',
-    paddingVertical: 20,
-  },
-  tabBarInfoText: {
-    fontSize: 17,
-    color: 'rgba(96,100,109, 1)',
-    textAlign: 'center',
-  },
   navigationFilename: {
     marginTop: 5,
-  },
-  helpContainer: {
-    marginTop: 15,
-    alignItems: 'center',
-  },
-  helpLink: {
-    paddingVertical: 15,
-  },
-  helpLinkText: {
-    fontSize: 14,
-    color: '#2e78b7',
   },
 });
