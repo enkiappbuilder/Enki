@@ -2,7 +2,6 @@ import React, { Component } from "react";
 import copy from '../../functions/fsCopy'
 import { Link } from 'react-router-dom'
 import corey from './image/corey.jpg'
-import night from './video/night.mp4'
 import galaxy from './video/galaxy.mp4'
 import leaves from './video/leaves.mp4'
 import lights from './video/lights.mp4'
@@ -24,7 +23,6 @@ class LandingPage extends Component {
 
   videoRandomizer() {
     const videos = [
-      { src: night, color: 'red' },
       { src: river, color: 'orange' },
       { src: nightroad, color: 'yellow' },
       { src: galaxy, color: 'olive' },
@@ -49,10 +47,6 @@ class LandingPage extends Component {
     ipcRenderer.send('uploadPhoto')
   }
 
-  handleClick() {
-    updateImageName('../../copyOfProject/screens/Gallery.js', 'test', '../hey/ho')
-  }
-
   render() {
     return (
       <div className='landpage' style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: 'hidden' }} >
@@ -75,8 +69,7 @@ class LandingPage extends Component {
           , height: "100%", width: "100%", zIndex: -100, overflow: 'hidden'
         }}>
           <video id="vidBack" onEnded={this.videoRandomizer.bind(this)} autoPlay playsInline style={{ height: "100%", width: "100%", objectFit: 'cover' }}>
-            <source src={night} type="video/mp4" />
-            {/* <source src={night} type="video/mp4"/> */}
+            <source src={galaxy} type="video/mp4" />
           </video>
         </div>
       </div>
@@ -93,9 +86,3 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(null, mapDispatchToProps)(LandingPage);
-
-<style>
-  .landpage{
-
-  }
-</style>
