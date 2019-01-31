@@ -5,6 +5,7 @@ import TemplateContainer from './TemplateContainer'
 import ice from './image/ice.jpg'
 import {showSideBar} from '../store/sideBar'
 import {connect} from 'react-redux'
+import ModalPreview from './PreviewModal'
 
 class Templates extends Component {
   constructor() {
@@ -33,12 +34,26 @@ class Templates extends Component {
                   </Item.Header>
                   <Item.Description>
                     This is some description for the user
+                    This is some description for the user
+                    This is some description for the user
+                    This is some description for the user
+                    v
+                    v
+                    This is some description for the user
+
+                    WOWOOWOOAWROWOWOAGafsja
+
+                    ]ldsajgkjgha
+
+                    gagjsdkjg
                   </Item.Description>
+              <div style ={{display: 'flex', justifyContent: 'right'}}>
+                <Button>Link to create template</Button>
+                <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
+              </div>
                 </Item.Content>
               </Item>
               <text style = {styles.mobileTitle}>Artists</text>
-                <Button>Link to create template</Button>
-                <Button>Button to preview modal</Button>
             </Item.Group>
             <Item.Group>
               <Item>
@@ -48,13 +63,27 @@ class Templates extends Component {
                     Artists
                   </Item.Header>
                   <Item.Description>
+                  This is some description for the user
                     This is some description for the user
+                    This is some description for the user
+                    This is some description for the user
+                    v
+                    v
+                    This is some description for the user
+
+                    WOWOOWOOAWROWOWOAGafsja
+
+                    ]ldsajgkjgha
+
+                    gagjsdkjg
                   </Item.Description>
+                  <div style ={{display: 'flex', justifyContent: 'right'}}>
+                <Button>Link to create template</Button>
+                <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
+              </div>
                 </Item.Content>
               </Item>
               <text style = {styles.mobileTitle}>Artists</text>
-                <Button>Link to create template</Button>
-                <Button>Button to preview modal</Button>
             </Item.Group>
             <Item.Group>
               <Item>
@@ -64,13 +93,27 @@ class Templates extends Component {
                     Artists
                   </Item.Header>
                   <Item.Description>
+                  This is some description for the user
                     This is some description for the user
+                    This is some description for the user
+                    This is some description for the user
+                    v
+                    v
+                    This is some description for the user
+
+                    WOWOOWOOAWROWOWOAGafsja
+
+                    ]ldsajgkjgha
+
+                    gagjsdkjg
                   </Item.Description>
+                  <div style ={{display: 'flex', justifyContent: 'right'}}>
+                <Button>Link to create template</Button>
+                <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
+              </div>
                 </Item.Content>
               </Item>
               <text style = {styles.mobileTitle}>Artists</text>
-                <Button>Link to create template</Button>
-                <Button>Button to preview modal</Button>
             </Item.Group>
           </Grid.Column>
 
@@ -109,6 +152,7 @@ const styles = {
     color: '#4a4b4c'
   },
   mobileTitle: {
-    fontSize: 40
+    fontSize: 40,
+    paddingLeft: '90px'
   }
 }
