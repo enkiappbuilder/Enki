@@ -10,12 +10,17 @@ import river from './video/river.mp4'
 import phone from './video/phone.mp4'
 import nightroad from './video/nightroad.mp4'
 const { ipcRenderer } = window.require('electron')
+
 import {Image, Segment, Container, Button} from 'semantic-ui-react'
 import { lookup } from "dns";
+import {showSideBar, hideSideBar} from '../store/sideBar'
+import {connect} from 'react-redux'
+import { updateText, updateImageName } from '../../functions/rewrite'
+
 
 class LandingPage extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
     this.handleUpload = this.handleUpload.bind(this)
     this.handleClick = this.handleClick.bind(this)
   }
@@ -38,6 +43,11 @@ class LandingPage extends Component {
     let button = document.getElementById('landBut')
     button.setAttribute("color", videos[0].color)
   }
+
+  componentDidMount(){
+    this.props.hideSideBar()
+  }
+
   handleUpload() {
     ipcRenderer.send('uploadPhoto')
   }
@@ -73,10 +83,19 @@ class LandingPage extends Component {
         </video>
       </div>
       </div>
+
     );
   }
 }
-export default LandingPage;
+
+const mapDispatchToProps = dispatch => {
+  return {
+    showSideBar: () => dispatch(showSideBar()),
+    hideSideBar: () => dispatch(hideSideBar())
+  }
+}
+
+export default connect(null, mapDispatchToProps)(LandingPage);
 
 <style>
   .landpage{
