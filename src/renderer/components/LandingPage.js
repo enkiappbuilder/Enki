@@ -1,7 +1,10 @@
 import React, { Component } from "react";
 import copy from '../../functions/fsCopy'
 import { Link } from 'react-router-dom'
+import corey from './image/corey.jpg'
+import night from './video/night.mp4'
 const { ipcRenderer } = window.require('electron')
+import {Image, Segment, Container, Button} from 'semantic-ui-react'
 
 class LandingPage extends Component {
   constructor() {
@@ -20,20 +23,35 @@ class LandingPage extends Component {
 
   render() {
     return (
+      <div className='landpage' style={{maxHeight: '100vh', maxWidth: '100vw', overflow: 'hidden'} } >
+      <div></div>
       <div>
-        <h1> HI I AM LANDING PAGE </h1>
-        <div>
-          <Link to='/templates'>
-            <button >
-              CLICK ME TO GO TO TEMPLATES
-            </button>
-          </Link>
-          <button onClick={() => copy()}> CLICK ME TO MAKE COPY OF APP TEMPLATE </button>
-          <button onClick={this.handleUpload}> CLICK ME TO UPLOAD A PHOTO! </button>
-        </div>
+        <Image size = 'small' centered src = {corey} ></Image>
+        <Container textAlign = 'center'>
+        <h1> Enki </h1>
+        </Container>
+            <Link to='/templates'>
+              <Button inverted centered color = 'pink' style={{postion: 'absolute', display: "grid",}}>
+                Get Started!
+              </Button>
+            </Link>
+            {/* <button onClick={() => copy()}> CLICK ME TO MAKE COPY OF APP TEMPLATE </button>
+            <button onClick={this.handleUpload}> CLICK ME TO UPLOAD A PHOTO! </button> */}
+      </div>
+      <div style ={{position: "absolute", top: 0, left: 0
+, height: "100%", width: "100%", zIndex: -100, overflow: 'hidden'}}>
+        <video autoPlay loop playsInline style={{height: "100%", width: "100%", objectFit: 'cover'}}>
+        <source src={night} type="video/mp4"/>
+        </video>
+      </div>
       </div>
     );
   }
 }
 export default LandingPage;
 
+<style>
+  .landpage{
+
+  }
+</style>
