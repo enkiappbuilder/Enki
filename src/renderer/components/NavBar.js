@@ -38,11 +38,11 @@ class SideBar extends Component {
         </Sidebar>
 
         <Sidebar.Pusher basic="true">
-          <Segment>
+
             <Router>
               <Routes />
             </Router>
-          </Segment>
+
         </Sidebar.Pusher>
       </Sidebar.Pushable>
     );
