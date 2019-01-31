@@ -4,10 +4,14 @@ import { Header, Container, Button, Grid } from 'semantic-ui-react'
 import TemplateContainer from './TemplateContainer'
 import {showSideBar} from '../store/sideBar'
 import {connect} from 'react-redux'
-
+import {chooseTemplate} from '../store/templateChoice'
 class Templates extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+  }
+
+  chooseTemplate(type){
+    this.props.chooseTemplate(type)
   }
 
   componentDidMount(){
@@ -22,7 +26,7 @@ class Templates extends Component {
         {/* these containers are buttons to the customize project page, we will need to add functionality to copy the appropriate template when they are pressed*/}
         <Grid columns='equal'>
           <Grid.Column>
-            <Link to='/create'>
+            <Link to='/create' onClick={()=>this.chooseTemplate('Artist')}>
               <TemplateContainer header='Artist App' />
             </Link>
           </Grid.Column>
@@ -50,6 +54,7 @@ class Templates extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     showSideBar: () => dispatch(showSideBar()),
+    chooseTemplate: (type) => dispatch(chooseTemplate(type))
   }
 }
 

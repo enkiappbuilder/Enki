@@ -2,10 +2,14 @@ import { createStore, combineReducers, applyMiddleware, } from 'redux'
 import { createLogger, } from 'redux-logger'
 import thunkMiddleware from 'redux-thunk'
 import sideBar from './sideBar'
+import templateChoice from './templateChoice'
+import appDetails from './appDetails'
 // import composeWithDevTools from 'redux-devtools-extension'
 
 const reducer = combineReducers({
-  sideBar
+  sideBar,
+  appDetails,
+  templateChoice
 })
 
 const middleware = applyMiddleware(thunkMiddleware, createLogger({ collapsed: false, }))
