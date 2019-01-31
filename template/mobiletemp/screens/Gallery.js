@@ -1,7 +1,5 @@
 import React from 'react';
-import Carousel from 'react-native-snap-carousel';
 import {
-  Platform,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -25,29 +23,29 @@ const BAR_SPACE = 10
 
 const images = [
   {
-    title: 'my photo title',
-    description: "my photo description. This was taken in 2014 on a Nikon D810 with long exposure.",
-    location: require('../assets/images/sampleImages/cyberpunkStreet.jpg')
+    title: /*image1Title*/'my photo title'/*image1Title*/,
+    description: /*image1desc*/"my photo description. This was taken in 2014 on a Nikon D810 with long exposure."/*image1desc*/,
+    location: /*image1Path*/require('../assets/images/sampleImages/cyberpunkStreet.jpg')/*image1Path*/
   },
   {
-    title: 'Forest',
-    description: "this is my photo desc.",
-    location: require('../assets/images/sampleImages/forest.jpg')
+    title: /*image2Title*/'Forest'/*image2Title*/,
+    description: /*image2desc*/"this is my photo desc."/*image2desc*/,
+    location: /*image2Path*/require('../assets/images/sampleImages/forest.jpg')/*image2Path*/
   },
   {
-    title: 'Icy Winter',
-    description: "this is my photo desc.",
-    location: require('../assets/images/sampleImages/ice.jpg')
+    title: /*image3Title*/'Icy Winter'/*image3Title*/,
+    description: /*image3desc*/"this is my photo desc."/*image3desc*/,
+    location: /*image3Path*/require('../assets/images/sampleImages/ice.jpg')/*image3Path*/
   },
   {
-    Title: 'This is my photo title',
-    description: "this is my photo desc.",
-    location: require('../assets/images/sampleImages/ice.jpg')
+    Title: /*image4Title*/'This is my photo title'/*image4Title*/,
+    description: /*image4desc*/"this is my photo desc."/*image4desc*/,
+    location: /*image4Path*/require('../assets/images/sampleImages/lanternStreet.jpg')/*image4Path*/
   },
   {
-    title: 'this is my photo title',
-    description: "this is my photo desc.",
-    location: require('../assets/images/sampleImages/ice.jpg')
+    title: /*image5Title*/'this is my photo title'/*image5Title*/,
+    description: /*image5desc*/"this is my photo desc."/*image5desc*/,
+    location: /*image5Path*/require('../assets/images/sampleImages/rainOnStreet.jpg')/*image5Path*/
   }
 ]
 
