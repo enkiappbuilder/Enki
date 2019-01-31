@@ -8,7 +8,7 @@ import {
   Icon,
   Image,
 } from "semantic-ui-react";
-import logopath from "/Users/milleniumfalcon/Documents/FullStack/CapStone/Enki/static/logo.png";
+import logopath from "../../../static/logo.png";
 import { connect } from "react-redux";
 // const logo = require(logopath)
 import { HashRouter as Router, Link } from "react-router-dom";
