@@ -4,7 +4,9 @@ const { ipcRenderer } = window.require('electron')
 import {showSideBar} from '../store/sideBar'
 import {connect} from 'react-redux'
 
-const homeDetails = ['AppName', 'TitleText1', 'DescriptionText1', 'WelcomeText']
+const homeDetails = ['AppName', 'HomeScreenButtonText', 'DescriptionText1', 'LargeWelcomeText']
+const galleryDetails = []
+const aboutDetails = ['AboutMeHeaderText', 'AboutMeImg', 'AboutMeHeader', 'AboutMeDescText', 'AboutMeButtonText']
 class CreatePage extends Component {
   constructor() {
     super()
@@ -28,6 +30,9 @@ class CreatePage extends Component {
       <div>
         <h1> HERE IS WHERE YOU'LL CUSTOMIZE YOUR APP! </h1>
         <EditPage page='Home' details={homeDetails}/>
+        <EditPage page='Gallery' details={galleryDetails}/>
+        <EditPage page='About' details={aboutDetails}/>
+        
         <button onClick ={() => this.handleUpload("screens/HomeScreen.js", 'ImagePath')}>Click to upload Photo
               </button>
         <button onClick={this.handleExport}>export files, yeah!</button>

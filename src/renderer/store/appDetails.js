@@ -4,7 +4,14 @@ const defaultState = {
   AppName: "",
   TitleText1: "",
   DescriptionText1: "",
-  WelcomeText: ""
+  LargeWelcomeText: "",
+  HomeScreenButtonText: "",
+
+  AboutMeHeaderText: "",
+  AboutMeImg: "",
+  AboutMeHeader: "",
+  AboutMeDescText: "",
+  AboutMeButtonText: ""
 };
 
 export const saveAppDetails = details => {
