@@ -24,63 +24,63 @@ yarn dist:dir
 
 # naming conventions
 
-## Home Screen contains:
+## Home Screen contains
 
-    * ImagePath
-    * AppName
-    * LargeWelcomeText
-    * DescriptionText1
-    * HomeScreenButtonText
+  * ImagePath
+  * AppName
+  * LargeWelcomeText
+  * DescriptionText1
+  * HomeScreenButtonText
 
-    ####styles
-    * HomeScreenButtonBackgroundColor
-    * HomeScreenHeaderColor
-    * HomeScreenSubHeaderColor
+  ####styles
+  * HomeScreenButtonBackgroundColor
+  * HomeScreenHeaderColor
+  * HomeScreenSubHeaderColor
 
-## Gallery contains:
+## Gallery contains
 
-    * image1Title
-    * image1desc
-    * image1Path
+  * image1Title
+  * image1desc
+  * image1Path
 
-    * image2Title
-    * image2desc
-    * image2Path
+  * image2Title
+  * image2desc
+  * image2Path
 
-    * image3Title
-    * image3desc
-    * image3Path
+  * image3Title
+  * image3desc
+  * image3Path
 
-    * image4Title
-    * image4desc
-    * image4Path
+  * image4Title
+  * image4desc
+  * image4Path
 
-    * image5Title
-    * image5desc
-    * image5Path
+  * image5Title
+  * image5desc
+  * image5Path
 
-    * GalleryHeaderText
+  * GalleryHeaderText
 
-    #### styles
+  #### styles
 
-    * GalleryBackgroundColor
-    * GalleryTitleColor
-    * GalleryTitleWeight
-    * GalleryDescriptionTextColor
+  * GalleryBackgroundColor
+  * GalleryTitleColor
+  * GalleryTitleWeight
+  * GalleryDescriptionTextColor
 
 ## About contains
 
-    * AboutMeHeaderText
-    * AboutMeImg
-    * AboutMeHeader
-    * AboutMeDescText
-    * AboutMeButtonText
+  * AboutMeHeaderText
+  * AboutMeImg
+  * AboutMeHeader
+  * AboutMeDescText
+  * AboutMeButtonText
 
-    #### styles
+  #### styles
 
-    * AboutMeButtonBackgroundColor
-    * AboutMeBackGroundColor
-    * AboutMeTextBorderColor
-    * AboutMeTextBackgroundColor
-    * AboutMeHeaderTextColor
-    * AboutMeDescTextColor
+  * AboutMeButtonBackgroundColor
+  * AboutMeBackGroundColor
+  * AboutMeTextBorderColor
+  * AboutMeTextBackgroundColor
+  * AboutMeHeaderTextColor
+  * AboutMeDescTextColor
