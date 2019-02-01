@@ -1,8 +1,10 @@
 import React, { Component } from "react";
 import EditPage from "./EditPage";
+import {Button} from 'semantic-ui-react'
 const { ipcRenderer } = window.require('electron')
 import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
+import { showMENU, hideMenu } from "../store/subMenu"
 
 // const homeDetails = ['AppName', 'HomeScreenButtonText', 'DescriptionText1', 'LargeWelcomeText']
 // const galleryDetails = []
@@ -54,12 +56,20 @@ class CreatePage extends Component {
     super()
     this.handleExport = this.handleExport.bind(this)
     this.handleUpload = this.handleUpload.bind(this)
+    this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
     this.props.showSideBar()
   }
 
+  handleChange () {
+    if(!this.props.menuVisible){
+      this.props.showMENU()
+    } else {
+      this.props.hideMenu()
+    }
+  }
   handleExport() {
     ipcRenderer.send('exportProject')
   }
@@ -70,7 +80,7 @@ class CreatePage extends Component {
   render() {
     return (
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
-        <h1> HERE IS WHERE YOU'LL CUSTOMIZE YOUR APP! </h1>
+        <Button color = 'green' onClick={()=>this.handleChange()}>Start Customizing!</Button>
         <EditPage page='Home' details={homeDetails} />
         <EditPage page='Gallery' details={galleryDetails} />
         <EditPage page='About' details={aboutDetails} />
@@ -84,10 +94,19 @@ class CreatePage extends Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    menuVisible: state.subMenu,
+    createEnabled: state.createStatus
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     showSideBar: () => dispatch(showSideBar()),
+    showMENU: () => dispatch(showMENU()),
+    hideMenu: () => dispatch(hideMenu())
   }
 }
 
-export default connect(null, mapDispatchToProps)(CreatePage);
+export default connect(mapStateToProps, mapDispatchToProps)(CreatePage);

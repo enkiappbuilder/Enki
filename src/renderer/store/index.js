@@ -5,13 +5,15 @@ import sideBar from './sideBar'
 import templateChoice from './templateChoice'
 import appDetails from './appDetails'
 import createStatus from './createStatus'
+import subMenu from './subMenu'
 // import composeWithDevTools from 'redux-devtools-extension'
 
 const reducer = combineReducers({
   sideBar,
   appDetails,
   templateChoice,
-  createStatus
+  createStatus,
+  subMenu
 })
 
 const middleware = applyMiddleware(thunkMiddleware, createLogger({ collapsed: false, }))
