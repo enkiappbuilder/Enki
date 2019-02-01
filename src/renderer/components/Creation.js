@@ -4,48 +4,48 @@ const { ipcRenderer } = window.require('electron')
 import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
 
-const homeDetails = ['AppName', 'HomeScreenButtonText', 'DescriptionText1', 'LargeWelcomeText']
-const galleryDetails = []
-const aboutDetails = ['AboutMeHeaderText', 'AboutMeImg', 'AboutMeHeader', 'AboutMeDescText', 'AboutMeButtonText']
+// const homeDetails = ['AppName', 'HomeScreenButtonText', 'DescriptionText1', 'LargeWelcomeText']
+// const galleryDetails = []
+// const aboutDetails = ['AboutMeHeaderText', 'AboutMeImg', 'AboutMeHeader', 'AboutMeDescText', 'AboutMeButtonText']
 
 //new details arrays (staying commented out for now?
-// const homeDetails =
-//   ['HomeScreenBackgroundImage',
-//     'HomeScreenHeaderText',
-//     'HomeScreenLargeWelcomeText',
-//     'HomeScreenDescriptionText',
-//     'HomeScreenButtonText',
-//     'HomeScreenButtonBackgroundColor',
-//     'HomeScreenLargeWelcomeColor',
-//     'HomeScreenDescriptionColor'
-//   ]
-// const galleryDetails =
-//   ['GalleryHeaderText', 'GalleryTitleText1', 'GalleryDescriptionText1', 'GalleryImage1Path', 'GalleryTitleText2', 'GalleryDescriptionText2', 'GalleryImage2Path', 'GalleryTitleText3', 'GalleryDescriptionText3', 'GalleryImage3Path', 'GalleryTitleText4', 'GalleryDescriptionText4', 'GalleryImage4Path', 'GalleryTitleText5', 'GalleryDescriptionText5', 'GalleryImage5Path', 'GalleryBackgroundColor', 'GalleryPhotoTitleColor', 'GalleryPhotoDescriptionColor'
-//   ]
+const homeDetails =
+  ['HomeScreenBackgroundImage',
+    'HomeScreenHeaderText',
+    'HomeScreenLargeWelcomeText',
+    'HomeScreenDescriptionText',
+    'HomeScreenButtonText',
+    'HomeScreenButtonBackgroundColor',
+    'HomeScreenLargeWelcomeColor',
+    'HomeScreenDescriptionColor'
+  ]
+const galleryDetails =
+  ['GalleryHeaderText', 'GalleryTitleText1', 'GalleryDescriptionText1', 'GalleryImage1Path', 'GalleryTitleText2', 'GalleryDescriptionText2', 'GalleryImage2Path', 'GalleryTitleText3', 'GalleryDescriptionText3', 'GalleryImage3Path', 'GalleryTitleText4', 'GalleryDescriptionText4', 'GalleryImage4Path', 'GalleryTitleText5', 'GalleryDescriptionText5', 'GalleryImage5Path', 'GalleryBackgroundColor', 'GalleryPhotoTitleColor', 'GalleryPhotoDescriptionColor'
+  ]
 
-// const aboutDetails =
-//   ['AboutMeHeaderText',
-//     'AboutMeImage',
-//     'AboutMeTitleText',
-//     'AboutMeDescText',
-//     'AboutMeButtonText',
-//     'AboutMeButtonBackgroundColor',
-//     'AboutMeBackGroundColor',
-//     'AboutMeBorderColor',
-//     'AboutMeDescBackgroundColor',
-//     'AboutMeTitleColor',
-//     'AboutMeDescColor'
-//   ]
-// const contactDetails = [
-//   'ContactScreenHeaderText',
-//   'ContactScreenInstagramURLText',
-//   'ContactScreenTwitterURLText',
-//   'ContactScreenFacebookURLText',
-//   'ContactScreenMainText',
-//   'FormMessageText',
-//   'ContactScreenSubmitButtonBackgroundColor',
-//   'ContactScreenBackgroundColor'
-// ]
+const aboutDetails =
+  ['AboutMeHeaderText',
+    'AboutMeImage',
+    'AboutMeTitleText',
+    'AboutMeDescText',
+    'AboutMeButtonText',
+    'AboutMeButtonBackgroundColor',
+    'AboutMeBackGroundColor',
+    'AboutMeBorderColor',
+    'AboutMeDescBackgroundColor',
+    'AboutMeTitleColor',
+    'AboutMeDescColor'
+  ]
+const contactDetails = [
+  'ContactScreenHeaderText',
+  'ContactScreenInstagramURLText',
+  'ContactScreenTwitterURLText',
+  'ContactScreenFacebookURLText',
+  'ContactScreenMainText',
+  'FormMessageText',
+  'ContactScreenSubmitButtonBackgroundColor',
+  'ContactScreenBackgroundColor'
+]
 
 
 
@@ -74,6 +74,7 @@ class CreatePage extends Component {
         <EditPage page='Home' details={homeDetails} />
         <EditPage page='Gallery' details={galleryDetails} />
         <EditPage page='About' details={aboutDetails} />
+        <EditPage page='Contact' details={contactDetails} />
 
         <button onClick={() => this.handleUpload("screens/HomeScreen.js", 'ImagePath')}>Click to upload Photo
               </button>
