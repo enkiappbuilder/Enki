@@ -4,12 +4,14 @@ import thunkMiddleware from 'redux-thunk'
 import sideBar from './sideBar'
 import templateChoice from './templateChoice'
 import appDetails from './appDetails'
+import createStatus from './createStatus'
 // import composeWithDevTools from 'redux-devtools-extension'
 
 const reducer = combineReducers({
   sideBar,
   appDetails,
-  templateChoice
+  templateChoice,
+  createStatus
 })
 
 const middleware = applyMiddleware(thunkMiddleware, createLogger({ collapsed: false, }))
