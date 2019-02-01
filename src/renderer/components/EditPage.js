@@ -13,8 +13,8 @@ import {
 import Forms from "./Forms";
 import phone from "./phone.png";
 import { updateText } from "../../functions/rewrite";
-import {connect} from 'react-redux'
-import {saveAppDetails} from '../store/appDetails'
+import { connect } from 'react-redux'
+import { saveAppDetails } from '../store/appDetails'
 
 class EditPage extends Component {
   constructor(props) {
@@ -22,15 +22,16 @@ class EditPage extends Component {
     this.state = {
       ...this.props.appDetails
     };
-    // this.handleUpload = this.handleUpload.bind(this)
+    this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  // handleUpload(fileName, location) {
-  //   ipcRenderer.send('uploadPhoto', fileName, location)
-  // }
+  handleUpload(fileName, location) {
+    ipcRenderer.send('uploadPhoto', fileName, location)
+  }
 
   handleChange(event, { value, name }) {
+    console.log('name: ', name, 'value: ', value)
     this.setState({ [name]: value });
     this.props.saveAppDetails(this.state)
   }
@@ -49,11 +50,11 @@ class EditPage extends Component {
               {Object.keys(this.state).filter(field => this.props.details.includes(field)).map(field => {
                 return (
                   <Forms
-                handleChange={this.handleChange}
-                upState={this.state}
-                name={field}
-                value={this.state[field]}
-              />
+                    handleChange={this.handleChange}
+                    upState={this.state}
+                    name={field}
+                    value={this.state[field]}
+                  />
                 )
               })}
             </Grid.Column>
@@ -94,7 +95,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = dispatch => {
   return {
-    saveAppDetails : (details) => dispatch(saveAppDetails(details))
+    saveAppDetails: (details) => dispatch(saveAppDetails(details))
   }
 }
 
