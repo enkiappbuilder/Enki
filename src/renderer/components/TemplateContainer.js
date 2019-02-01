@@ -1,7 +1,7 @@
 import React from 'react'
 import { Card, Icon } from 'semantic-ui-react'
 
-import img from '../../../public/images/template1.png'
+import img from '../../../public/images/artistTemplate.png'
 
 const style = {
   alignContent: 'center',
