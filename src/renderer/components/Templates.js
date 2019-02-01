@@ -5,11 +5,19 @@ import TemplateContainer from './TemplateContainer'
 import ice from './image/ice.jpg'
 import {showSideBar} from '../store/sideBar'
 import {connect} from 'react-redux'
+
+import {chooseTemplate} from '../store/templateChoice'
+
 import ModalPreview from './PreviewModal'
+import copy from '../../functions/fsCopy.js'
 
 class Templates extends Component {
-  constructor() {
-    super()
+  constructor(props) {
+    super(props)
+  }
+
+  chooseTemplate(type){
+    this.props.chooseTemplate(type)
   }
 
   componentDidMount(){
@@ -25,6 +33,7 @@ class Templates extends Component {
         {/* these containers are buttons to the customize project page, we will need to add functionality to copy the appropriate template when they are pressed*/}
         <Grid columns='1'>
           <Grid.Column>
+
             <Item.Group>
               <Item>
                 <Item.Image size='medium' src = {ice}/>
@@ -40,7 +49,6 @@ class Templates extends Component {
                     v
                     v
                     This is some description for the user
-
                     WOWOOWOOAWROWOWOAGafsja
 
                     ]ldsajgkjgha
@@ -48,7 +56,9 @@ class Templates extends Component {
                     gagjsdkjg
                   </Item.Description>
               <div style ={{display: 'flex', justifyContent: 'right'}}>
-                <Button>Link to create template</Button>
+              <Link to='/create'>
+                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
+              </Link>
                 <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
               </div>
                 </Item.Content>
@@ -78,7 +88,9 @@ class Templates extends Component {
                     gagjsdkjg
                   </Item.Description>
                   <div style ={{display: 'flex', justifyContent: 'right'}}>
-                <Button>Link to create template</Button>
+                  <Link to='/create'>
+                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
+              </Link>
                 <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
               </div>
                 </Item.Content>
@@ -108,7 +120,9 @@ class Templates extends Component {
                     gagjsdkjg
                   </Item.Description>
                   <div style ={{display: 'flex', justifyContent: 'right'}}>
-                <Button>Link to create template</Button>
+                  <Link to='/create'>
+                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
+              </Link>
                 <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
               </div>
                 </Item.Content>
@@ -131,6 +145,7 @@ class Templates extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     showSideBar: () => dispatch(showSideBar()),
+    chooseTemplate: (type) => dispatch(chooseTemplate(type))
   }
 }
 
