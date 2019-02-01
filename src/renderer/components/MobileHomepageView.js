@@ -1,10 +1,11 @@
 import React from 'react'
-
+import {connect} from 'react-redux'
 import {Container, Image, Button, Text, Header, Form, Menu, Item} from 'semantic-ui-react'
 import myImg from '../../../copyOfProject/assets/images/sampleImages/ice.jpg'
 
 
-const HomePreview = () => {
+const HomePreview = (props) => {
+  const { appDetails } = props;
   return (
     <Container style={ {
       // display:'flex',
@@ -26,15 +27,16 @@ const HomePreview = () => {
         
       >
         <Menu.Item position='left' icon='sidebar'/>
-        <Menu.Item >Joe Hu</Menu.Item>
+        <Menu.Item >{appDetails.HomeScreenHeaderText || 'Header Text'}</Menu.Item>
         <Menu.Item position='right' icon='home'/>
       </Menu>
+
       <Container style={{textAlign:'center'}}>
-        <p style={styles.homePageHeader}>{/*LargeWelcomeText*/}Joseph Hu{/*LargeWelcomeText*/}</p>
-        <p style={styles.homePageSubHeader}>{/*DescriptionText1*/}Photographer and designer.{/*DescriptionText1*/}</p>
+        <p style={styles.homePageHeader}>{/*LargeWelcomeText*/}{appDetails.HomeScreenLargeWelcomeText || 'Welcome Text'}{/*LargeWelcomeText*/}</p>
+        <p style={styles.homePageSubHeader}>{/*DescriptionText1*/}{appDetails.HomeScreenDescriptionText||'Photographer and designer.'}{/*DescriptionText1*/}</p>
         <Button
           // onPress={() => this.props.navigation.navigate('About')}
-          content= /*HomescreenButtonText*/ 'About Me' /*HomescreenButtonText*/
+          content= /*HomescreenButtonText*/ {appDetails.HomeScreenButtonText||'About Me'} /*HomescreenButtonText*/
           inverted
           style={styles.homePageButton}
         />
@@ -82,4 +84,10 @@ const styles = {
   }
 };
 
-export default HomePreview
+const mapStateToProps = state => {
+  return {
+    appDetails: state.appDetails
+  }
+}
+
+export default connect(mapStateToProps)(HomePreview)

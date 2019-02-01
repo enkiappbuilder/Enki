@@ -26,20 +26,22 @@ const AboutPreview = () => {
         size="contain"
         borderRadius={20}
       />
-      <Container style={{textAlign:'center'}}>
+      <Container style={{textAlign:'center'}}/>
+      <div style={styles.textBorder}>
         <p style={styles.aboutMeHeader}>
           {/*AboutMeHeader*/} About Me {/*AboutMeHeader*/}
         </p>
         <p style={styles.text}>
           {/*AboutMeDescText*/}This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah! {/*AboutMeDescText*/}
         </p>
+      </div>
+      <p>aklagj</p>
       <Button
         // onPress={() => this.props.navigation.navigate('Contact')}
         content= /*AboutMeButtonText*/ 'Contact' /*AboutMeButtonText*/
         inverted
         style={styles.homePageButton}
       />
-      </Container>
     </Container>
   </Container>
   )
@@ -48,7 +50,9 @@ const AboutPreview = () => {
 const styles = {
   homePageButton: {
     backgroundColor: /*AboutMeButtonBackgroundColor*/ 'rgba(250,249,249,0.1)' /*AboutMeButtonBackgroundColor*/,
-    marginBottom: 20
+    marginBottom: 20,
+    alignSelf:'center',
+    textAlign:'center'
   },
   container: {
     flex: 1,
@@ -57,11 +61,11 @@ const styles = {
     alignItems:'center'
   },
   textBorder: {
+    borderStyle:'solid',
     borderColor: /*AboutMeTextBorderColor*/ 'blue' /*AboutMeTextBorderColor*/,
-    borderWidth: 1,
-    margin: 10,
+    borderWidth: '1px',
     backgroundColor: /*AboutMeTextBackgroundColor*/ '#0e0f0f' /*AboutMeTextBackgroundColor*/,
-    // textAlign:'center'
+    textAlign:'center'
   },
   flex: {
     flex: 1,

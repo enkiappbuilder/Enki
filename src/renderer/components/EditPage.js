@@ -43,8 +43,8 @@ class EditPage extends Component {
   }
 
   handleChange(event, { value, name }) {
+    this.props.saveAppDetails({[name]:value})
     this.setState({ [name]: value });
-    this.props.saveAppDetails(this.state)
   }
 
   handleClick(file) {
