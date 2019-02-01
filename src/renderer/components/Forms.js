@@ -4,7 +4,7 @@ import {updateText} from '../../functions/rewrite'
 
 const Forms = (props) => {
   const {  handleChange, upState, name } = props;
-console.log('upState:', upState);
+// console.log('upState:', upState);
   let title = name.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); })
 
 
