@@ -52,6 +52,10 @@ class EditPage extends Component {
   }
 
   render() {
+    let Preview
+    if(this.props.page === 'Home') Preview = <HomePreview/>
+    if(this.props.page === 'About') Preview = <AboutPreview/>
+
     return (
       <>
         <Header> Edit Your {this.props.page} Page </Header>
@@ -99,14 +103,12 @@ class EditPage extends Component {
                   <Card.Description>{this.state.WelcomeText}</Card.Description>
                 </Card.Content>
               </Card> */}
+
               <Card style={{height:'60vh', display: 'flex'}}>
-              <HomePreview/>
+              {Preview}
               
               </Card>
-              <Card style={{height:'60vh', display: 'flex'}}>
 
-              <AboutPreview/>
-              </Card>
 
             </Grid.Column>
           </Grid>
