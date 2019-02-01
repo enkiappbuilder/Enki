@@ -58,7 +58,7 @@ class LandingPage extends Component {
           </Container>
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '100px' }}>
             <Link to='/templates'>
-              <Button size='huge' id="landBut" inverted color='green' style={{ postion: 'absolute', display: "grid", }}>
+              <Button size='huge' id="landBut" color='green' style={{ postion: 'absolute', display: "grid", }}>
                 Get Started!
               </Button>
             </Link>
