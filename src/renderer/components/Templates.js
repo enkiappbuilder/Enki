@@ -136,7 +136,6 @@ class Templates extends Component {
 
             <Link to='/create'>
             </Link>
-              {/* <TemplateContainer /> */}
         </Grid>
       </Container>
       </div>

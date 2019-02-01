@@ -69,7 +69,7 @@ class CreatePage extends Component {
   }
   render() {
     return (
-      <div>
+      <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
         <h1> HERE IS WHERE YOU'LL CUSTOMIZE YOUR APP! </h1>
         <EditPage page='Home' details={homeDetails} />
         <EditPage page='Gallery' details={galleryDetails} />
