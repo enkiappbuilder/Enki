@@ -9,6 +9,7 @@ import {connect} from 'react-redux'
 import {chooseTemplate} from '../store/templateChoice'
 
 import ModalPreview from './PreviewModal'
+import copy from '../../functions/fsCopy.js'
 
 class Templates extends Component {
   constructor(props) {
@@ -55,7 +56,9 @@ class Templates extends Component {
                     gagjsdkjg
                   </Item.Description>
               <div style ={{display: 'flex', justifyContent: 'right'}}>
-                <Button>Link to create template</Button>
+              <Link to='/create'>
+                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
+              </Link>
                 <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
               </div>
                 </Item.Content>
@@ -85,7 +88,9 @@ class Templates extends Component {
                     gagjsdkjg
                   </Item.Description>
                   <div style ={{display: 'flex', justifyContent: 'right'}}>
-                <Button>Link to create template</Button>
+                  <Link to='/create'>
+                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
+              </Link>
                 <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
               </div>
                 </Item.Content>
@@ -115,7 +120,9 @@ class Templates extends Component {
                     gagjsdkjg
                   </Item.Description>
                   <div style ={{display: 'flex', justifyContent: 'right'}}>
-                <Button>Link to create template</Button>
+                  <Link to='/create'>
+                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
+              </Link>
                 <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
               </div>
                 </Item.Content>
