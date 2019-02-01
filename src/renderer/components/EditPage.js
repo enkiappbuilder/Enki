@@ -15,8 +15,10 @@ import UploadImage from "./UploadImageFormButton"
 import ColorPicker from "./ColorPicker"
 import phone from "./phone.png";
 import { updateText } from "../../functions/rewrite";
-import { connect } from 'react-redux'
-import { saveAppDetails } from '../store/appDetails'
+import {connect} from 'react-redux'
+import {saveAppDetails} from '../store/appDetails'
+import HomePreview from "./MobileHomepageView";
+import AboutPreview from "./MobileAboutMeView";
 
 class EditPage extends Component {
   constructor(props) {
@@ -43,8 +45,8 @@ class EditPage extends Component {
   }
 
   handleChange(event, { value, name }) {
+    this.props.saveAppDetails({[name]:value})
     this.setState({ [name]: value });
-    this.props.saveAppDetails(this.state)
   }
 
   handleClick(file) {
@@ -58,6 +60,10 @@ class EditPage extends Component {
 
 
   render() {
+    let Preview
+    if(this.props.page === 'Home') Preview = <HomePreview/>
+    if(this.props.page === 'About') Preview = <AboutPreview/>
+
     return (
       <>
         <Header> Edit Your {this.props.page} Page </Header>
@@ -99,7 +105,7 @@ class EditPage extends Component {
             </Grid.Column>
 
             <Grid.Column>
-              <Card>
+              {/* <Card>
                 <Header textAlign="center"> {this.state.AppName}</Header>
                 <Image src={phone} />
                 <Card.Content>
@@ -107,7 +113,13 @@ class EditPage extends Component {
                   <Card.Meta>{this.state.DescriptionText1}</Card.Meta>
                   <Card.Description>{this.state.WelcomeText}</Card.Description>
                 </Card.Content>
+              </Card> */}
+
+              <Card style={{height:'60vh', display: 'flex'}}>
+              {Preview}
+              
               </Card>
+
 
             </Grid.Column>
           </Grid>
