@@ -84,3 +84,19 @@ yarn dist:dir
   * AboutMeTextBackgroundColor
   * AboutMeHeaderTextColor
   * AboutMeDescTextColor
+
+## Contain contains
+
+  * ContactScreenHeaderText
+  * ContactScreenMainText
+  * FormMessageText
+  * ContactScreenInstagramURL
+  * ContactScreenTwitterURL
+  * ContactScreenFacebookURL
+
+  #### styles
+
+  * ContactScreenSubmitButtonBackgroundColor
+  * ContactScreenBackgroundColor
+
+

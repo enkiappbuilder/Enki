@@ -1,0 +1,15 @@
+{
+  "expo": {
+    "name": "Enki",
+    "icon": "./path/to/your/app-icon.png",
+    "version": "1.0.0",
+    "slug": "your-app-slug",
+    "sdkVersion": "XX.0.0",
+    "ios": {
+      "bundleIdentifier": "https://github.com/enkiappbuilder/Enki"
+    },
+    "android": {
+      "package": "https://github.com/enkiappbuilder/Enki"
+    }
+  }
+}
