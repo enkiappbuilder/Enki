@@ -87,13 +87,14 @@ async function createProject() {
 
 //dialog window for uploading image to project
 
-ipcMain.on('uploadPhoto', (event, fileName, location) => uploadNewPhoto(fileName, location))
+ipcMain.on('uploadPhoto', (event, commentName) => uploadNewPhoto(event, commentName))
 
 //function that allows us to upload a photo and save it in the copyOfProject assets folder, it will then replace the path in the desired mobile copyOfProject file so the new image is displayed.
 //example of calling this function
 //--- uploadNewPhoto('screens/Gallery.js', 'text1')
 
-function uploadNewPhoto(fileName, location) {
+export function uploadNewPhoto(event, commentName) {
+
   const pathToImage = dialog.showOpenDialog(mainWindow)
   const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
   const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
@@ -108,18 +109,7 @@ function uploadNewPhoto(fileName, location) {
       }
     })
 
-  //creating object to mimic state that is passed in from forms.
-  //key is the comment location e.g. 'text1', the value is the replacement text. When we are replacing an image, the replacement text is the URL on line 98 which is where we saved that image.
-
-  let toChange = {}
-  let templocation = {
-    'TitleText1': 'something else'
-  }
-  toChange[location] = mobileTempAssets
-
-  //updating image path in appropriate file in the template
-  updateText(path.join('../../copyOfProject/', fileName), toChange)
-
+  event.sender.send('photo-response', mobileTempAssets, commentName)
 
 }
 
