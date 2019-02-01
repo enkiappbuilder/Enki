@@ -26,53 +26,51 @@ yarn dist:dir
 
 ## Home Screen contains
 
-  * ImagePath
-  * AppName
-  * LargeWelcomeText
-  * DescriptionText1
+  * HomeScreenBackgroundImage
+  * HomeScreenHeaderText
+  * HomeScreenLargeWelcomeText
+  * HomeScreenDescriptionText
   * HomeScreenButtonText
 
   ####styles
   * HomeScreenButtonBackgroundColor
-  * HomeScreenHeaderColor
-  * HomeScreenSubHeaderColor
+  * HomeScreenLargeWelcomeColor
+  * HomeScreenDescriptionColor
 
 ## Gallery contains
-
-  * image1Title
-  * image1desc
-  * image1Path
-
-  * image2Title
-  * image2desc
-  * image2Path
-
-  * image3Title
-  * image3desc
-  * image3Path
-
-  * image4Title
-  * image4desc
-  * image4Path
-
-  * image5Title
-  * image5desc
-  * image5Path
-
   * GalleryHeaderText
+
+  * GalleryTitleText1
+  * GalleryDescriptionText1
+  * GalleryImage1Path
+
+  * GalleryTitleText2
+  * GalleryDescriptionText2
+  * GalleryImage2Path
+
+  * GalleryTitleText3
+  * GalleryDescriptionText3
+  * GalleryImage3Path
+
+  * GalleryTitleText4
+  * GalleryDescriptionText4
+  * GalleryImage4Path
+
+  * GalleryTitleText5
+  * GalleryDescriptionText5
+  * GalleryImage5Path
 
   #### styles
 
   * GalleryBackgroundColor
-  * GalleryTitleColor
-  * GalleryTitleWeight
-  * GalleryDescriptionTextColor
+  * GalleryPhotoTitleColor
+  * GalleryPhotoDescriptionColor
 
 ## About contains
 
   * AboutMeHeaderText
-  * AboutMeImg
-  * AboutMeHeader
+  * AboutMeImage
+  * AboutMeTitleText
   * AboutMeDescText
   * AboutMeButtonText
 
@@ -80,19 +78,20 @@ yarn dist:dir
 
   * AboutMeButtonBackgroundColor
   * AboutMeBackGroundColor
-  * AboutMeTextBorderColor
-  * AboutMeTextBackgroundColor
-  * AboutMeHeaderTextColor
-  * AboutMeDescTextColor
+  * AboutMeBorderColor
+  * AboutMeDescBackgroundColor
+  * AboutMeTitleColor
+  * AboutMeDescColor
 
 ## Contain contains
 
   * ContactScreenHeaderText
+  * ContactScreenInstagramURLText
+  * ContactScreenTwitterURLText
+  * ContactScreenFacebookURLText
   * ContactScreenMainText
   * FormMessageText
-  * ContactScreenInstagramURL
-  * ContactScreenTwitterURL
-  * ContactScreenFacebookURL
+
 
   #### styles
 

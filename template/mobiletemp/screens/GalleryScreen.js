@@ -23,29 +23,29 @@ const BAR_SPACE = 10
 
 const images = [
   {
-    title: /*image1Title*/'Cyberpunk Street'/*image1Title*/,
-    description: /*image1desc*/"My photo description. This was taken in 2014 on a Nikon D810 with long exposure."/*image1desc*/,
-    location: /*image1Path*/require('../assets/images/sampleImages/cyberpunkStreet.jpg')/*image1Path*/
+    title: /*GalleryTitleText1*/'Cyberpunk Street'/*GalleryTitleText1*/,
+    description: /*GalleryDescriptionText1*/"My photo description. This was taken in 2014 on a Nikon D810 with long exposure."/*GalleryDescriptionText1*/,
+    location: /*GalleryImage1Path*/require('../assets/images/sampleImages/cyberpunkStreet.jpg')/*GalleryImage1Path*/
   },
   {
-    title: /*image2Title*/'Forest'/*image2Title*/,
-    description: /*image2desc*/"This image is taken in RAW and converted to JPEG with Capture NX 2."/*image2desc*/,
-    location: /*image2Path*/require('../assets/images/sampleImages/forest.jpg')/*image2Path*/
+    title: /*GalleryTitleText2*/'Forest'/*GalleryTitleText2*/,
+    description: /*GalleryDescriptionText2*/"This image is taken in RAW and converted to JPEG with Capture NX 2."/*GalleryDescriptionText2*/,
+    location: /*GalleryImage2Path*/require('../assets/images/sampleImages/forest.jpg')/*GalleryImage2Path*/
   },
   {
-    title: /*image3Title*/'Icy Winter'/*image3Title*/,
-    description: /*image3desc*/"Abstract icy winter, taken with Nikon D800. "/*image3desc*/,
-    location: /*image3Path*/require('../assets/images/sampleImages/ice.jpg')/*image3Path*/
+    title: /*GalleryTitleText3*/'Icy Winter'/*GalleryTitleText3*/,
+    description: /*GalleryDescriptionText3*/"Abstract icy winter, taken with Nikon D800. "/*GalleryDescriptionText3*/,
+    location: /*GalleryImage3Path*/require('../assets/images/sampleImages/ice.jpg')/*GalleryImage3Path*/
   },
   {
-    title: /*image4Title*/'Lantern Street'/*image4Title*/,
-    description: /*image4desc*/"Unique lantern street in Japan."/*image4desc*/,
-    location: /*image4Path*/require('../assets/images/sampleImages/lanternStreet.jpg')/*image4Path*/
+    title: /*GalleryTitleText4*/'Lantern Street'/*GalleryTitleText4*/,
+    description: /*GalleryDescriptionText4*/"Unique lantern street in Japan."/*GalleryDescriptionText4*/,
+    location: /*GalleryImage4Path*/require('../assets/images/sampleImages/lanternStreet.jpg')/*GalleryImage4Path*/
   },
   {
-    title: /*image5Title*/"Rainy Street"/*image5Title*/,
-    description: /*image5desc*/"This photo was taken on a rainy Sunday. I'm glad I braved the weather to get the shot!"/*image5desc*/,
-    location: /*image5Path*/require('../assets/images/sampleImages/rainOnStreet.jpg')/*image5Path*/
+    title: /*GalleryTitleText5*/"Rainy Street"/*GalleryTitleText5*/,
+    description: /*GalleryDescriptionText5*/"This photo was taken on a rainy Sunday. I'm glad I braved the weather to get the shot!"/*GalleryDescriptionText5*/,
+    location: /*GalleryImage5Path*/require('../assets/images/sampleImages/rainOnStreet.jpg')/*GalleryImage5Path*/
   }
 ]
 
@@ -182,14 +182,14 @@ const styles = StyleSheet.create({
   title: {
     top: 0,
     alignSelf: 'center',
-    color: /*GalleryTitleColor*/ 'white' /*GalleryTitleColor*/,
+    color: /*GalleryPhotoTitleColor*/ 'white' /*GalleryPhotoTitleColor*/,
     margin: 10,
-    fontWeight: /*GalleryTitleWeight*/ 'bold' /*GalleryTitleWeight*/,
+    fontWeight: 'bold'
   },
   text: {
     alignSelf: 'center',
     position: 'relative',
-    color: /*GalleryDescriptionTextColor*/ 'white' /*GalleryDescriptionTextColor*/,
+    color: /*GalleryPhotoDescriptionColor*/ 'white' /*GalleryPhotoDescriptionColor*/,
     margin: 10
   },
   container: {
