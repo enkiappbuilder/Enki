@@ -1,6 +1,6 @@
 import React from 'react'
-import {Form, Button} from 'semantic-ui-react'
-import {updateText} from '../../functions/rewrite'
+import { Form, Button } from 'semantic-ui-react'
+import { updateText } from '../../functions/rewrite'
 
 const Forms = (props) => {
   const {  handleChange, upState, name } = props;
@@ -9,15 +9,15 @@ const Forms = (props) => {
 
 
 
-  return(
+  return (
     <Form>
       <Form.Field>
         <label>{title} </label>
-        <Form.Input 
-        placeholder='change this text'
-        name={name}
-        value={upState[name]}
-        onChange={handleChange}/>
+        <Form.Input
+          placeholder='change this text'
+          name={name}
+          value={upState[name]}
+          onChange={handleChange} />
       </Form.Field>
 
     </Form>

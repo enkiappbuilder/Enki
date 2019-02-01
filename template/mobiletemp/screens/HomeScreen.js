@@ -19,7 +19,7 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
-    const myImg = require(/*ImagePath*/'../assets/images/sampleImages/ice.jpg'/*ImagePath*/)
+    const myImg = require(/*HomeScreenBackgroundImage*/'../assets/images/sampleImages/ice.jpg'/*HomeScreenBackgroundImage*/)
     return (
       <View style={styles.container}>
 
@@ -35,17 +35,17 @@ export default class HomeScreen extends React.Component {
         >
           <Header
             leftComponent={<Hamburger navigationProps={this.props.navigation} />}
-            centerComponent={{ text: /*AppName*/'Joe Hu'/*AppName*/, style: { color: '#132029' } }}
+            centerComponent={{ text: /*HomeScreenHeaderText*/'Joe Hu'/*HomeScreenHeaderText*/, style: { color: '#132029' } }}
             rightComponent={{ icon: 'home', color: '#132029', onPress: () => this.props.navigation.navigate('Home') }}
             backgroundColor='rgba(250,249,249,0.8)'
           />
 
           <View style={styles.homePageFlex}>
-            <Text style={styles.homePageHeader}>{/*LargeWelcomeText*/}Joseph Hu{/*LargeWelcomeText*/}</Text>
-            <Text style={styles.homePageSubHeader}>{/*DescriptionText1*/}Photographer and designer.{/*DescriptionText1*/}</Text>
+            <Text style={styles.homePageHeader}>{/*HomeScreenLargeWelcomeText*/}Joseph Hu{/*HomeScreenLargeWelcomeText*/}</Text>
+            <Text style={styles.homePageSubHeader}>{/*HomeScreenDescriptionText*/}Photographer and designer.{/*HomeScreenDescriptionText*/}</Text>
             <Button
               onPress={() => this.props.navigation.navigate('About')}
-              title= /*HomescreenButtonText*/ 'About Me' /*HomescreenButtonText*/
+              title= /*HomeScreenButtonText*/ 'About Me' /*HomeScreenButtonText*/
               outline
               style={styles.homePageButton}
             />
@@ -69,12 +69,12 @@ const styles = StyleSheet.create({
   homePageHeader: {
     fontSize: 70,
     textAlign: 'center',
-    color: /*HomeScreenHeaderColor*/'#FFFFFF' /* HomeScreenHeaderColor*/
+    color: /*HomeScreenLargeWelcomeColor*/'#FFFFFF' /* HomeScreenLargeWelcomeColor*/
   },
   homePageSubHeader: {
     fontSize: 30,
     textAlign: 'center',
-    color: /*HomeScreenSubHeaderColor*/ '#FFFFFF' /*HomeScreenSubHeaderColor*/
+    color: /*HomeScreenDescriptionColor*/ '#FFFFFF' /*HomeScreenDescriptionColor*/
   },
   header: {
     top: 0

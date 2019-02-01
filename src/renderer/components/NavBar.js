@@ -13,7 +13,14 @@ import { connect } from "react-redux";
 // const logo = require(logopath)
 import { HashRouter as Router, Link } from "react-router-dom";
 import Routes from "../routes";
+import { copy } from "fs-extra-p";
 class SideBar extends Component {
+  constructor(props){
+    super(props)
+
+
+  }
+
   render() {
     return (
       <Sidebar.Pushable
@@ -34,7 +41,8 @@ class SideBar extends Component {
 
 
           <Menu.Item as={Link} to='/templates'> Templates </Menu.Item>
-          <Menu.Item as={Link} to='/create'> Create </Menu.Item>
+
+          <Menu.Item onClick= {this.props.createEnabled ? (e)=> true :(e)=>e.preventDefault()} as={Link} to='/create'> Create </Menu.Item>
         </Sidebar>
 
         <Sidebar.Pusher basic="true">
@@ -51,7 +59,8 @@ class SideBar extends Component {
 
 const mapStateToProps = state => {
   return {
-    menuVisible: state.sideBar
+    menuVisible: state.sideBar,
+    createEnabled: state.createStatus
   };
 };
 

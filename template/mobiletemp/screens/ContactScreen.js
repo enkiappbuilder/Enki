@@ -69,20 +69,20 @@ export default class Contact extends React.Component {
 
           {/* start of social view */}
           <View style={styles.social}>
-            <TouchableOpacity onPress={() => Linking.openURL( /*ContactScreenInstagramURL*/ 'https://www.instagram.com/fullstackacademy/' /*ContactScreenInstagramURL*/)}>
+            <TouchableOpacity onPress={() => Linking.openURL( /*ContactScreenInstagramURLText*/ 'https://www.instagram.com/fullstackacademy/' /*ContactScreenInstagramURLText*/)}>
               <SocialIcon
                 type="instagram"
                 href='instagram.com'
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => Linking.openURL( /*ContactScreenTwitterURL*/ 'https://twitter.com/fullstack' /*ContactScreenTwitterURL*/)}>
+            <TouchableOpacity onPress={() => Linking.openURL( /*ContactScreenTwitterURLText*/ 'https://twitter.com/fullstack' /*ContactScreenTwitterURLText*/)}>
               <SocialIcon
                 type="twitter"
               />
             </TouchableOpacity>
 
-            <TouchableOpacity onPress={() => Linking.openURL( /*ContactScreenFacebookURL*/ 'https://www.facebook.com/FullstackAcademy/' /*ContactScreenFacebookURL*/)}>
+            <TouchableOpacity onPress={() => Linking.openURL( /*ContactScreenFacebookURLText*/ 'https://www.facebook.com/FullstackAcademy/' /*ContactScreenFacebookURLText*/)}>
               <SocialIcon
                 type="facebook"
               />
