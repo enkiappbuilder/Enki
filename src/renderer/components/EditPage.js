@@ -27,6 +27,7 @@ class EditPage extends Component {
     this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
+    this.handleColorChange = this.handleColorChange.bind(this)
   }
 
   componentDidMount() {
@@ -36,6 +37,7 @@ class EditPage extends Component {
       })
     })
   }
+
   handleUpload(commentName) {
     ipcRenderer.send('uploadPhoto', commentName)
   }
@@ -48,6 +50,13 @@ class EditPage extends Component {
   handleClick(file) {
     return () => updateText(file, this.state);
   }
+
+  handleColorChange(commentName, color) {
+    console.log('state', this.state)
+    this.props.saveAppDetails({ [commentName]: color })
+    this.setState({ [commentName]: color })
+  }
+
 
   render() {
     return (
@@ -80,7 +89,10 @@ class EditPage extends Component {
 
                 if (field.includes('Color')) {
                   return (
-                    <ColorPicker name={field} />
+                    <ColorPicker
+                      name={field}
+                      handleColorChange={this.handleColorChange}
+                    />
                   )
                 }
 
