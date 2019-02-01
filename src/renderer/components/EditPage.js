@@ -52,7 +52,6 @@ class EditPage extends Component {
   }
 
   handleColorChange(commentName, color) {
-    console.log('state', this.state)
     this.props.saveAppDetails({ [commentName]: color })
     this.setState({ [commentName]: color })
   }

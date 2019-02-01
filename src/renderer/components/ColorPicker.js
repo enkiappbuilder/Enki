@@ -26,7 +26,6 @@ class ColorPicker extends React.Component {
   render() {
     const { name } = this.props;
     const { activeIndex } = this.state
-    console.log('active index', activeIndex === name)
 
     let title = name.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) { return str.toUpperCase(); })
     return (
