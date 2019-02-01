@@ -29,13 +29,13 @@ export default class About extends React.Component {
         <View style={styles.flex}>
           <Image
             style={styles.aboutMeImg}
-            source={{ uri: /*AboutMeImg*/ "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607" /*AboutMeImg*/ }}
+            source={{ uri: /*AboutMeImage*/ "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607" /*AboutMeImage*/ }}
             resizeMode="contain"
             borderRadius={20}
           />
           <View style={styles.textBorder}>
             <Text style={styles.aboutMeHeader}>
-              {/*AboutMeHeader*/} About Me {/*AboutMeHeader*/}
+              {/*AboutMeTitleText*/} About Me {/*AboutMeTitleText*/}
             </Text>
             <Text style={styles.text}>
               {/*AboutMeDescText*/}This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah! {/*AboutMeDescText*/}
@@ -64,10 +64,10 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   textBorder: {
-    borderColor: /*AboutMeTextBorderColor*/ 'blue' /*AboutMeTextBorderColor*/,
+    borderColor: /*AboutMeBorderColor*/ 'blue' /*AboutMeBorderColor*/,
     borderWidth: 1,
     margin: 10,
-    backgroundColor: /*AboutMeTextBackgroundColor*/ '#0e0f0f' /*AboutMeTextBackgroundColor*/
+    backgroundColor: /*AboutMeDescBackgroundColor*/ '#0e0f0f' /*AboutMeDescBackgroundColor*/
   },
   flex: {
     flex: 1,
@@ -80,14 +80,14 @@ const styles = StyleSheet.create({
     margin: 20
   },
   aboutMeHeader: {
-    color: /*AboutMeHeaderTextColor*/ 'white' /*AboutMeHeaderTextColor*/,
+    color: /*AboutMeTitleColor*/ 'white' /*AboutMeTitleColor*/,
     textAlign: 'center',
     fontSize: 35,
     margin: 5
   },
   text: {
     margin: 10,
-    color: /*AboutMeDescTextColor*/ 'white' /*AboutMeDescTextColor*/,
+    color: /*AboutMeDescColor*/ 'white' /*AboutMeDescColor*/,
     textAlign: 'center'
   }
 });

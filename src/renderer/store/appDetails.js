@@ -1,17 +1,72 @@
 const SAVE_APP_DETAILS = "SAVE_APP_DETAILS";
 
 const defaultState = {
-  AppName: "",
-  TitleText1: "",
-  DescriptionText1: "",
-  LargeWelcomeText: "",
-  HomeScreenButtonText: "",
 
+  /*Home Screen*/
+  HomeScreenBackgroundImage: "",
+  HomeScreenHeaderText: "",
+  HomeScreenLargeWelcomeText: "",
+  HomeScreenLargeWelcomeColor: "",
+  HomeScreenDescriptionText: "",
+  HomeScreenDescriptionColor: "",
+  HomeScreenButtonText: "",
+  HomeScreenButtonBackgroundColor: "",
+
+
+  /*Gallery Screen*/
+  GalleryHeaderText: "",
+
+  GalleryTitleText1: "",
+  GalleryDescriptionText1: "",
+  GalleryImage1Path: "",
+
+  GalleryTitleText2: "",
+  GalleryDescriptionText2: "",
+  GalleryImage2Path: "",
+
+  GalleryTitleText3: "",
+  GalleryDescriptionText3: "",
+  GalleryImage3Path: "",
+
+  GalleryTitleText4: "",
+  GalleryDescriptionText4: "",
+  GalleryImage4Path: "",
+
+  GalleryTitleText5: "",
+  GalleryDescriptionText5: "",
+  GalleryImage5Path: "",
+
+  GalleryBackgroundColor: "",
+  GalleryPhotoTitleColor: "",
+  GalleryPhotoDescriptionColor: "",
+
+
+  /*About me Screen*/
+
+  AboutMeBackGroundColor: "",
   AboutMeHeaderText: "",
-  AboutMeImg: "",
-  AboutMeHeader: "",
+  AboutMeImage: "",
+  AboutMeTitleText: "",
+  AboutMeTitleColor: "",
   AboutMeDescText: "",
-  AboutMeButtonText: ""
+  AboutMeDescColor: "",
+  AboutMeDescBackgroundColor: "",
+  AboutMeBorderColor: "",
+  AboutMeButtonText: "",
+  AboutMeButtonBackgroundColor: "",
+
+  /*Contact me Screen*/
+
+  ContactScreenHeaderText: "",
+  ContactScreenInstagramURLText: "",
+  ContactScreenTwitterURLText: "",
+  ContactScreenFacebookURLText: "",
+  ContactScreenMainText: "",
+  FormMessageText: "",
+
+  ContactScreenSubmitButtonBackgroundColor: "",
+  ContactScreenBackgroundColor: "",
+
 };
 
 export const saveAppDetails = details => {
@@ -21,7 +76,7 @@ export const saveAppDetails = details => {
   };
 };
 
-export default function(state = defaultState, action) {
+export default function (state = defaultState, action) {
   switch (action.type) {
     case SAVE_APP_DETAILS:
       return { ...state, ...action.details };
