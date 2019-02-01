@@ -15,7 +15,8 @@ import phone from "./phone.png";
 import { updateText } from "../../functions/rewrite";
 import {connect} from 'react-redux'
 import {saveAppDetails} from '../store/appDetails'
-import AppPreview from "./MobileHomepageView";
+import HomePreview from "./MobileHomepageView";
+import AboutPreview from "./MobileAboutMeView";
 
 class EditPage extends Component {
   constructor(props) {
@@ -70,7 +71,12 @@ class EditPage extends Component {
                 </Card.Content>
               </Card> */}
               <Card style={{height:'60vh', display: 'flex'}}>
-              <AppPreview/>
+              <HomePreview/>
+              
+              </Card>
+              <Card style={{height:'60vh', display: 'flex'}}>
+
+              <AboutPreview/>
               </Card>
 
             </Grid.Column>

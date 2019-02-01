@@ -4,7 +4,7 @@ import {Container, Image, Button, Text, Header, Form, Menu, Item} from 'semantic
 import myImg from '../../../copyOfProject/assets/images/sampleImages/ice.jpg'
 
 
-const AppPreview = () => {
+const HomePreview = () => {
   return (
     <Container style={ {
       // display:'flex',
@@ -33,7 +33,7 @@ const AppPreview = () => {
         <p style={styles.homePageHeader}>{/*LargeWelcomeText*/}Joseph Hu{/*LargeWelcomeText*/}</p>
         <p style={styles.homePageSubHeader}>{/*DescriptionText1*/}Photographer and designer.{/*DescriptionText1*/}</p>
         <Button
-          onPress={() => this.props.navigation.navigate('About')}
+          // onPress={() => this.props.navigation.navigate('About')}
           content= /*HomescreenButtonText*/ 'About Me' /*HomescreenButtonText*/
           inverted
           style={styles.homePageButton}
@@ -82,4 +82,4 @@ const styles = {
   }
 };
 
-export default AppPreview
+export default HomePreview
