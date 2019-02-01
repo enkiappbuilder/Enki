@@ -3,7 +3,11 @@ import EditPage from "./EditPage";
 const { ipcRenderer } = window.require('electron')
 import {showSideBar} from '../store/sideBar'
 import {connect} from 'react-redux'
-class LandingPage extends Component {
+
+const homeDetails = ['AppName', 'HomeScreenButtonText', 'DescriptionText1', 'LargeWelcomeText']
+const galleryDetails = []
+const aboutDetails = ['AboutMeHeaderText', 'AboutMeImg', 'AboutMeHeader', 'AboutMeDescText', 'AboutMeButtonText']
+class CreatePage extends Component {
   constructor() {
     super()
     this.handleExport = this.handleExport.bind(this)
@@ -25,7 +29,10 @@ class LandingPage extends Component {
     return (
       <div>
         <h1> HERE IS WHERE YOU'LL CUSTOMIZE YOUR APP! </h1>
-        <EditPage/>
+        <EditPage page='Home' details={homeDetails}/>
+        <EditPage page='Gallery' details={galleryDetails}/>
+        <EditPage page='About' details={aboutDetails}/>
+        
         <button onClick ={() => this.handleUpload("screens/HomeScreen.js", 'ImagePath')}>Click to upload Photo
               </button>
         <button onClick={this.handleExport}>export files, yeah!</button>
@@ -40,4 +47,4 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null,mapDispatchToProps)(LandingPage);
+export default connect(null,mapDispatchToProps)(CreatePage);

@@ -13,14 +13,14 @@ import {
 import Forms from "./Forms";
 import phone from "./phone.png";
 import { updateText } from "../../functions/rewrite";
+import {connect} from 'react-redux'
+import {saveAppDetails} from '../store/appDetails'
+
 class EditPage extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
-      AppName: "",
-      TitleText1: "",
-      DescriptionText1: "",
-      WelcomeText: ""
+      ...this.props.appDetails
     };
     // this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this);
@@ -32,6 +32,7 @@ class EditPage extends Component {
 
   handleChange(event, { value, name }) {
     this.setState({ [name]: value });
+    this.props.saveAppDetails(this.state)
   }
 
   handleClick(file, location, text) {
@@ -41,30 +42,20 @@ class EditPage extends Component {
   render() {
     return (
       <>
-        <Header> Edit Your Mobile App </Header>
+        <Header> Edit Your {this.props.page} Page </Header>
         <Segment>
           <Grid columns={2} relaxed="very" celled="internally">
             <Grid.Column>
-              <Forms
+              {Object.keys(this.state).filter(field => this.props.details.includes(field)).map(field => {
+                return (
+                  <Forms
                 handleChange={this.handleChange}
-                state={this.state}
-                name="AppName"
+                upState={this.state}
+                name={field}
+                value={this.state[field]}
               />
-              <Forms
-                handleChange={this.handleChange}
-                state={this.state}
-                name="TitleText1"
-              />
-              <Forms
-                handleChange={this.handleChange}
-                state={this.state}
-                name="DescriptionText1"
-              />
-              <Forms
-                handleChange={this.handleChange}
-                state={this.state}
-                name="WelcomeText"
-              />
+                )
+              })}
             </Grid.Column>
 
             <Grid.Column>
@@ -77,6 +68,7 @@ class EditPage extends Component {
                   <Card.Description>{this.state.WelcomeText}</Card.Description>
                 </Card.Content>
               </Card>
+
             </Grid.Column>
           </Grid>
 
@@ -85,9 +77,7 @@ class EditPage extends Component {
 
         <Button
           onClick={this.handleClick(
-            "../../copyOfProject/screens/HomeScreen.js",
-            "AppName",
-            "changedsafasfasafa things"
+            `../../copyOfProject/screens/${this.props.page}Screen.js`,
           )}
         >
           Save To Mobile App
@@ -96,5 +86,16 @@ class EditPage extends Component {
     );
   }
 }
+const mapStateToProps = state => {
+  return {
+    appDetails: state.appDetails
+  }
+}
 
-export default EditPage;
+const mapDispatchToProps = dispatch => {
+  return {
+    saveAppDetails : (details) => dispatch(saveAppDetails(details))
+  }
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(EditPage);

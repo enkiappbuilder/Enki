@@ -4,9 +4,9 @@ import {updateText} from '../../functions/rewrite'
 
 const Forms = (props) => {
   const {  handleChange, upState, name } = props;
-
+console.log('upState:', upState);
   let title = name.replace(/([A-Z])/g, ' $1').replace(/^./, function(str){ return str.toUpperCase(); })
-  let state = {...upState}
+
 
 
   return(
@@ -16,7 +16,7 @@ const Forms = (props) => {
         <Form.Input 
         placeholder='change this text'
         name={name}
-        value={state.appName}
+        value={upState[name]}
         onChange={handleChange}/>
       </Form.Field>
 
