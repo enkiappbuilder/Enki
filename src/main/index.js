@@ -96,20 +96,25 @@ ipcMain.on('uploadPhoto', (event, commentName) => uploadNewPhoto(event, commentN
 export function uploadNewPhoto(event, commentName) {
 
   const pathToImage = dialog.showOpenDialog(mainWindow)
-  const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
-  const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
 
-  // copying image to assets folder
-  fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
-    function (err) {
-      if (err) {
-        console.error(err)
-      } else {
-        console.log('success!')
-      }
-    })
+  if (pathToImage) {
+    const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
+    const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
 
-  event.sender.send('photo-response', mobileTempAssets, commentName)
+    // copying image to assets folder
+    fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
+      function (err) {
+        if (err) {
+          console.error(err)
+        } else {
+          console.log('success!')
+        }
+      })
+
+    event.sender.send('photo-response', mobileTempAssets, commentName)
+
+  }
+
 
 }
 
