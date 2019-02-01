@@ -45,19 +45,19 @@ class SubMenu extends Component {
           visible={this.props.menuVisible}
           width="thin"
         >
-          <Menu.Item as={Link} to="/">
+          <Menu.Item >
             Home Page
           </Menu.Item>
-          <Menu.Item as={Link} to="/">
+          <Menu.Item >
             Gallery
           </Menu.Item>
-          <Menu.Item as={Link} to="/">
+          <Menu.Item >
             About
           </Menu.Item>
-          <Menu.Item as={Link} to="/">
+          <Menu.Item >
             Contact
           </Menu.Item>
-          <Menu.Item as={Link} to="/">
+          <Menu.Item >
             Need help?
           </Menu.Item>
           <Menu.Item >
