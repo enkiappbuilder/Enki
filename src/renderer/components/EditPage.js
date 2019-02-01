@@ -11,6 +11,8 @@ import {
   Image
 } from "semantic-ui-react";
 import Forms from "./Forms";
+import UploadImage from "./UploadImageFormButton"
+import ColorPicker from "./ColorPicker"
 import phone from "./phone.png";
 import { updateText } from "../../functions/rewrite";
 import { connect } from 'react-redux'
@@ -26,17 +28,24 @@ class EditPage extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
   }
-  handleUpload(fileName, location) {
-    ipcRenderer.send('uploadPhoto', fileName, location)
+
+  componentDidMount() {
+    ipcRenderer.on('photo-response', (event, photoPath, commentName) => {
+      this.setState({
+        [commentName]: photoPath
+      })
+    })
+  }
+  handleUpload(commentName) {
+    ipcRenderer.send('uploadPhoto', commentName)
   }
 
   handleChange(event, { value, name }) {
-    console.log('name: ', name, 'value: ', value)
     this.setState({ [name]: value });
     this.props.saveAppDetails(this.state)
   }
 
-  handleClick(file, location, text) {
+  handleClick(file) {
     return () => updateText(file, this.state);
   }
 
@@ -47,15 +56,34 @@ class EditPage extends Component {
         <Segment>
           <Grid columns={2} relaxed="very" celled="internally">
             <Grid.Column>
+
               {Object.keys(this.state).filter(field => this.props.details.includes(field)).map(field => {
-                return (
-                  <Forms
-                    handleChange={this.handleChange}
-                    upState={this.state}
-                    name={field}
-                    value={this.state[field]}
-                  />
-                )
+
+                if (field.includes('Text')) {
+                  return (
+                    <Forms
+                      handleChange={this.handleChange}
+                      upState={this.state}
+                      name={field}
+                      value={this.state[field]}
+                    />
+                  )
+                }
+
+                if (field.includes('Image')) {
+                  return (
+                    <UploadImage
+                      name={field}
+                      handleUpload={this.handleUpload} />
+                  )
+                }
+
+                if (field.includes('Color')) {
+                  return (
+                    <ColorPicker name={field} />
+                  )
+                }
+
               })}
             </Grid.Column>
 
