@@ -5,12 +5,12 @@ import TemplateContainer from './TemplateContainer'
 import ice from './image/ice.jpg'
 import {showSideBar} from '../store/sideBar'
 import {connect} from 'react-redux'
-
 import {chooseTemplate} from '../store/templateChoice'
-
 import ModalPreview from './PreviewModal'
 import copy from '../../functions/fsCopy.js'
+import { enableCreate } from "../store/createStatus";
 
+const fs = require('fs-extra')
 class Templates extends Component {
   constructor(props) {
     super(props)
@@ -23,7 +23,10 @@ class Templates extends Component {
   componentDidMount(){
     this.props.showSideBar()
   }
+
+
   render() {
+
     return (
       <div style={{ backgroundColor: '#D1FFD7', maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
 
@@ -145,7 +148,8 @@ class Templates extends Component {
 const mapDispatchToProps = dispatch => {
   return {
     showSideBar: () => dispatch(showSideBar()),
-    chooseTemplate: (type) => dispatch(chooseTemplate(type))
+    chooseTemplate: (type) => dispatch(chooseTemplate(type)),
+    enableCreate: () => dispatch(enableCreate())
   }
 }
 
