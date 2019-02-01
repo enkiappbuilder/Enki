@@ -9,5 +9,5 @@ const copy = (location) => fs.copy(path.join(__dirname, location), './copyOfProj
     console.log('success!')
   }
 })
-// '../../template/mobiletemp'
+
 export default copy
