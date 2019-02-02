@@ -51,7 +51,6 @@ class SubMenu extends Component {
     }
   }
   render() {
-    console.log('MENU OPTIONS', this.props)
     return (
       <Sidebar.Pushable
         as={Segment}

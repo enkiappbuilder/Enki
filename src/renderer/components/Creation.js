@@ -61,7 +61,6 @@ class CreatePage extends Component {
 
   componentDidMount() {
     this.props.showSideBar()
-    console.log('POOOOP', this.props)
   }
 
   handleChange () {
@@ -80,7 +79,6 @@ class CreatePage extends Component {
   }
   render() {
     const {pageView} = this.props
-    console.log('CURRENT VIEW', pageView)
     return (
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
         <Button color = 'green' onClick={()=>this.handleChange()}>Start Customizing!</Button>
