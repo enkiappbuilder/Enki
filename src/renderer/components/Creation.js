@@ -61,6 +61,7 @@ class CreatePage extends Component {
 
   componentDidMount() {
     this.props.showSideBar()
+    console.log('POOOOP', this.props)
   }
 
   handleChange () {
@@ -81,6 +82,9 @@ class CreatePage extends Component {
     return (
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
         <Button color = 'green' onClick={()=>this.handleChange()}>Start Customizing!</Button>
+        {
+
+        }
         <EditPage page='Home' details={homeDetails} />
         <EditPage page='Gallery' details={galleryDetails} />
         <EditPage page='About' details={aboutDetails} />
@@ -97,7 +101,8 @@ class CreatePage extends Component {
 const mapStateToProps = state => {
   return {
     menuVisible: state.subMenu,
-    createEnabled: state.createStatus
+    createEnabled: state.createStatus,
+    pageView: state.subMenuNav
   };
 };
 

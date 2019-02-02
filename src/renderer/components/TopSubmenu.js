@@ -32,6 +32,23 @@ class SubMenu extends Component {
       this.props.hideMenu()
     }
   }
+
+  subMenuNav (menuoption) {
+    switch(menuoption){
+      case 'home':
+        this.props.showHome()
+      case 'about':
+        this.props.showAbout()
+      case 'gallery':
+        this.props.showGallery()
+      case 'contact':
+        this.props.showContact
+      case 'help':
+        this.props.showHelp()
+      default:
+        return null
+    }
+  }
   render() {
     return (
       <Sidebar.Pushable
@@ -46,19 +63,19 @@ class SubMenu extends Component {
           visible={this.props.menuVisible}
           width="thin"
         >
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.subMenuNav('home')}>
             Home Page
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.subMenuNav('gallery')}>
             Gallery
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.subMenuNav('about')}>
             About
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.subMenuNav('contact')}>
             Contact
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.subMenuNav('help')}>
             Need help?
           </Menu.Item>
           <Menu.Item >
