@@ -6,19 +6,40 @@ const SHOW_CONTACT = "SHOW_CONTACT"
 const SHOW_HELP = "SHOW_HELP"
 
 //action creators
-export const showMENU = () => {
+export const showHome = () => {
   return {
-    type: SHOW_MENU_BAR,
-    menuVisible: true
+    type: SHOW_HOME,
+    currentPage: "home"
   };
 };
 
-export const hideMenu = () => {
+export const showGallery = () => {
   return {
-    type: HIDE_MENU_BAR,
-    menuVisible: false
+    type: SHOW_GALLERY,
+    currentPage: "gallery"
   };
 };
+
+export const showAbout = () => {
+  return {
+    type: SHOW_ABOUT,
+    currentPage: "about"
+  }
+}
+
+export const showContact = () => {
+  return {
+    type: SHOW_CONTACT,
+    currentPage: "contact"
+  }
+}
+
+export const showHelp = () => {
+  return {
+    type: SHOW_HELP,
+    currentPage: "help"
+  }
+}
 
 export default function(state = false, action) {
   switch (action.type) {
