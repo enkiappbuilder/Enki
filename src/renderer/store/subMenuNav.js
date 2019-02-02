@@ -41,12 +41,18 @@ export const showHelp = () => {
   }
 }
 
-export default function(state = false, action) {
+export default function(state = "home", action) {
   switch (action.type) {
-    case SHOW_MENU_BAR:
-      return action.menuVisible;
-    case HIDE_MENU_BAR:
-      return action.menuVisible;
+    case SHOW_HOME:
+      return action.currentPage;
+    case SHOW_ABOUT:
+      return action.currentPage;
+    case SHOW_CONTACT:
+      return action.currentPage;
+    case SHOW_GALLERY:
+      return action.currentPage;
+    case SHOW_HELP:
+      return action.currentPage;
     default:
       return state;
   }
