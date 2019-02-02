@@ -23,9 +23,7 @@ import AboutPreview from "./MobileAboutMeView";
 class EditPage extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      ...this.props.appDetails
-    };
+    this.state = Object.keys(this.props.appDetails).filter(detail => this.props.details.includes(detail)).reduce((newState, detail) => {newState[detail] = this.props.appDetails[detail]; return newState}, {})
     this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -43,14 +41,16 @@ class EditPage extends Component {
   handleUpload(commentName) {
     ipcRenderer.send('uploadPhoto', commentName)
   }
-
+  componentWillUnmount(){
+    this.props.saveAppDetails(this.state)
+  }
   handleChange(event, { value, name }) {
-    this.props.saveAppDetails({[name]:value})
+    
     this.setState({ [name]: value });
   }
 
   handleClick(file) {
-    return () => updateText(file, this.state);
+    return () => updateText(file, this.props.appDetails);
   }
 
   handleColorChange(commentName, color) {
@@ -60,9 +60,11 @@ class EditPage extends Component {
 
 
   render() {
+    console.log('this.state:', this.state);
+
     let Preview
-    if(this.props.page === 'Home') Preview = <HomePreview/>
-    if(this.props.page === 'About') Preview = <AboutPreview/>
+    if(this.props.page === 'Home') Preview = <HomePreview appDetails={this.state}/>
+    if(this.props.page === 'About') Preview = <AboutPreview appDetails={this.state}/>
 
     return (
       <>
