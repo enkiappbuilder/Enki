@@ -15,15 +15,16 @@ import UploadImage from "./UploadImageFormButton"
 import ColorPicker from "./ColorPicker"
 import phone from "./phone.png";
 import { updateText } from "../../functions/rewrite";
-import {connect} from 'react-redux'
-import {saveAppDetails} from '../store/appDetails'
+import { connect } from 'react-redux'
+import { saveAppDetails } from '../store/appDetails'
 import HomePreview from "./MobileHomepageView";
 import AboutPreview from "./MobileAboutMeView";
+import ContactPreview from "./MobileContactMeView"
 
 class EditPage extends Component {
   constructor(props) {
     super(props);
-    this.state = Object.keys(this.props.appDetails).filter(detail => this.props.details.includes(detail)).reduce((newState, detail) => {newState[detail] = this.props.appDetails[detail]; return newState}, {})
+    this.state = Object.keys(this.props.appDetails).filter(detail => this.props.details.includes(detail)).reduce((newState, detail) => { newState[detail] = this.props.appDetails[detail]; return newState }, {})
     this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this);
     this.handleClick = this.handleClick.bind(this);
@@ -41,11 +42,11 @@ class EditPage extends Component {
   handleUpload(commentName) {
     ipcRenderer.send('uploadPhoto', commentName)
   }
-  componentWillUnmount(){
+  componentWillUnmount() {
     this.props.saveAppDetails(this.state)
   }
   handleChange(event, { value, name }) {
-    
+
     this.setState({ [name]: value });
   }
 
@@ -63,8 +64,9 @@ class EditPage extends Component {
     console.log('this.state:', this.state);
 
     let Preview
-    if(this.props.page === 'Home') Preview = <HomePreview appDetails={this.state}/>
-    if(this.props.page === 'About') Preview = <AboutPreview appDetails={this.state}/>
+    if (this.props.page === 'Home') Preview = <HomePreview appDetails={this.state} />
+    if (this.props.page === 'About') Preview = <AboutPreview appDetails={this.state} />
+    if (this.props.page === 'Contact') Preview = <ContactPreview appDetails={this.state} />
 
     return (
       <>
@@ -82,6 +84,7 @@ class EditPage extends Component {
                       upState={this.state}
                       name={field}
                       value={this.state[field]}
+                      key={field}
                     />
                   )
                 }
@@ -90,7 +93,10 @@ class EditPage extends Component {
                   return (
                     <UploadImage
                       name={field}
-                      handleUpload={this.handleUpload} />
+                      handleUpload={this.handleUpload}
+                      key={field}
+                    />
+
                   )
                 }
 
@@ -99,6 +105,7 @@ class EditPage extends Component {
                     <ColorPicker
                       name={field}
                       handleColorChange={this.handleColorChange}
+                      key={field}
                     />
                   )
                 }
@@ -107,19 +114,10 @@ class EditPage extends Component {
             </Grid.Column>
 
             <Grid.Column>
-              {/* <Card>
-                <Header textAlign="center"> {this.state.AppName}</Header>
-                <Image src={phone} />
-                <Card.Content>
-                  <Card.Header>{this.state.TitleText1}</Card.Header>
-                  <Card.Meta>{this.state.DescriptionText1}</Card.Meta>
-                  <Card.Description>{this.state.WelcomeText}</Card.Description>
-                </Card.Content>
-              </Card> */}
 
-              <Card style={{height:'60vh', display: 'flex'}}>
-              {Preview}
-              
+              <Card style={{ height: '60vh', display: 'flex' }}>
+                {Preview}
+
               </Card>
 
 
