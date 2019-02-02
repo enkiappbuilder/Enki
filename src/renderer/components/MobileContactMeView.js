@@ -1,10 +1,10 @@
 import React from 'react'
-import { connect } from 'react-redux'
 import { Container, Button, Form, Menu } from 'semantic-ui-react'
 import { SocialIcon } from 'react-social-icons'
 
 const ContactPreview = (props) => {
   const { appDetails } = props;
+  console.log('props', props)
   return (
     <Container style={{
       flex: 1,
@@ -19,9 +19,6 @@ const ContactPreview = (props) => {
       <Menu
         secondary
         style={{ color: '#132029', backgroundColor: 'rgba(250,249,249,0.8)' }}
-        rightComponent={{ icon: 'home', color: '#132029', onPress: () => this.props.navigation.navigate('Home') }}
-
-
       >
         <Menu.Item position='left' icon='sidebar' />
         <Menu.Item >{appDetails.ContactScreenHeaderText || 'Header Text'}</Menu.Item>
@@ -93,7 +90,6 @@ const styles = {
   container: {
     flex: 1,
     color: '#fff',
-    backgroundImage: myImg,
     backgroundSize: 'cover',
     overflow: 'hidden',
     width: '100%',
@@ -103,10 +99,4 @@ const styles = {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    appDetails: state.appDetails
-  }
-}
-
-export default connect(mapStateToProps)(ContactPreview)
+export default ContactPreview

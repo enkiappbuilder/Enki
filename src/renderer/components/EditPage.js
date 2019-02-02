@@ -66,6 +66,7 @@ class EditPage extends Component {
     let Preview
     if (this.props.page === 'Home') Preview = <HomePreview appDetails={this.state} />
     if (this.props.page === 'About') Preview = <AboutPreview appDetails={this.state} />
+    if (this.props.page === 'Contact') Preview = <ContactPreview appDetails={this.state} />
 
     return (
       <>
@@ -83,6 +84,7 @@ class EditPage extends Component {
                       upState={this.state}
                       name={field}
                       value={this.state[field]}
+                      key={field}
                     />
                   )
                 }
@@ -91,7 +93,10 @@ class EditPage extends Component {
                   return (
                     <UploadImage
                       name={field}
-                      handleUpload={this.handleUpload} />
+                      handleUpload={this.handleUpload}
+                      key={field}
+                    />
+
                   )
                 }
 
@@ -100,6 +105,7 @@ class EditPage extends Component {
                     <ColorPicker
                       name={field}
                       handleColorChange={this.handleColorChange}
+                      key={field}
                     />
                   )
                 }
@@ -108,15 +114,6 @@ class EditPage extends Component {
             </Grid.Column>
 
             <Grid.Column>
-              {/* <Card>
-                <Header textAlign="center"> {this.state.AppName}</Header>
-                <Image src={phone} />
-                <Card.Content>
-                  <Card.Header>{this.state.TitleText1}</Card.Header>
-                  <Card.Meta>{this.state.DescriptionText1}</Card.Meta>
-                  <Card.Description>{this.state.WelcomeText}</Card.Description>
-                </Card.Content>
-              </Card> */}
 
               <Card style={{ height: '60vh', display: 'flex' }}>
                 {Preview}

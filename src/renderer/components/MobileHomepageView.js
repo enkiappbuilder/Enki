@@ -20,11 +20,7 @@ const HomePreview = (props) => {
 
       <Menu
         secondary
-        // leftComponent={<Hamburger navigationProps={this.props.navigation} />}
         style={{ color: '#132029', backgroundColor: 'rgba(250,249,249,0.8)' }}
-        rightComponent={{ icon: 'home', color: '#132029', onPress: () => this.props.navigation.navigate('Home') }}
-
-
       >
         <Menu.Item position='left' icon='sidebar' />
         <Menu.Item >{appDetails.HomeScreenHeaderText || 'Header Text'}</Menu.Item>
