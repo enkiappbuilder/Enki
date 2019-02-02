@@ -28,7 +28,7 @@ class Templates extends Component {
   render() {
 
     return (
-      <div style={{ backgroundColor: '#D1FFD7', maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
+      <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
 
       <Container style={styles.containerStyle}>
         <Header style={styles.subHeaderStyle}>Choose a template</Header>
@@ -68,70 +68,7 @@ class Templates extends Component {
               </Item>
               <text style = {styles.mobileTitle}>Artists</text>
             </Item.Group>
-            <Item.Group>
-              <Item>
-                <Item.Image size='medium' src = {ice}/>
-                <Item.Content>
-                  <Item.Header>
-                    Artists
-                  </Item.Header>
-                  <Item.Description>
-                  This is some description for the user
-                    This is some description for the user
-                    This is some description for the user
-                    This is some description for the user
-                    v
-                    v
-                    This is some description for the user
 
-                    WOWOOWOOAWROWOWOAGafsja
-
-                    ]ldsajgkjgha
-
-                    gagjsdkjg
-                  </Item.Description>
-                  <div style ={{display: 'flex', justifyContent: 'right'}}>
-                  <Link to='/create'>
-                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
-              </Link>
-                <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
-              </div>
-                </Item.Content>
-              </Item>
-              <text style = {styles.mobileTitle}>Artists</text>
-            </Item.Group>
-            <Item.Group>
-              <Item>
-                <Item.Image size='medium' src = {ice}/>
-                <Item.Content>
-                  <Item.Header>
-                    Artists
-                  </Item.Header>
-                  <Item.Description>
-                  This is some description for the user
-                    This is some description for the user
-                    This is some description for the user
-                    This is some description for the user
-                    v
-                    v
-                    This is some description for the user
-
-                    WOWOOWOOAWROWOWOAGafsja
-
-                    ]ldsajgkjgha
-
-                    gagjsdkjg
-                  </Item.Description>
-                  <div style ={{display: 'flex', justifyContent: 'right'}}>
-                  <Link to='/create'>
-                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
-              </Link>
-                <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
-              </div>
-                </Item.Content>
-              </Item>
-              <text style = {styles.mobileTitle}>Artists</text>
-            </Item.Group>
           </Grid.Column>
 
             <Link to='/create'>
