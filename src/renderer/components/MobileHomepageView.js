@@ -84,10 +84,4 @@ const styles = {
   }
 };
 
-const mapStateToProps = state => {
-  return {
-    appDetails: state.appDetails
-  }
-}
-
-export default connect(mapStateToProps)(HomePreview)
+export default HomePreview
