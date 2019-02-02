@@ -15,10 +15,11 @@ import UploadImage from "./UploadImageFormButton"
 import ColorPicker from "./ColorPicker"
 import phone from "./phone.png";
 import { updateText } from "../../functions/rewrite";
-import {connect} from 'react-redux'
-import {saveAppDetails} from '../store/appDetails'
+import { connect } from 'react-redux'
+import { saveAppDetails } from '../store/appDetails'
 import HomePreview from "./MobileHomepageView";
 import AboutPreview from "./MobileAboutMeView";
+import ContactPreview from "./MobileContactMeView"
 
 class EditPage extends Component {
   constructor(props) {
@@ -45,7 +46,7 @@ class EditPage extends Component {
   }
 
   handleChange(event, { value, name }) {
-    this.props.saveAppDetails({[name]:value})
+    this.props.saveAppDetails({ [name]: value })
     this.setState({ [name]: value });
   }
 
@@ -61,8 +62,9 @@ class EditPage extends Component {
 
   render() {
     let Preview
-    if(this.props.page === 'Home') Preview = <HomePreview/>
-    if(this.props.page === 'About') Preview = <AboutPreview/>
+    if (this.props.page === 'Home') Preview = <HomePreview />
+    if (this.props.page === 'About') Preview = <AboutPreview />
+    if (this.props.page === 'Contact') Preview = <ContactPreview />
 
     return (
       <>
@@ -115,9 +117,9 @@ class EditPage extends Component {
                 </Card.Content>
               </Card> */}
 
-              <Card style={{height:'60vh', display: 'flex'}}>
-              {Preview}
-              
+              <Card style={{ height: '60vh', display: 'flex' }}>
+                {Preview}
+
               </Card>
 
 
