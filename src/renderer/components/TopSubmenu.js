@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import { HashRouter as Router, Link } from "react-router-dom";
 import { showMENU, hideMenu } from "../store/subMenu";
 import Creation from './Creation'
+import { showHome, showAbout, showContact, showGallery, showHelp } from "../store/subMenuNav";
 
 
 class SubMenu extends Component {
@@ -80,14 +81,20 @@ class SubMenu extends Component {
 const mapStateToProps = state => {
   return {
     menuVisible: state.subMenu,
-    createEnabled: state.createStatus
+    createEnabled: state.createStatus,
+    pageView: state.subMenuNav
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     showMENU: () => dispatch(showMENU()),
-    hideMenu: () => dispatch(hideMenu())
+    hideMenu: () => dispatch(hideMenu()),
+    showHome: () => dispatch(showHome()),
+    showAbout: () => dispatch(showAbout()),
+    showContact: () => dispatch(showContact()),
+    showGallery: () => dispatch(showGallery()),
+    showHelp: () => dispatch(showHelp())
   }
 }
 
