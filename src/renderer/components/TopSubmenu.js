@@ -23,6 +23,7 @@ class SubMenu extends Component {
     super(props)
 
     this.handleChange = this.handleChange.bind(this)
+    this.subMenuNav = this.subMenuNav.bind(this)
   }
 
   handleChange () {
@@ -42,7 +43,7 @@ class SubMenu extends Component {
       case 'gallery':
         this.props.showGallery()
       case 'contact':
-        this.props.showContact
+        this.props.showContact()
       case 'help':
         this.props.showHelp()
       default:
@@ -50,6 +51,7 @@ class SubMenu extends Component {
     }
   }
   render() {
+    console.log('MENU OPTIONS', this.props)
     return (
       <Sidebar.Pushable
         as={Segment}
@@ -63,19 +65,19 @@ class SubMenu extends Component {
           visible={this.props.menuVisible}
           width="thin"
         >
-          <Menu.Item onClick={()=>this.subMenuNav('home')}>
+          <Menu.Item onClick={()=>this.props.showHome()}>
             Home Page
           </Menu.Item>
-          <Menu.Item onClick={()=>this.subMenuNav('gallery')}>
+          <Menu.Item onClick={()=>this.props.showGallery()}>
             Gallery
           </Menu.Item>
-          <Menu.Item onClick={()=>this.subMenuNav('about')}>
+          <Menu.Item onClick={()=>this.props.showAbout()}>
             About
           </Menu.Item>
-          <Menu.Item onClick={()=>this.subMenuNav('contact')}>
+          <Menu.Item onClick={()=>this.props.showContact()}>
             Contact
           </Menu.Item>
-          <Menu.Item onClick={()=>this.subMenuNav('help')}>
+          <Menu.Item onClick={()=>this.props.showHelp()}>
             Need help?
           </Menu.Item>
           <Menu.Item >
@@ -86,7 +88,7 @@ class SubMenu extends Component {
         <Sidebar.Pusher basic="true">
 
             <Router>
-              <Creation/>
+              <Creation />
             </Router>
 
         </Sidebar.Pusher>
