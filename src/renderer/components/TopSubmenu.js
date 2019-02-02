@@ -15,6 +15,7 @@ import { connect } from "react-redux";
 import { HashRouter as Router, Link } from "react-router-dom";
 import { showMENU, hideMenu } from "../store/subMenu";
 import Creation from './Creation'
+import { showHome, showAbout, showContact, showGallery, showHelp } from "../store/subMenuNav";
 
 
 class SubMenu extends Component {
@@ -22,6 +23,7 @@ class SubMenu extends Component {
     super(props)
 
     this.handleChange = this.handleChange.bind(this)
+    this.subMenuNav = this.subMenuNav.bind(this)
   }
 
   handleChange () {
@@ -31,7 +33,25 @@ class SubMenu extends Component {
       this.props.hideMenu()
     }
   }
+
+  subMenuNav (menuoption) {
+    switch(menuoption){
+      case 'home':
+        this.props.showHome()
+      case 'about':
+        this.props.showAbout()
+      case 'gallery':
+        this.props.showGallery()
+      case 'contact':
+        this.props.showContact()
+      case 'help':
+        this.props.showHelp()
+      default:
+        return null
+    }
+  }
   render() {
+    console.log('MENU OPTIONS', this.props)
     return (
       <Sidebar.Pushable
         as={Segment}
@@ -45,19 +65,19 @@ class SubMenu extends Component {
           visible={this.props.menuVisible}
           width="thin"
         >
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.props.showHome()}>
             Home Page
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.props.showGallery()}>
             Gallery
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.props.showAbout()}>
             About
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.props.showContact()}>
             Contact
           </Menu.Item>
-          <Menu.Item >
+          <Menu.Item onClick={()=>this.props.showHelp()}>
             Need help?
           </Menu.Item>
           <Menu.Item >
@@ -68,7 +88,7 @@ class SubMenu extends Component {
         <Sidebar.Pusher basic="true">
 
             <Router>
-              <Creation/>
+              <Creation />
             </Router>
 
         </Sidebar.Pusher>
@@ -80,14 +100,20 @@ class SubMenu extends Component {
 const mapStateToProps = state => {
   return {
     menuVisible: state.subMenu,
-    createEnabled: state.createStatus
+    createEnabled: state.createStatus,
+    pageView: state.subMenuNav
   };
 };
 
 const mapDispatchToProps = dispatch => {
   return {
     showMENU: () => dispatch(showMENU()),
-    hideMenu: () => dispatch(hideMenu())
+    hideMenu: () => dispatch(hideMenu()),
+    showHome: () => dispatch(showHome()),
+    showAbout: () => dispatch(showAbout()),
+    showContact: () => dispatch(showContact()),
+    showGallery: () => dispatch(showGallery()),
+    showHelp: () => dispatch(showHelp())
   }
 }
 

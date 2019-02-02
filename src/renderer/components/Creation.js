@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EditPage from "./EditPage";
-import {Button} from 'semantic-ui-react'
+import {Button, Container} from 'semantic-ui-react'
 const { ipcRenderer } = window.require('electron')
 import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
@@ -61,6 +61,7 @@ class CreatePage extends Component {
 
   componentDidMount() {
     this.props.showSideBar()
+    console.log('POOOOP', this.props)
   }
 
   handleChange () {
@@ -78,13 +79,26 @@ class CreatePage extends Component {
     ipcRenderer.send('uploadPhoto', fileName, location)
   }
   render() {
+    const {pageView} = this.props
+    console.log('CURRENT VIEW', pageView)
     return (
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
         <Button color = 'green' onClick={()=>this.handleChange()}>Start Customizing!</Button>
-        <EditPage page='Home' details={homeDetails} />
-        <EditPage page='Gallery' details={galleryDetails} />
-        <EditPage page='About' details={aboutDetails} />
-        <EditPage page='Contact' details={contactDetails} />
+        {
+          (pageView === 'home' && <EditPage page='Home' details={homeDetails} />)
+        }
+        {
+          (pageView === 'gallery' && <EditPage page='Gallery' details={galleryDetails} />)
+        }
+        {
+          (pageView === 'about' && <EditPage page='About' details={aboutDetails} />)
+        }
+        {
+          (pageView === 'contact' && <EditPage page='Contact' details={contactDetails} />)
+        }
+        {
+          (pageView === 'help' && <Container><text>UNDER CONSTRUCTION</text></Container>)
+        }
 
         <button onClick={() => this.handleUpload("screens/HomeScreen.js", 'ImagePath')}>Click to upload Photo
               </button>
@@ -97,7 +111,8 @@ class CreatePage extends Component {
 const mapStateToProps = state => {
   return {
     menuVisible: state.subMenu,
-    createEnabled: state.createStatus
+    createEnabled: state.createStatus,
+    pageView: state.subMenuNav
   };
 };
 
