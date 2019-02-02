@@ -1,9 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container, Image, Button, Text, Header, Form, Menu, Item } from 'semantic-ui-react'
+import { Container, Button, Form, Menu } from 'semantic-ui-react'
 import { SocialIcon } from 'react-social-icons'
-import myImg from '../../../copyOfProject/assets/images/sampleImages/ice.jpg'
-
 
 const ContactPreview = (props) => {
   const { appDetails } = props;
@@ -20,7 +18,6 @@ const ContactPreview = (props) => {
 
       <Menu
         secondary
-        // leftComponent={<Hamburger navigationProps={this.props.navigation} />}
         style={{ color: '#132029', backgroundColor: 'rgba(250,249,249,0.8)' }}
         rightComponent={{ icon: 'home', color: '#132029', onPress: () => this.props.navigation.navigate('Home') }}
 
@@ -53,7 +50,7 @@ const ContactPreview = (props) => {
           </Form.Field>
         </Form>
         <Button
-          content= /*HomescreenButtonText*/'Submit' /*HomescreenButtonText*/
+          content='Submit'
           inverted
           style={styles.homePageButton}
         />
@@ -68,7 +65,7 @@ const ContactPreview = (props) => {
 
 const styles = {
   homePageButton: {
-    backgroundColor: /*HomeScreenButtonBackgroundColor*/ 'rgba(250,249,249,0.3)' /*HomeScreenButtonBackgroundColor*/,
+    backgroundColor: 'rgba(250,249,249,0.3)',
     marginTop: 15,
     marginBottom: 15
   },
@@ -81,14 +78,14 @@ const styles = {
     fontSize: 35,
     textAlign: 'center',
     margin: 0,
-    color: /*HomeScreenHeaderColor*/'#FFFFFF', /* HomeScreenHeaderColor*/
+    color: '#FFFFFF',
     width: 'auto',
     overflowWrap: 'break-word'
   },
   homePageSubHeader: {
     fontSize: 20,
     textAlign: 'center',
-    color: /*HomeScreenSubHeaderColor*/ '#FFFFFF' /*HomeScreenSubHeaderColor*/
+    color: '#FFFFFF'
   },
   header: {
     top: 0
