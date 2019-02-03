@@ -29,11 +29,9 @@ class ConfirmationPage extends Component {
       <Coverflow
       height ='300'
       displayQuantityOfSide={2}
-      navigation={true}
-      enableScroll={true}
-      clickable={true}
-      active={0}
-      currentFigureScale
+      navigation
+      infiniteScroll
+      enableHeading
       >
         <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
         <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
