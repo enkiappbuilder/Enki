@@ -98,9 +98,6 @@ class CreatePage extends Component {
           (pageView === 'help' && <Container><text>UNDER CONSTRUCTION</text></Container>)
         }
 
-        <button onClick={() => this.handleUpload("screens/HomeScreen.js", 'ImagePath')}>Click to upload Photo
-              </button>
-        <button onClick={this.handleExport}>export files, yeah!</button>
       </div>
     );
   }
