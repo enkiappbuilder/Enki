@@ -23,10 +23,10 @@ class ConfirmationPage extends Component {
   render(){
     console.log('this STATE STATE', this.state)
     return (
-      <>
+      <div>
       <Header> Final Confirmation</Header>
       <Segment color = 'green'>
-      <Coverflow
+      {/* <Coverflow
       height ='300'
       displayQuantityOfSide={2}
       navigation
@@ -36,8 +36,8 @@ class ConfirmationPage extends Component {
         <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
         <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
         <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
-      </Coverflow>
-      <div></div>
+      </Coverflow> */}
+
 
       <button onClick={this.handleExport}>export files, yeah!</button>
       <Button
@@ -48,7 +48,7 @@ class ConfirmationPage extends Component {
           Save To Mobile App
         </Button>
       </Segment>
-      </>
+      </div>
     )
   }
 }
