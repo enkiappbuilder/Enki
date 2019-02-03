@@ -14,7 +14,6 @@ import Forms from "./Forms";
 import UploadImage from "./UploadImageFormButton"
 import ColorPicker from "./ColorPicker"
 import phone from "./phone.png";
-import { updateText } from "../../functions/rewrite";
 import { connect } from 'react-redux'
 import { saveAppDetails } from '../store/appDetails'
 import HomePreview from "./MobileHomepageView";
@@ -27,7 +26,6 @@ class EditPage extends Component {
     this.state = Object.keys(this.props.appDetails).filter(detail => this.props.details.includes(detail)).reduce((newState, detail) => { newState[detail] = this.props.appDetails[detail]; return newState }, {})
     this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this);
-    this.handleClick = this.handleClick.bind(this);
     this.handleColorChange = this.handleColorChange.bind(this)
   }
 
@@ -50,9 +48,7 @@ class EditPage extends Component {
     this.setState({ [name]: value });
   }
 
-  handleClick(file) {
-    return () => updateText(file, this.props.appDetails);
-  }
+
 
   handleColorChange(commentName, color) {
     this.props.saveAppDetails({ [commentName]: color })
@@ -71,7 +67,7 @@ class EditPage extends Component {
     return (
       <>
         <Header> Edit Your {this.props.page} Page </Header>
-        <Segment>
+        <Segment color = 'green'>
           <Grid columns={2} relaxed="very" celled="internally">
             <Grid.Column>
 
@@ -127,13 +123,7 @@ class EditPage extends Component {
 
         </Segment>
 
-        <Button
-          onClick={this.handleClick(
-            `../../copyOfProject/screens/${this.props.page}Screen.js`,
-          )}
-        >
-          Save To Mobile App
-        </Button>
+
       </>
     );
   }

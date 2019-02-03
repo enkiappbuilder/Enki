@@ -1,10 +1,11 @@
 import React, { Component } from "react";
 import EditPage from "./EditPage";
-import {Button, Container} from 'semantic-ui-react'
+import {Button, Container, Header, Segment} from 'semantic-ui-react'
 const { ipcRenderer } = window.require('electron')
 import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
 import { showMENU, hideMenu } from "../store/subMenu"
+import ConfirmationPage from './ConfirmationPage'
 
 // const homeDetails = ['AppName', 'HomeScreenButtonText', 'DescriptionText1', 'LargeWelcomeText']
 // const galleryDetails = []
@@ -54,14 +55,12 @@ const contactDetails = [
 class CreatePage extends Component {
   constructor() {
     super()
-    this.handleExport = this.handleExport.bind(this)
     this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
 
   componentDidMount() {
     this.props.showSideBar()
-    console.log('POOOOP', this.props)
   }
 
   handleChange () {
@@ -71,16 +70,13 @@ class CreatePage extends Component {
       this.props.hideMenu()
     }
   }
-  handleExport() {
-    ipcRenderer.send('exportProject')
-  }
+
   handleUpload(fileName, location) {
 
     ipcRenderer.send('uploadPhoto', fileName, location)
   }
   render() {
     const {pageView} = this.props
-    console.log('CURRENT VIEW', pageView)
     return (
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
         <Button color = 'green' onClick={()=>this.handleChange()}>Start Customizing!</Button>
@@ -97,12 +93,12 @@ class CreatePage extends Component {
           (pageView === 'contact' && <EditPage page='Contact' details={contactDetails} />)
         }
         {
-          (pageView === 'help' && <Container><text>UNDER CONSTRUCTION</text></Container>)
+          (pageView === 'final' && <ConfirmationPage/>)
+        }
+        {
+          (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color = 'red'><text>UNDER CONSTRUCTION</text></Segment></>)
         }
 
-        <button onClick={() => this.handleUpload("screens/HomeScreen.js", 'ImagePath')}>Click to upload Photo
-              </button>
-        <button onClick={this.handleExport}>export files, yeah!</button>
       </div>
     );
   }

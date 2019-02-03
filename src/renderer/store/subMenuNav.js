@@ -4,6 +4,7 @@ const SHOW_GALLERY = "SHOW_GALLERY"
 const SHOW_ABOUT = "SHOW_GALLERY"
 const SHOW_CONTACT = "SHOW_CONTACT"
 const SHOW_HELP = "SHOW_HELP"
+const SHOW_FINAL = "SHOW_FINAL"
 
 //action creators
 export const showHome = () => {
@@ -40,6 +41,12 @@ export const showHelp = () => {
     currentPage: "help"
   }
 }
+export const showFinal = () => {
+  return {
+    type: SHOW_FINAL,
+    currentPage: "final"
+  }
+}
 
 export default function(state = "home", action) {
   switch (action.type) {
@@ -53,6 +60,8 @@ export default function(state = "home", action) {
       return action.currentPage;
     case SHOW_HELP:
       return action.currentPage;
+    case SHOW_FINAL:
+      return action.currentPage
     default:
       return state;
   }

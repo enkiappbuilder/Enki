@@ -15,7 +15,7 @@ import { connect } from "react-redux";
 import { HashRouter as Router, Link } from "react-router-dom";
 import { showMENU, hideMenu } from "../store/subMenu";
 import Creation from './Creation'
-import { showHome, showAbout, showContact, showGallery, showHelp } from "../store/subMenuNav";
+import { showHome, showAbout, showContact, showGallery, showHelp, showFinal } from "../store/subMenuNav";
 
 
 class SubMenu extends Component {
@@ -77,6 +77,9 @@ class SubMenu extends Component {
           <Menu.Item onClick={()=>this.props.showContact()}>
             Contact
           </Menu.Item>
+          <Menu.Item onClick={()=> this.props.showFinal()}>
+            Confirm
+          </Menu.Item>
           <Menu.Item onClick={()=>this.props.showHelp()}>
             Need help?
           </Menu.Item>
@@ -113,7 +116,8 @@ const mapDispatchToProps = dispatch => {
     showAbout: () => dispatch(showAbout()),
     showContact: () => dispatch(showContact()),
     showGallery: () => dispatch(showGallery()),
-    showHelp: () => dispatch(showHelp())
+    showHelp: () => dispatch(showHelp()),
+    showFinal: () => dispatch(showFinal())
   }
 }
 

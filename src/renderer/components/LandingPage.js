@@ -52,10 +52,6 @@ class LandingPage extends Component {
       <div className='landpage' style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: 'hidden' }} >
         <div></div>
         <div style={{ marginTop: '200px' }}>
-          {/* <Image size='small' centered src={corey} ></Image>
-          <Container textAlign='center'>
-            <h1> Enki </h1>
-          </Container> */}
           <div style={{ display: 'flex', justifyContent: 'center', marginTop: '600px' }}>
             <Link to='/templates'>
               <Button size='huge' id="landBut" color='green' style={{ postion: 'absolute', display: "grid", }}>
