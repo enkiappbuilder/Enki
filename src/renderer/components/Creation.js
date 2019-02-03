@@ -5,6 +5,7 @@ const { ipcRenderer } = window.require('electron')
 import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
 import { showMENU, hideMenu } from "../store/subMenu"
+import ConfirmationPage from './ConfirmationPage'
 
 // const homeDetails = ['AppName', 'HomeScreenButtonText', 'DescriptionText1', 'LargeWelcomeText']
 // const galleryDetails = []
@@ -93,6 +94,9 @@ class CreatePage extends Component {
         }
         {
           (pageView === 'contact' && <EditPage page='Contact' details={contactDetails} />)
+        }
+        {
+          (pageView === 'final' && <ConfirmationPage/>)
         }
         {
           (pageView === 'help' && <Container><text>UNDER CONSTRUCTION</text></Container>)

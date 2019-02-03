@@ -18,7 +18,7 @@ class ConfirmationPage extends Component {
       <button onClick={this.handleExport}>export files, yeah!</button>
       <Button
           onClick={this.handleClick(
-            `../../copyOfProject/screens/${this.props.page}Screen.js`,
+            `../../copyOfProject/`,
           )}
         >
           Save To Mobile App
