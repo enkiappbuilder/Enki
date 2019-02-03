@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EditPage from "./EditPage";
-import {Button, Container} from 'semantic-ui-react'
+import {Button, Container, Header, Segment} from 'semantic-ui-react'
 const { ipcRenderer } = window.require('electron')
 import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
@@ -55,7 +55,6 @@ const contactDetails = [
 class CreatePage extends Component {
   constructor() {
     super()
-    this.handleExport = this.handleExport.bind(this)
     this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this)
   }
@@ -71,9 +70,7 @@ class CreatePage extends Component {
       this.props.hideMenu()
     }
   }
-  handleExport() {
-    ipcRenderer.send('exportProject')
-  }
+
   handleUpload(fileName, location) {
 
     ipcRenderer.send('uploadPhoto', fileName, location)
@@ -99,7 +96,7 @@ class CreatePage extends Component {
           (pageView === 'final' && <ConfirmationPage/>)
         }
         {
-          (pageView === 'help' && <Container><text>UNDER CONSTRUCTION</text></Container>)
+          (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color = 'red'><text>UNDER CONSTRUCTION</text></Segment></>)
         }
 
       </div>
