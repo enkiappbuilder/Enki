@@ -1,7 +1,7 @@
 import React from 'react'
 import { connect } from 'react-redux'
 import { Container, Image, Button, Text, Header, Form, Menu, Item } from 'semantic-ui-react'
-import myImg from '../../../copyOfProject/assets/images/sampleImages/ice.jpg'
+import myImg from '../../../template/mobiletemp/assets/images/sampleImages/ice.jpg'
 
 
 const HomePreview = (props) => {
