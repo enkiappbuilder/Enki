@@ -2,6 +2,10 @@ import React, { Component } from "react";
 import { Button, Segment, Header } from 'semantic-ui-react'
 import { connect } from 'react-redux'
 import { updateText } from "../../functions/rewrite";
+import HomePreview from "./MobileHomepageView";
+import AboutPreview from "./MobileAboutMeView";
+import ContactPreview from "./MobileContactMeView"
+import Coverflow from 'react-coverflow'
 
 class ConfirmationPage extends Component {
   constructor(){
@@ -17,11 +21,26 @@ class ConfirmationPage extends Component {
     ipcRenderer.send('exportProject')
   }
   render(){
+    console.log('this STATE STATE', this.state)
     return (
       <>
       <Header> Final Confirmation</Header>
       <Segment color = 'green'>
-      <div>Carousel Placeholder</div>
+      <Coverflow
+      height ='300'
+      displayQuantityOfSide={2}
+      navigation={true}
+      enableScroll={true}
+      clickable={true}
+      active={0}
+      currentFigureScale
+      >
+        <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
+        <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
+        <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
+      </Coverflow>
+      <div></div>
+
       <button onClick={this.handleExport}>export files, yeah!</button>
       <Button
           onClick={this.handleClick(
