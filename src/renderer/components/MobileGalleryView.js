@@ -8,7 +8,7 @@ import {
   CarouselCaption
 } from 'reactstrap'
 
-import 'bootstrap/dist/css/bootstrap.min.css';
+// import 'bootstrap/dist/css/bootstrap.min.css';
 
 const images = [
   {
