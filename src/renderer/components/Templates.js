@@ -28,7 +28,7 @@ class Templates extends Component {
   createTemplate(){
     if(fs.existsSync('./copyOfProject')){
       console.log('PATH EXISTS')
-      alert('Current Project Exists! Redirecting to create Page!')
+      alert('Current Project Exists! Redirecting to create Page! To start another project, please delete in creation page!')
     } else {
       copy('../../template/mobiletemp')
       alert('COPY MADE')
