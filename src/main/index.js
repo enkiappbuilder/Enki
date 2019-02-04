@@ -99,19 +99,20 @@ export function uploadNewPhoto(event, commentName) {
 
   if (pathToImage) {
     const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
-    const mobileTempAssets = `../../copyOfProject/assets/images/${nameOfFile}`
+    const mobileTempAssets = `assets/images/${nameOfFile}`
 
     // copying image to assets folder
-    fs.copyFile(pathToImage[0], path.join(__dirname, mobileTempAssets),
+    fs.copyFile(pathToImage[0], path.join(__dirname, `../../copyOfProject/assets/images/${commentName}.jpg`),
       function (err) {
         if (err) {
           console.error(err)
         } else {
+          console.log('commentName:', commentName);
           console.log('success!')
         }
       })
 
-    event.sender.send('photo-response', mobileTempAssets, commentName)
+    event.sender.send('photo-response', `${mobileTempAssets}`, commentName)
 
   }
 

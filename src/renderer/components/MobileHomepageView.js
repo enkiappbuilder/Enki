@@ -2,12 +2,34 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Container, Image, Button, Text, Header, Form, Menu, Item } from 'semantic-ui-react'
 import myImg from '../../../template/mobiletemp/assets/images/sampleImages/ice.jpg'
-
+import path from 'path'
 
 
 const HomePreview = (props) => {
   const {appDetails}  = props;
+ 
+  let userImg = null
+  console.log('appDetails.HomeScreenBackGroundImage:', appDetails.HomeScreenBackGroundImage);
 
+  // 'assets/images/' || 'assets/images/image.jpg'
+  // let imageToFind = appDetails.HomeScreenBackgroundImage || 
+  let dogs = null
+  if (appDetails.HomeScreenBackgroundImage){
+    // console.log('WHY HERE')
+    dogs = 'HomeScreenBackgroundImage.jpg'
+    console.log('dogs:', dogs);
+    console.log('HI')
+      userImg = require(`../../../copyOfProject/assets/images/${dogs}`)
+    }
+    // '../../../copyOfProject/assets/images/Screen Shot 2019-01-18 at 9.36.46 AM.png'
+   
+      
+
+  console.log('userImg:', userImg);
+  let image = myImg
+  // console.log('dog:', userImg);
+  if(userImg) image = userImg
+  
   const styles = {
     homePageButton: {
       backgroundColor: /*HomeScreenButtonBackgroundColor*/appDetails.HomeScreenButtonBackgroundColor || 'rgba(250,249,249,0.3)' /*HomeScreenButtonBackgroundColor*/
@@ -48,7 +70,7 @@ const HomePreview = (props) => {
       // display:'flex',
       flex: 1,
       color: '#fff',
-      backgroundImage: `url(${myImg})`,
+      backgroundImage: `url(${image})`,
       alignItems: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
