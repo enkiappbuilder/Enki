@@ -20,11 +20,8 @@
     "react-redux": "^6.0.0",
     "react-responsive-carousel": "^3.1.46",
     "react-router-dom": "^4.3.1",
-<<<<<<< HEAD
     "react-social-icons": "^4.1.0",
     "reactstrap": "^7.1.0",
-=======
->>>>>>> master
     "redux": "^4.0.1",
     "redux-logger": "^3.0.6",
     "redux-thunk": "^2.3.0",
