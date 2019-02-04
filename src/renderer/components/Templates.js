@@ -64,7 +64,7 @@ class Templates extends Component {
                     <Item.Header>
                       Artists
                   </Item.Header>
-                    <Item.Description style={{ flexWrap: 'wrap', width: "90%" }}>
+                    <Item.Description style={{ flexWrap: 'wrap', width: "85%" }}>
                       This template contains a homepage that will display the artist's name and short description, also included in this template are a gallery view, an about me, and a contact page.
                   </Item.Description>
                     <div style={{ display: 'flex', justifyContent: 'right' }}>
