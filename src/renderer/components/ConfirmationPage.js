@@ -48,7 +48,6 @@ class ConfirmationPage extends Component {
       <div>
       <Button
           onClick={() => this.handleClick(
-            `../../copyOfProject/`,
           )}
         >
           Save To Mobile App
