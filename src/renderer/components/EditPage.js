@@ -44,7 +44,7 @@ class EditPage extends Component {
     this.props.saveAppDetails(this.state)
   }
   handleChange(event, { value, name }) {
-
+    console.log('yes')
     this.setState({ [name]: value });
   }
 
