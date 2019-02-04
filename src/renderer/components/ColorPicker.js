@@ -29,22 +29,22 @@ class ColorPicker extends React.Component {
 
     let title = name.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) { return str.toUpperCase(); })
     return (
-      <Form style={{ display: 'flex' }}>
-        <Form.Field>
-          <Accordion>
-            <Accordion.Title active={activeIndex === name} index={name} onClick={this.handleClick}>
-              {title}
-              <Icon name='dropdown' />
-            </Accordion.Title>
-            <Accordion.Content active={activeIndex === name}>
-              <CompactPicker onChangeComplete={this.handleChangeComplete} />
-            </Accordion.Content>
-          </Accordion>
+      // <Form style={{ display: 'flex' }}>
+      //   <Form.Field>
+      <Accordion>
+        <Accordion.Title active={activeIndex === name} index={name} onClick={this.handleClick}>
+          {title}
+          <Icon name='dropdown' />
+        </Accordion.Title>
+        <Accordion.Content active={activeIndex === name}>
+          <CompactPicker onChangeComplete={this.handleChangeComplete} />
+        </Accordion.Content>
+      </Accordion>
 
 
-        </Form.Field>
+      // </Form.Field>
 
-      </Form >
+      // </Form >
     )
   }
 
