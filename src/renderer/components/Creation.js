@@ -96,7 +96,7 @@ class CreatePage extends Component {
           (pageView === 'final' && <ConfirmationPage />)
         }
         {
-          (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color='red'><Text>UNDER CONSTRUCTION</Text></Segment></>)
+          (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color='red'><h1>UNDER CONSTRUCTION</h1></Segment></>)
         }
 
       </div>
