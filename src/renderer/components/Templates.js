@@ -77,7 +77,7 @@ class Templates extends Component {
               </div>
                 </Item.Content>
               </Item>
-              <text style = {styles.mobileTitle}>Artists</text>
+              <p style = {styles.mobileTitle}>Artists</p>
             </Item.Group>
 
           </Grid.Column>
