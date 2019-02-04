@@ -34,8 +34,8 @@ class Templates extends Component {
     this.props.showSideBar()
   }
 
-  createTemplate(){
-    if(fs.existsSync('./copyOfProject')){
+  createTemplate() {
+    if (fs.existsSync('./copyOfProject')) {
       console.log('PATH EXISTS')
       alert('Current Project Exists! Redirecting to create Page! To start another project, please delete in creation page!')
     } else {
@@ -64,20 +64,20 @@ class Templates extends Component {
                     <Item.Header>
                       Artists
                   </Item.Header>
-                    <Item.Description style={{ flexWrap: 'wrap' }}>
+                    <Item.Description style={{ flexWrap: 'wrap', width: "90%" }}>
                       This template contains a homepage that will display the artist's name and short description, also included in this template are a gallery view, an about me, and a contact page.
                   </Item.Description>
-              <div style ={{display: 'flex', justifyContent: 'right'}}>
-              <Link to='/create'>
-                <Button onClick={()=>this.createTemplate()}>Link to create template</Button>
-              </Link>
-                  <ModalPreview images={artistTemplatePreview} />
-              </div>
-                </Item.Content>
-              </Item>
-              <p style = {styles.mobileTitle}>Artists</p>
-            </Item.Group>
-          </Grid.Column>
+                    <div style={{ display: 'flex', justifyContent: 'right' }}>
+                      <Link to='/create'>
+                        <Button onClick={() => this.createTemplate()}>Link to create template</Button>
+                      </Link>
+                      <ModalPreview images={artistTemplatePreview} />
+                    </div>
+                  </Item.Content>
+                </Item>
+                <p style={styles.mobileTitle}>Artists</p>
+              </Item.Group>
+            </Grid.Column>
 
             <Link to='/create'>
             </Link>
