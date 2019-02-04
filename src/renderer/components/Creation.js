@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import EditPage from "./EditPage";
-import {Button, Container, Header, Segment} from 'semantic-ui-react'
+import { Button, Container, Header, Segment } from 'semantic-ui-react'
 const { ipcRenderer } = window.require('electron')
 import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
@@ -63,8 +63,8 @@ class CreatePage extends Component {
     this.props.showSideBar()
   }
 
-  handleChange () {
-    if(!this.props.menuVisible){
+  handleChange() {
+    if (!this.props.menuVisible) {
       this.props.showMENU()
     } else {
       this.props.hideMenu()
@@ -76,10 +76,10 @@ class CreatePage extends Component {
     ipcRenderer.send('uploadPhoto', fileName, location)
   }
   render() {
-    const {pageView} = this.props
+    const { pageView } = this.props
     return (
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
-        <Button color = 'green' onClick={()=>this.handleChange()}>Start Customizing!</Button>
+        <Button color='green' onClick={() => this.handleChange()}>Start Customizing!</Button>
         {
           (pageView === 'home' && <EditPage page='Home' details={homeDetails} />)
         }
@@ -93,10 +93,10 @@ class CreatePage extends Component {
           (pageView === 'contact' && <EditPage page='Contact' details={contactDetails} />)
         }
         {
-          (pageView === 'final' && <ConfirmationPage/>)
+          (pageView === 'final' && <ConfirmationPage />)
         }
         {
-          (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color = 'red'><text>UNDER CONSTRUCTION</text></Segment></>)
+          (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color='red'><Text>UNDER CONSTRUCTION</Text></Segment></>)
         }
 
       </div>
