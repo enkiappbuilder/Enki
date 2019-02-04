@@ -75,13 +75,12 @@ class SubMenu extends Component {
             Contact
           </Menu.Item>
           <Menu.Item onClick={()=> this.props.showFinal()}>
-            Confirm
+          <Button color = 'green'>
+            Confirm your changes
+          </Button>
           </Menu.Item>
           <Menu.Item onClick={()=>this.props.showHelp()}>
             Need help?
-          </Menu.Item>
-          <Menu.Item >
-            <Button onClick={()=>this.handleChange()} color = 'green'> Hide Menu</Button>
           </Menu.Item>
           <Menu.Item as={Link} to='/templates'>
             <Button onClick={()=>this.deleteProject()} color = 'red'> DELETE PROJECT </Button>
