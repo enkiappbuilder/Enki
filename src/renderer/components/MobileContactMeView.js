@@ -3,17 +3,32 @@ import { Container, Button, Form, Menu, Image } from 'semantic-ui-react'
 
 const ContactPreview = (props) => {
   const { appDetails } = props;
-  console.log('props', props)
-  return (
-    <Container style={{
+  const styles = {
+    homePageButton: {
+      backgroundColor: appDetails.ContactScreenSubmitButtonBackgroundColor || 'rgba(250,249,249,0.3)',
+      marginTop: 15,
+      marginBottom: 15
+    },
+    homePageHeader: {
+      fontSize: 35,
+      textAlign: 'center',
+      margin: 0,
+      color: '#FFFFFF',
+      width: 'auto',
+      overflowWrap: 'break-word'
+    },
+    container: {
       flex: 1,
       color: '#fff',
-      backgroundColor: '#000000',
+      backgroundColor: appDetails.ContactScreenBackgroundColor || '#000000',
       alignItems: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center'
-    }}>
+    }
+  };
+  return (
+    <Container style={styles.container}>
 
       <Menu
         secondary
@@ -70,43 +85,6 @@ const ContactPreview = (props) => {
   )
 }
 
-const styles = {
-  homePageButton: {
-    backgroundColor: 'rgba(250,249,249,0.3)',
-    marginTop: 15,
-    marginBottom: 15
-  },
-  homePageFlex: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  homePageHeader: {
-    fontSize: 35,
-    textAlign: 'center',
-    margin: 0,
-    color: '#FFFFFF',
-    width: 'auto',
-    overflowWrap: 'break-word'
-  },
-  homePageSubHeader: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#FFFFFF'
-  },
-  header: {
-    top: 0
-  },
-  container: {
-    flex: 1,
-    color: '#fff',
-    backgroundSize: 'cover',
-    overflow: 'hidden',
-    width: '100%',
-    height: '100vh',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat'
-  }
-};
+
 
 export default ContactPreview
