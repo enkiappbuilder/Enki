@@ -23,6 +23,7 @@ const artistTemplatePreview =
 class Templates extends Component {
   constructor(props) {
     super(props)
+    this.createTemplate = this.createTemplate.bind(this)
   }
 
   chooseTemplate(type) {
@@ -31,6 +32,16 @@ class Templates extends Component {
 
   componentDidMount() {
     this.props.showSideBar()
+  }
+
+  createTemplate(){
+    if(fs.existsSync('./copyOfProject')){
+      console.log('PATH EXISTS')
+      alert('Current Project Exists! Redirecting to create Page! To start another project, please delete in creation page!')
+    } else {
+      copy('../../template/mobiletemp')
+      alert('COPY MADE')
+    }
   }
 
 
@@ -56,18 +67,17 @@ class Templates extends Component {
                     <Item.Description style={{ flexWrap: 'wrap' }}>
                       This template contains a homepage that will display the artist's name and short description, also included in this template are a gallery view, an about me, and a contact page.
                   </Item.Description>
-                    <Container style={{ display: 'flex', justifyContent: 'right' }}>
-                      <Link to='/create'>
-                        <Button onClick={() => copy('../../template/mobiletemp')}>Link to create template</Button>
-                      </Link>
-                      <ModalPreview images={artistTemplatePreview} />
-                    </Container>
-                  </Item.Content>
-                </Item>
-                <p style={styles.mobileTitle}>Artists</p>
-              </Item.Group>
-
-            </Grid.Column>
+              <div style ={{display: 'flex', justifyContent: 'right'}}>
+              <Link to='/create'>
+                <Button onClick={()=>this.createTemplate()}>Link to create template</Button>
+              </Link>
+                  <ModalPreview images={artistTemplatePreview} />
+              </div>
+                </Item.Content>
+              </Item>
+              <p style = {styles.mobileTitle}>Artists</p>
+            </Item.Group>
+          </Grid.Column>
 
             <Link to='/create'>
             </Link>
