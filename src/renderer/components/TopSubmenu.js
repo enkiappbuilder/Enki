@@ -38,6 +38,7 @@ class SubMenu extends Component {
 
   deleteProject (){
     try{
+      alert('DELETING PROJECT, press ok to start.')
       rimraf.sync('copyOfProject')
       alert('Project has been deleted! Going back to templates page!')
     } catch(err){
