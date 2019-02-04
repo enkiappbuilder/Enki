@@ -44,29 +44,18 @@ class Templates extends Component {
                   <Item.Header>
                     Artists
                   </Item.Header>
-                  <Item.Description>
-                    This is some description for the user
-                    This is some description for the user
-                    This is some description for the user
-                    This is some description for the user
-                    v
-                    v
-                    This is some description for the user
-                    WOWOOWOOAWROWOWOAGafsja
-
-                    ]ldsajgkjgha
-
-                    gagjsdkjg
+                  <Item.Description style={{flexWrap:'wrap'}}>
+                    This template contains a homepage that will display the artist's name and short description, also included in this template are a gallery view, an about me, and a contact page.
                   </Item.Description>
-              <div style ={{display: 'flex', justifyContent: 'right'}}>
+              <Container style ={{display: 'flex', justifyContent: 'right'}}>
               <Link to='/create'>
                 <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
               </Link>
                 <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
-              </div>
+              </Container>
                 </Item.Content>
               </Item>
-              <text style = {styles.mobileTitle}>Artists</text>
+              <p style = {styles.mobileTitle}>Artists</p>
             </Item.Group>
 
           </Grid.Column>

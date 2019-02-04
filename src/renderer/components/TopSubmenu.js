@@ -23,7 +23,6 @@ class SubMenu extends Component {
     super(props)
 
     this.handleChange = this.handleChange.bind(this)
-    this.subMenuNav = this.subMenuNav.bind(this)
   }
 
   handleChange () {
@@ -34,22 +33,7 @@ class SubMenu extends Component {
     }
   }
 
-  subMenuNav (menuoption) {
-    switch(menuoption){
-      case 'home':
-        this.props.showHome()
-      case 'about':
-        this.props.showAbout()
-      case 'gallery':
-        this.props.showGallery()
-      case 'contact':
-        this.props.showContact()
-      case 'help':
-        this.props.showHelp()
-      default:
-        return null
-    }
-  }
+
   render() {
     console.log('MENU OPTIONS', this.props)
     return (

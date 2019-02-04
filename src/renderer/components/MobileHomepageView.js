@@ -4,8 +4,45 @@ import { Container, Image, Button, Text, Header, Form, Menu, Item } from 'semant
 import myImg from '../../../template/mobiletemp/assets/images/sampleImages/ice.jpg'
 
 
+
 const HomePreview = (props) => {
-  const { appDetails } = props;
+  const {appDetails}  = props;
+
+  const styles = {
+    homePageButton: {
+      backgroundColor: /*HomeScreenButtonBackgroundColor*/appDetails.HomeScreenButtonBackgroundColor || 'rgba(250,249,249,0.3)' /*HomeScreenButtonBackgroundColor*/
+    },
+    homePageFlex: {
+      flex: 1,
+      alignItems: 'center',
+      justifyContent: 'center'
+    },
+    homePageHeader: {
+      fontSize: 49,
+      textAlign: 'center',
+      color: /*HomeScreenHeaderColor*/appDetails.HomeScreenLargeWelcomeColor || '#FFFFFF' /* HomeScreenHeaderColor*/
+    },
+    homePageSubHeader: {
+      fontSize: 20,
+      textAlign: 'center',
+      color: /*HomeScreenSubHeaderColor*/ appDetails.HomeScreenDescriptionColor || '#FFFFFF' /*HomeScreenSubHeaderColor*/
+    },
+    header: {
+      top: 0
+    },
+    container: {
+      flex: 1,
+      color: '#fff',
+      // backgroundImage: myImg,
+      // backgroundSize:'cover',
+      overflow: 'hidden',
+      width: '100%',
+      height: '100vh',
+      backgroundSize: 'contain',
+      backgroundRepeat: 'no-repeat'
+    }
+  };
+  
   return (
     <Container style={{
       // display:'flex',
@@ -45,39 +82,7 @@ const HomePreview = (props) => {
   )
 }
 
-const styles = {
-  homePageButton: {
-    backgroundColor: /*HomeScreenButtonBackgroundColor*/ 'rgba(250,249,249,0.3)' /*HomeScreenButtonBackgroundColor*/
-  },
-  homePageFlex: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  homePageHeader: {
-    fontSize: 49,
-    textAlign: 'center',
-    color: /*HomeScreenHeaderColor*/'#FFFFFF' /* HomeScreenHeaderColor*/
-  },
-  homePageSubHeader: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: /*HomeScreenSubHeaderColor*/ '#FFFFFF' /*HomeScreenSubHeaderColor*/
-  },
-  header: {
-    top: 0
-  },
-  container: {
-    flex: 1,
-    color: '#fff',
-    // backgroundImage: myImg,
-    // backgroundSize:'cover',
-    overflow: 'hidden',
-    width: '100%',
-    height: '100vh',
-    backgroundSize: 'contain',
-    backgroundRepeat: 'no-repeat'
-  }
-};
+
+
 
 export default HomePreview
