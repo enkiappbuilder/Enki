@@ -16,7 +16,7 @@ ReactDOM.render(
 
     <Provider store={store}>
       <Router>
-        <App style={{ height: "100vh", display: "flex",}} />
+        <App style={{ height: "100vh", display: "flex", }} />
       </Router>
     </Provider>
   </>,
