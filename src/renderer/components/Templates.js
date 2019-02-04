@@ -3,25 +3,34 @@ import { Link } from 'react-router-dom'
 import { Header, Container, Button, Grid, Item } from 'semantic-ui-react'
 import TemplateContainer from './TemplateContainer'
 import ice from './image/ice.jpg'
-import {showSideBar} from '../store/sideBar'
-import {connect} from 'react-redux'
-import {chooseTemplate} from '../store/templateChoice'
+import { showSideBar } from '../store/sideBar'
+import { connect } from 'react-redux'
+import { chooseTemplate } from '../store/templateChoice'
 import ModalPreview from './PreviewModal'
 import copy from '../../functions/fsCopy.js'
 import { enableCreate } from "../store/createStatus";
 
 const fs = require('fs-extra')
+
+const artistTemplatePreview =
+  [
+    require('../../../public/images/artistTemplate.png'),
+    require('../../../public/images/artistTemplateMenu.png'),
+    require('../../../public/images/artistTemplateAboutMe.png'),
+    require('../../../public/images/artistTemplateGallery.png'),
+    require('../../../public/images/artistTemplateContact.png'),
+  ]
 class Templates extends Component {
   constructor(props) {
     super(props)
     this.createTemplate = this.createTemplate.bind(this)
   }
 
-  chooseTemplate(type){
+  chooseTemplate(type) {
     this.props.chooseTemplate(type)
   }
 
-  componentDidMount(){
+  componentDidMount() {
     this.props.showSideBar()
   }
 
@@ -41,51 +50,39 @@ class Templates extends Component {
     return (
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
 
-      <Container style={styles.containerStyle}>
-        <Header style={styles.subHeaderStyle}>Choose a template</Header>
+        <Container style={styles.containerStyle}>
+          <Header style={styles.subHeaderStyle}>Choose a template</Header>
 
-        {/* these containers are buttons to the customize project page, we will need to add functionality to copy the appropriate template when they are pressed*/}
-        <Grid columns='1'>
-          <Grid.Column>
+          {/* these containers are buttons to the customize project page, we will need to add functionality to copy the appropriate template when they are pressed*/}
+          <Grid columns='1'>
+            <Grid.Column>
 
-            <Item.Group>
-              <Item>
-                <Item.Image size='medium' src = {ice}/>
-                <Item.Content>
-                  <Item.Header>
-                    Artists
+              <Item.Group>
+                <Item>
+                  <Item.Image size='medium' src={ice} />
+                  <Item.Content>
+                    <Item.Header>
+                      Artists
                   </Item.Header>
-                  <Item.Description>
-                    This is some description for the user
-                    This is some description for the user
-                    This is some description for the user
-                    This is some description for the user
-                    v
-                    v
-                    This is some description for the user
-                    WOWOOWOOAWROWOWOAGafsja
-
-                    ]ldsajgkjgha
-
-                    gagjsdkjg
+                    <Item.Description style={{ flexWrap: 'wrap' }}>
+                      This template contains a homepage that will display the artist's name and short description, also included in this template are a gallery view, an about me, and a contact page.
                   </Item.Description>
               <div style ={{display: 'flex', justifyContent: 'right'}}>
               <Link to='/create'>
                 <Button onClick={()=>this.createTemplate()}>Link to create template</Button>
               </Link>
-                <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
+                  <ModalPreview images={artistTemplatePreview} />
               </div>
                 </Item.Content>
               </Item>
               <p style = {styles.mobileTitle}>Artists</p>
             </Item.Group>
-
           </Grid.Column>
 
             <Link to='/create'>
             </Link>
-        </Grid>
-      </Container>
+          </Grid>
+        </Container>
       </div>
 
     );
@@ -100,7 +97,7 @@ const mapDispatchToProps = dispatch => {
   }
 }
 
-export default connect(null,mapDispatchToProps)(Templates);
+export default connect(null, mapDispatchToProps)(Templates);
 
 
 const styles = {

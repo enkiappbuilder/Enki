@@ -19,6 +19,7 @@ import { saveAppDetails } from '../store/appDetails'
 import HomePreview from "./MobileHomepageView";
 import AboutPreview from "./MobileAboutMeView";
 import ContactPreview from "./MobileContactMeView"
+import GalleryPreview from "./MobileGalleryView";
 
 class EditPage extends Component {
   constructor(props) {
@@ -44,7 +45,7 @@ class EditPage extends Component {
     this.props.saveAppDetails(this.state)
   }
   handleChange(event, { value, name }) {
-
+    console.log('yes')
     this.setState({ [name]: value });
   }
 
@@ -63,11 +64,12 @@ class EditPage extends Component {
     if (this.props.page === 'Home') Preview = <HomePreview appDetails={this.state} />
     if (this.props.page === 'About') Preview = <AboutPreview appDetails={this.state} />
     if (this.props.page === 'Contact') Preview = <ContactPreview appDetails={this.state} />
+    if (this.props.page === 'Gallery') Preview = <GalleryPreview appDetails={this.state} />
 
     return (
       <>
         <Header> Edit Your {this.props.page} Page </Header>
-        <Segment color = 'green'>
+        <Segment color='green'>
           <Grid columns={2} relaxed="very" celled="internally">
             <Grid.Column>
 
