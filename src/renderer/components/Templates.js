@@ -14,6 +14,7 @@ const fs = require('fs-extra')
 class Templates extends Component {
   constructor(props) {
     super(props)
+    this.createTemplate = this.createTemplate.bind(this)
   }
 
   chooseTemplate(type){
@@ -22,6 +23,16 @@ class Templates extends Component {
 
   componentDidMount(){
     this.props.showSideBar()
+  }
+
+  createTemplate(){
+    if(fs.existsSync('./copyOfProject')){
+      console.log('PATH EXISTS')
+      alert('Current Project Exists! Redirecting to create Page!')
+    } else {
+      copy('../../template/mobiletemp')
+      alert('COPY MADE')
+    }
   }
 
 
@@ -60,7 +71,7 @@ class Templates extends Component {
                   </Item.Description>
               <div style ={{display: 'flex', justifyContent: 'right'}}>
               <Link to='/create'>
-                <Button onClick={()=>copy('../../template/mobiletemp')}>Link to create template</Button>
+                <Button onClick={()=>this.createTemplate()}>Link to create template</Button>
               </Link>
                 <ModalPreview imagesource = {require('../../../public/images/artistTemplate.png')}/>
               </div>
