@@ -13,17 +13,14 @@ import Coverflow from 'react-coverflow'
 class ConfirmationPage extends Component {
   constructor() {
     super()
-    this.handleClick = this.handleClick.bind(this);
     this.handleExport = this.handleExport.bind(this)
   }
 
-
-  handleClick() {
+  componentDidMount() {
     const pageArray = ['../../copyOfProject/screens/AboutScreen.js', '../../copyOfProject/screens/ContactScreen.js', '../../copyOfProject/screens/GalleryScreen.js', '../../copyOfProject/screens/HomeScreen.js']
-
     return pageArray.forEach((elem) => updateText(elem, this.props.appDetails))
-
   }
+
   handleExport() {
     ipcRenderer.send('exportProject')
   }
@@ -44,14 +41,6 @@ class ConfirmationPage extends Component {
         <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
       </Coverflow> */}
 
-          <div>
-            <Button
-              onClick={() => this.handleClick(
-              )}
-            >
-              Save To Mobile App
-        </Button>
-          </div>
           <button onClick={this.handleExport}>export files, yeah!</button>
         </Segment>
       </>
