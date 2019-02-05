@@ -25,7 +25,7 @@ class ModalPreview extends React.Component {
       <Modal
         open={open}
         style={{ width: "50%" }}
-        trigger={<Button onClick={() => this.closeModal(false)}>Preview App</Button>} size="fullscreen"
+        trigger={<Button disabled={this.props.disabled} onClick={() => this.closeModal(false)}>Preview App</Button>} size="fullscreen"
         basic
         closeOnEscape={closeOnEscape}
         onClose={this.close}>
