@@ -103,7 +103,7 @@ const AboutPreview = props => {
           </p>
           <p style={styles.text}>
             {/*AboutMeDescText*/}
-            {appDetails.AboutMeDescText || 'About Me Desc Text'}
+            {appDetails.AboutMeDescText || defaultAboutMeDesc }
             {/*AboutMeDescText*/}
           </p>
           <Button
