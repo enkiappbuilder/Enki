@@ -3,13 +3,8 @@ import {
   Container,
   Image,
   Button,
-  Text,
-  Header,
-  Form,
   Menu,
-  Item
 } from "semantic-ui-react";
-import { connect } from "react-redux";
 
 const AboutPreview = props => {
   const { appDetails } = props;

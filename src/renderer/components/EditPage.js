@@ -1,14 +1,11 @@
 import React, { Component } from "react";
 const { ipcRenderer } = require('electron')
 import {
-  Form,
   Header,
-  Divider,
   Segment,
-  Button,
   Card,
   Grid,
-  Image
+  Container
 } from "semantic-ui-react";
 import Forms from "./Forms";
 import UploadImage from "./UploadImageFormButton"
@@ -58,13 +55,13 @@ class EditPage extends Component {
 
 
   render() {
-    console.log('this.state:', this.state);
-
     let Preview
     if (this.props.page === 'Home') Preview = <HomePreview appDetails={this.state} />
     if (this.props.page === 'About') Preview = <AboutPreview appDetails={this.state} />
     if (this.props.page === 'Contact') Preview = <ContactPreview appDetails={this.state} />
     if (this.props.page === 'Gallery') Preview = <GalleryPreview appDetails={this.state} />
+
+    const stateArray = Object.keys(this.state)
 
     return (
       <>
@@ -73,9 +70,11 @@ class EditPage extends Component {
           <Grid columns={2} relaxed="very" celled="internally">
             <Grid.Column>
 
-              {Object.keys(this.state).filter(field => this.props.details.includes(field)).map(field => {
+              {stateArray.filter(field => this.props.details.includes(field)).map((field, i) => {
+                console.log('edit page state', stateArray[i], stateArray[i + 1])
 
                 if (field.includes('Text')) {
+
                   return (
                     <Forms
                       handleChange={this.handleChange}
@@ -101,6 +100,7 @@ class EditPage extends Component {
                 if (field.includes('Color')) {
                   return (
                     <ColorPicker
+                      upState={this.state}
                       name={field}
                       handleColorChange={this.handleColorChange}
                       key={field}
