@@ -13,6 +13,8 @@ import beforeChange from './image/beforeChange.png'
 import beforeColor from './image/beforeColor.png'
 import afterColor from './image/afterColor.png'
 import afterBackground from './image/afterBackground.png'
+import beforeGallery from './image/beforeGallery.png'
+import afterGallery from './image/afterGallery.png'
 class Instructions extends React.Component {
   constructor(props){
     super(props)
@@ -40,7 +42,8 @@ class Instructions extends React.Component {
             </Segment>
           <List.Item>Upload a new photo to your gallery!</List.Item>
           <Segment style = {styles.segmentContainer}>
-              Waiting
+          <Image src ={beforeGallery}/>
+              <Image src ={afterGallery}/>
             </Segment>
           <List.Item>...or your background image!</List.Item>
           <Segment style = {styles.segmentContainer}>
@@ -55,8 +58,9 @@ class Instructions extends React.Component {
           <Segment style = {styles.segmentContainer}>
               <Button color ='green'> Confirm Your changes</Button>
           </Segment>
-          <List.Item>Export your files after!</List.Item>
+          <List.Item>Save your mobile app and export your files after!</List.Item>
           <Segment style = {styles.segmentContainer}>
+              <Button>Save To Mobile App</Button>
               <Button>Export Project</Button>
             </Segment>
         </List>
