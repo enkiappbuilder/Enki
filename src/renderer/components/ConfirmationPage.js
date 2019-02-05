@@ -52,7 +52,7 @@ class ConfirmationPage extends Component {
               Save To Mobile App
         </Button>
           </div>
-          <button onClick={this.handleExport}>export files, yeah!</button>
+          <Button onClick={this.handleExport}>Export Project</Button>
         </Segment>
       </>
     )
