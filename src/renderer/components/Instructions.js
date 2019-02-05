@@ -12,7 +12,7 @@ import afterChange from './image/afterChange.png'
 import beforeChange from './image/beforeChange.png'
 import beforeColor from './image/beforeColor.png'
 import afterColor from './image/afterColor.png'
-
+import afterBackground from './image/afterBackground.png'
 class Instructions extends React.Component {
   constructor(props){
     super(props)
@@ -44,7 +44,8 @@ class Instructions extends React.Component {
             </Segment>
           <List.Item>...or your background image!</List.Item>
           <Segment style = {styles.segmentContainer}>
-              waiting
+          <Image src = {beforeChange}/>
+          <Image src = {afterBackground}/>
             </Segment>
           <List.Item>If you don't like your project, you can delete your current project with the Delete Project button</List.Item>
           <Segment style = {styles.segmentContainer}>
