@@ -108,7 +108,7 @@ class EditPage extends Component {
             <Grid.Column>
 
               <Sticky>
-              <Card style={{ height: '70vh', display: 'flex' }}>
+              <Card style={{ height: '70vh', display: 'flex', marginTop: '50px'}}>
 
                 {Preview}
               </Card>
