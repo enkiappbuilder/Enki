@@ -16,13 +16,16 @@ import { HashRouter as Router, Link } from "react-router-dom";
 import { showMENU, hideMenu } from "../store/subMenu";
 import Creation from './Creation'
 import { showHome, showAbout, showContact, showGallery, showHelp, showFinal } from "../store/subMenuNav";
+import { fstat } from "fs";
 
-
+const fs  = require('fs-extra')
+const rimraf = require('rimraf')
 class SubMenu extends Component {
   constructor(props){
     super(props)
 
     this.handleChange = this.handleChange.bind(this)
+    this.deleteProject = this.deleteProject.bind(this)
   }
 
   handleChange () {
@@ -30,6 +33,16 @@ class SubMenu extends Component {
       this.props.showMENU()
     } else {
       this.props.hideMenu()
+    }
+  }
+
+  deleteProject (){
+    try{
+      alert('DELETING PROJECT, press ok to start.')
+      rimraf.sync('copyOfProject')
+      alert('Project has been deleted! Going back to templates page!')
+    } catch(err){
+     console.log('DELETE ERROR', err)
     }
   }
 
@@ -62,13 +75,15 @@ class SubMenu extends Component {
             Contact
           </Menu.Item>
           <Menu.Item onClick={()=> this.props.showFinal()}>
-            Confirm
+          <Button color = 'green'>
+            Confirm your changes
+          </Button>
           </Menu.Item>
           <Menu.Item onClick={()=>this.props.showHelp()}>
             Need help?
           </Menu.Item>
-          <Menu.Item >
-            <Button onClick={()=>this.handleChange()} color = 'green'> Hide Menu</Button>
+          <Menu.Item as={Link} to='/templates'>
+            <Button onClick={()=>this.deleteProject()} color = 'red'> DELETE PROJECT </Button>
           </Menu.Item>
         </Sidebar>
 

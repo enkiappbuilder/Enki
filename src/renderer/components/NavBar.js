@@ -14,12 +14,16 @@ import { connect } from "react-redux";
 import { HashRouter as Router, Link } from "react-router-dom";
 import Routes from "../routes";
 import { copy } from "fs-extra-p";
+
+const fs = require('fs-extra')
+
 class SideBar extends Component {
   constructor(props){
     super(props)
 
 
   }
+
 
   render() {
     return (
@@ -41,8 +45,9 @@ class SideBar extends Component {
 
 
           <Menu.Item as={Link} to='/templates'> Templates </Menu.Item>
-
-          <Menu.Item onClick= {this.props.createEnabled ? (e)=> true :(e)=>e.preventDefault()} as={Link} to='/create'> Create </Menu.Item>
+            {
+              fs.existsSync('./copyOfProject') ? <Menu.Item as={Link} to='/create'> Edit Project </Menu.Item>:<Menu.Item disabled onClick= {()=> alert('Please Pick a template!')}> Edit Project </Menu.Item>
+            }
         </Sidebar>
 
         <Sidebar.Pusher basic="true">
