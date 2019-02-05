@@ -48,7 +48,7 @@ export const showFinal = () => {
   }
 }
 
-export default function(state = "home", action) {
+export default function(state = "help", action) {
   switch (action.type) {
     case SHOW_HOME:
       return action.currentPage;
