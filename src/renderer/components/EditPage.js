@@ -42,7 +42,6 @@ class EditPage extends Component {
     this.props.saveAppDetails(this.state)
   }
   handleChange(event, { value, name }) {
-    console.log('yes')
     this.setState({ [name]: value });
   }
 
@@ -71,7 +70,6 @@ class EditPage extends Component {
             <Grid.Column>
 
               {stateArray.filter(field => this.props.details.includes(field)).map((field, i) => {
-                console.log('edit page state', stateArray[i], stateArray[i + 1])
 
                 if (field.includes('Text')) {
 

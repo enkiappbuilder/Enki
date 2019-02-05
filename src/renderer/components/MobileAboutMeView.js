@@ -9,7 +9,6 @@ import {
 
 const AboutPreview = props => {
   const { appDetails } = props;
-  console.log('appDetails:', appDetails);
   const defaultAboutMeDesc =
     "This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah! ";
   const styles = {
@@ -104,7 +103,7 @@ const AboutPreview = props => {
           </p>
           <p style={styles.text}>
             {/*AboutMeDescText*/}
-            {appDetails.AboutMeDescText || defaultAboutMeDesc }
+            {appDetails.AboutMeDescText || defaultAboutMeDesc}
             {/*AboutMeDescText*/}
           </p>
           <Button

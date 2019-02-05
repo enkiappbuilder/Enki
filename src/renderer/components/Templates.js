@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link } from 'react-router-dom'
 import { Header, Container, Button, Grid, Item } from 'semantic-ui-react'
-import TemplateContainer from './TemplateContainer'
 import ice from './image/ice.jpg'
 import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
@@ -9,7 +8,7 @@ import { chooseTemplate } from '../store/templateChoice'
 import ModalPreview from './PreviewModal'
 import copy from '../../functions/fsCopy.js'
 import { enableCreate } from "../store/createStatus";
-
+import { toggleEdit } from "../store/sideBar"
 const fs = require('fs-extra')
 
 const artistTemplatePreview =
@@ -36,10 +35,10 @@ class Templates extends Component {
 
   createTemplate() {
     if (fs.existsSync('./copyOfProject')) {
-      console.log('PATH EXISTS')
       alert('Current Project Exists! Redirecting to create Page! To start another project, please delete in creation page!')
     } else {
       copy('../../template/mobiletemp')
+      this.props.toggleEdit(true)
       alert('COPY MADE')
     }
   }
@@ -67,7 +66,7 @@ class Templates extends Component {
                     <Item.Description style={{ flexWrap: 'wrap', width: "85%", paddingBottom: '40px' }}>
                       This template contains a homepage that will display the artist's name and short description, also included in this template are a gallery view, an about me, and a contact page.
                   </Item.Description>
-                    <div style={{ display: 'flex', justifyContent: 'right' ,paddingLeft: '225px'}}>
+                    <div style={{ display: 'flex', justifyContent: 'right', paddingLeft: '225px' }}>
                       <Link to='/create'>
                         <Button onClick={() => this.createTemplate()}>Create Project</Button>
                       </Link>
@@ -91,7 +90,8 @@ const mapDispatchToProps = dispatch => {
   return {
     showSideBar: () => dispatch(showSideBar()),
     chooseTemplate: (type) => dispatch(chooseTemplate(type)),
-    enableCreate: () => dispatch(enableCreate())
+    enableCreate: () => dispatch(enableCreate()),
+    toggleEdit: (bool) => dispatch(toggleEdit(bool))
   }
 }
 

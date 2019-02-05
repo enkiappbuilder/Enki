@@ -11,7 +11,7 @@ import Coverflow from 'react-coverflow'
 
 
 class ConfirmationPage extends Component {
-  constructor(){
+  constructor() {
     super()
     this.handleClick = this.handleClick.bind(this);
     this.handleExport = this.handleExport.bind(this)
@@ -19,7 +19,7 @@ class ConfirmationPage extends Component {
 
 
   handleClick() {
-  const pageArray = ['../../copyOfProject/screens/AboutScreen.js','../../copyOfProject/screens/ContactScreen.js', '../../copyOfProject/screens/GalleryScreen.js','../../copyOfProject/screens/HomeScreen.js']
+    const pageArray = ['../../copyOfProject/screens/AboutScreen.js', '../../copyOfProject/screens/ContactScreen.js', '../../copyOfProject/screens/GalleryScreen.js', '../../copyOfProject/screens/HomeScreen.js']
 
     return pageArray.forEach((elem) => updateText(elem, this.props.appDetails))
 
@@ -27,13 +27,12 @@ class ConfirmationPage extends Component {
   handleExport() {
     ipcRenderer.send('exportProject')
   }
-  render(){
-    console.log('this STATE STATE', this.props.appDetails)
+  render() {
     return (
       <>
-      <Header> Final Confirmation</Header>
-      <Segment color = 'green'>
-      {/* <Coverflow
+        <Header> Final Confirmation</Header>
+        <Segment color='green'>
+          {/* <Coverflow
       height ='300'
       displayQuantityOfSide={2}
       navigation
@@ -45,16 +44,16 @@ class ConfirmationPage extends Component {
         <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
       </Coverflow> */}
 
-      <div>
-      <Button
-          onClick={() => this.handleClick(
-          )}
-        >
-          Save To Mobile App
+          <div>
+            <Button
+              onClick={() => this.handleClick(
+              )}
+            >
+              Save To Mobile App
         </Button>
-      </div>
-      <button onClick={this.handleExport}>export files, yeah!</button>
-      </Segment>
+          </div>
+          <button onClick={this.handleExport}>export files, yeah!</button>
+        </Segment>
       </>
     )
   }
