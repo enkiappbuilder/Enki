@@ -64,18 +64,18 @@ class Templates extends Component {
                     <Item.Header>
                       Artists
                   </Item.Header>
-                    <Item.Description style={{ flexWrap: 'wrap', width: "85%" }}>
+                    <Item.Description style={{ flexWrap: 'wrap', width: "85%", paddingBottom: '40px' }}>
                       This template contains a homepage that will display the artist's name and short description, also included in this template are a gallery view, an about me, and a contact page.
                   </Item.Description>
-                    <div style={{ display: 'flex', justifyContent: 'right' }}>
+                    <div style={{ display: 'flex', justifyContent: 'right' ,paddingLeft: '225px'}}>
                       <Link to='/create'>
-                        <Button onClick={() => this.createTemplate()}>Link to create template</Button>
+                        <Button onClick={() => this.createTemplate()}>Create Project</Button>
                       </Link>
                       <ModalPreview images={artistTemplatePreview} />
                     </div>
                   </Item.Content>
                 </Item>
-                <p style={styles.mobileTitle}>Artists</p>
+                {/* <p style={styles.mobileTitle}>Artists</p> */}
               </Item.Group>
             </Grid.Column>
 
