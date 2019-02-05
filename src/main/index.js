@@ -99,7 +99,7 @@ export function uploadNewPhoto(event, commentName) {
 
   if (pathToImage) {
     const nameOfFile = pathToImage[0].slice(pathToImage[0].lastIndexOf('/') + 1)
-    const mobileTempAssets = `assets/images/${nameOfFile}`
+    const mobileTempAssets = `assets/images/${commentName}.jpg`
 
     // copying image to assets folder
     fs.copyFile(pathToImage[0], path.join(__dirname, `../../copyOfProject/assets/images/${commentName}.jpg`),
