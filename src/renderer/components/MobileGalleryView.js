@@ -58,7 +58,7 @@ class GalleryPreview extends React.Component {
           style={{ color: '#132029', backgroundColor: 'rgba(250,249,249,0.8)' }}
         >
           <Menu.Item position='left' icon='sidebar' />
-          <Menu.Item >{appDetails.ContactScreenHeaderText || 'Header Text'}</Menu.Item>
+          <Menu.Item >{appDetails.GalleryHeaderText || 'Header Text'}</Menu.Item>
           <Menu.Item position='right' icon='home' />
         </Menu>
 
