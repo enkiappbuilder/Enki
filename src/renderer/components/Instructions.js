@@ -39,24 +39,24 @@ class Instructions extends React.Component {
               <Image src ={afterColor}/>
             </Segment>
           <List.Item>Upload a new photo to your gallery!</List.Item>
-          <Segment>
-              Test
+          <Segment style = {styles.segmentContainer}>
+              Waiting
             </Segment>
           <List.Item>...or your background image!</List.Item>
-          <Segment>
-              Test
+          <Segment style = {styles.segmentContainer}>
+              waiting
             </Segment>
           <List.Item>If you don't like your project, you can delete your current project with the Delete Project button</List.Item>
-          <Segment>
+          <Segment style = {styles.segmentContainer}>
               <Button color = 'red'> Delete Project</Button>
             </Segment>
           <List.Item>Otherwise, head over to confirm your changes and do a final submission.</List.Item>
-          <Segment>
+          <Segment style = {styles.segmentContainer}>
               <Button color ='green'> Confirm Your changes</Button>
           </Segment>
           <List.Item>Export your files after!</List.Item>
-          <Segment>
-              Test
+          <Segment style = {styles.segmentContainer}>
+              <Button>Export Project</Button>
             </Segment>
         </List>
       </Segment>
@@ -69,6 +69,7 @@ export default Instructions
 
 const styles = {
   segmentContainer: {
-    display: 'flex'
+    display: 'flex',
+    width: '1000px'
   }
 }
