@@ -4,12 +4,12 @@ const defaultState = {
 
   /*Home Screen*/
   HomeScreenBackgroundImage: "",
-  HomeScreenHeaderText: "",
-  HomeScreenLargeWelcomeText: "",
+  HomeScreenHeaderText: "Joe",
+  HomeScreenLargeWelcomeText: "Welcome",
   HomeScreenLargeWelcomeColor: "",
-  HomeScreenDescriptionText: "",
+  HomeScreenDescriptionText: "Photographer and Designer",
   HomeScreenDescriptionColor: "",
-  HomeScreenButtonText: "",
+  HomeScreenButtonText: "About Me",
   HomeScreenButtonBackgroundColor: "",
 
 
