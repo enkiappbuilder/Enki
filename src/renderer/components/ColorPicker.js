@@ -41,7 +41,7 @@ class ColorPicker extends React.Component {
           <Accordion>
             <Accordion.Title active={activeIndex === name} index={name} onClick={this.handleClick}>
               {title}
-              <Icon name="square full" style={{ color: this.state.color }} />
+              <Icon bordered name="square full" style={{ color: this.state.color, margin: 5 }} />
             </Accordion.Title>
             <Accordion.Content active={activeIndex === name}>
               <CompactPicker
