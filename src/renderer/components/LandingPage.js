@@ -11,6 +11,7 @@ import nightroad from './video/nightroad.mp4'
 const { ipcRenderer } = window.require('electron')
 
 import { Image, Segment, Container, Button } from 'semantic-ui-react'
+import { Text } from 'react'
 import { lookup } from "dns";
 import { showSideBar, hideSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
@@ -49,16 +50,17 @@ class LandingPage extends Component {
 
   render() {
     return (
-      <div className='landpage' style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: 'hidden' }} >
-        <div></div>
-        <div style={{ marginTop: '200px' }}>
-          <div style={{ display: 'flex', justifyContent: 'center', marginTop: '600px' }}>
-            <Link to='/templates'>
-              <Button size='huge' id="landBut" color='green' style={{ postion: 'absolute', display: "grid", }}>
-                Get Started!
+      <div className='landpage' style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', height: "100vh", overflow: 'hidden' }} >
+
+        <div style={{ postion: 'absolute', color: 'white', fontSize: 250, fontFamily: 'Monoton, cursive', marginBottom: 70 }}>ENKI</div>
+        <div style={{ postion: 'absolute', color: 'white', fontSize: 20, marginTop: 30 }}>Mobile App Creator.</div>
+        <div style={{ marginTop: 70 }}>
+          <Link to='/templates'>
+            <Button size='huge' id="landBut" color='green' style={{ postion: 'absolute', display: "grid", margin: 30 }}>
+              Get Started!
               </Button>
-            </Link>
-          </div>
+          </Link>
+
         </div>
         <div style={{
           position: "absolute", top: 0, left: 0
