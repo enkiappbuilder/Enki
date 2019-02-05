@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import EditPage from "./EditPage";
+import Instructions from './Instructions'
 import { Button, Container, Header, Segment } from 'semantic-ui-react'
 const { ipcRenderer } = window.require('electron')
 import { showSideBar } from '../store/sideBar'
@@ -81,7 +82,7 @@ class CreatePage extends Component {
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
         <Button color='green' onClick={() => this.handleChange()}>Start Customizing!</Button>
         {
-        (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color='red'><h1>UNDER CONSTRUCTION</h1></Segment></>)
+        (pageView === 'help' && <Instructions/>)
         }
         {
           (pageView === 'home' && <EditPage page='Home' details={homeDetails} />)
