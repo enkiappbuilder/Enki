@@ -24,7 +24,7 @@ export function updateText(fileName, state) {
   ) {
     if (err) throw err;
     let content = data;
-    await asyncForEach(Object.keys(state), async key => {
+    await asyncForEach(Object.keys(state).filter(key=> state[key] !== ''), async key => {
       let location = key;
       let replacementText = state[key];
       let tempRegex =
