@@ -79,8 +79,6 @@ class Templates extends Component {
               </Item.Group>
             </Grid.Column>
 
-            <Link to='/create'>
-            </Link>
           </Grid>
         </Container>
       </div>

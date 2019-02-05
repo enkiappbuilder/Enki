@@ -81,6 +81,9 @@ class CreatePage extends Component {
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
         <Button color='green' onClick={() => this.handleChange()}>Start Customizing!</Button>
         {
+        (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color='red'><h1>UNDER CONSTRUCTION</h1></Segment></>)
+        }
+        {
           (pageView === 'home' && <EditPage page='Home' details={homeDetails} />)
         }
         {
@@ -94,9 +97,6 @@ class CreatePage extends Component {
         }
         {
           (pageView === 'final' && <ConfirmationPage />)
-        }
-        {
-          (pageView === 'help' && <><Header>UNDER CONSTRUCTION</Header><Segment color='red'><h1>UNDER CONSTRUCTION</h1></Segment></>)
         }
 
       </div>

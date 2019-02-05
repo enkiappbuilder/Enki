@@ -62,6 +62,9 @@ class SubMenu extends Component {
           visible={this.props.menuVisible}
           width="thin"
         >
+          <Menu.Item onClick={()=>this.props.showHelp()}>
+           How To Use This App
+          </Menu.Item>
           <Menu.Item onClick={()=>this.props.showHome()}>
             Home Page
           </Menu.Item>
@@ -76,14 +79,11 @@ class SubMenu extends Component {
           </Menu.Item>
           <Menu.Item onClick={()=> this.props.showFinal()}>
           <Button color = 'green'>
-            Confirm your changes
+            Confirm Your Changes
           </Button>
           </Menu.Item>
-          <Menu.Item onClick={()=>this.props.showHelp()}>
-            Need help?
-          </Menu.Item>
           <Menu.Item as={Link} to='/templates'>
-            <Button onClick={()=>this.deleteProject()} color = 'red'> DELETE PROJECT </Button>
+            <Button onClick={()=>this.deleteProject()} color = 'red'> Delete Project </Button>
           </Menu.Item>
         </Sidebar>
 
