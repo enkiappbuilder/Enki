@@ -3,7 +3,8 @@ import { connect } from 'react-redux'
 import { Container, Image, Button, Text, Header, Form, Menu, Item } from 'semantic-ui-react'
 import myImg from '../../../template/mobiletemp/assets/images/sampleImages/ice.jpg'
 import path from 'path'
-
+import fs from 'fs-extra'
+// import { url } from 'inspector';
 
 const HomePreview = (props) => {
   const {appDetails}  = props;
@@ -19,16 +20,17 @@ const HomePreview = (props) => {
     dogs = 'HomeScreenBackgroundImage.jpg'
     console.log('dogs:', dogs);
     console.log('HI')
-      userImg = require(`../../../copyOfProject/assets/images/${dogs}`)
+    userImg =fs.readFileSync(`copyOfProject/assets/images/${dogs}`, {encoding:'base64'})
+      // userImg = `/../../../copyOfProject/assets/images/${dogs}`
     }
-    // '../../../copyOfProject/assets/images/Screen Shot 2019-01-18 at 9.36.46 AM.png'
    
       
 
   console.log('userImg:', userImg);
-  let image = myImg
+  let image = `url(${myImg})`
   // console.log('dog:', userImg);
-  if(userImg) image = userImg
+  if(userImg) image = `url(data:image/jpeg;base64,${userImg})`
+  console.log('image:', image);
   
   const styles = {
     homePageButton: {
@@ -70,13 +72,13 @@ const HomePreview = (props) => {
       // display:'flex',
       flex: 1,
       color: '#fff',
-      backgroundImage: `url(${image})`,
+      backgroundImage: image,
       alignItems: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
       backgroundPosition: 'center'
     }}>
-
+      {/* <img src={`data:image/jpeg;base64,${userImg}`} /> */}
       <Menu
         secondary
         style={{ color: '#132029', backgroundColor: 'rgba(250,249,249,0.8)' }}
