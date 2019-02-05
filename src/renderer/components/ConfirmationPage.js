@@ -13,17 +13,14 @@ import Coverflow from 'react-coverflow'
 class ConfirmationPage extends Component {
   constructor() {
     super()
-    this.handleClick = this.handleClick.bind(this);
     this.handleExport = this.handleExport.bind(this)
   }
 
-
-  handleClick() {
+  componentDidMount() {
     const pageArray = ['../../copyOfProject/screens/AboutScreen.js', '../../copyOfProject/screens/ContactScreen.js', '../../copyOfProject/screens/GalleryScreen.js', '../../copyOfProject/screens/HomeScreen.js']
-
     return pageArray.forEach((elem) => updateText(elem, this.props.appDetails))
-
   }
+
   handleExport() {
     ipcRenderer.send('exportProject')
   }
