@@ -11,7 +11,7 @@ import {
   Item
 } from "semantic-ui-react";
 import myImg from "../../../template/mobiletemp/assets/images/sampleImages/ice.jpg";
-
+import userImage from '../../functions/userImage'
 import fs from "fs-extra";
 // import { url } from 'inspector';
 
@@ -22,14 +22,16 @@ const HomePreview = props => {
 
   // 'assets/images/' || 'assets/images/image.jpg'
   // let imageToFind = appDetails.HomeScreenBackgroundImage ||
-  let path = null;
+  // let path = null;
   if (appDetails.HomeScreenBackgroundImage) {
-    path = appDetails.HomeScreenBackgroundImage;
+    const path = appDetails.HomeScreenBackgroundImage;
     userImg = fs.readFileSync(`copyOfProject/${path}`, { encoding: "base64" });
   }
 
   let image = `url(${myImg})`;
-  if (userImg) image = `url(data:image/jpeg;base64,${userImg})`;
+  // if (userImg) image = `url(data:image/jpeg;base64,${userImg})`;
+  if (userImg) image = `url(${userImage(appDetails.HomeScreenBackgroundImage)}`
+  console.log('image:', image);
 
   const styles = {
     homePageButton: {

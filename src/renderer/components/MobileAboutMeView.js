@@ -5,10 +5,14 @@ import {
   Button,
   Menu,
 } from "semantic-ui-react";
-
+import userImage from '../../functions/userImage'
 
 const AboutPreview = props => {
   const { appDetails } = props;
+  console.log('appDetails:', appDetails);
+
+  let UserAboutImg = userImage(appDetails.AboutMeImage)
+
   const defaultAboutMeDesc =
     "This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah! ";
   const styles = {
@@ -91,7 +95,7 @@ const AboutPreview = props => {
         <Image
           style={{ objectFit: "cover" }}
           src={
-            /*AboutMeImg*/ "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /*AboutMeImg*/
+            UserAboutImg || /*AboutMeImg*/ "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /*AboutMeImg*/
           }
           borderradius="20px"
         />
