@@ -6,6 +6,7 @@ import {
   Menu,
 } from "semantic-ui-react";
 
+
 const AboutPreview = props => {
   const { appDetails } = props;
   console.log('appDetails:', appDetails);
@@ -91,7 +92,7 @@ const AboutPreview = props => {
         <Image
           style={{ objectFit: "cover" }}
           src={
-            /*AboutMeImg*/ "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607" /*AboutMeImg*/
+            /*AboutMeImg*/ "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /*AboutMeImg*/
           }
           borderradius="20px"
         />
