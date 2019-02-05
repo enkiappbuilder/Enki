@@ -24,7 +24,8 @@ const ContactPreview = (props) => {
       alignItems: 'center',
       backgroundSize: 'cover',
       backgroundRepeat: 'no-repeat',
-      backgroundPosition: 'center'
+      backgroundPosition: 'center',
+      height: '100%'
     }
   };
   return (
@@ -35,11 +36,11 @@ const ContactPreview = (props) => {
         style={{ color: '#132029', backgroundColor: 'rgba(250,249,249,0.8)' }}
       >
         <Menu.Item position='left' icon='sidebar' />
-        <Menu.Item >{appDetails.ContactScreenHeaderText || 'Header Text'}</Menu.Item>
+        <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>{appDetails.ContactScreenHeaderText || 'Header Text'}</Menu.Item>
         <Menu.Item position='right' icon='home' />
       </Menu>
 
-      <Container style={{ textAlign: 'center' }}>
+      <Container style={{ textAlign: 'center', height: '90%', overflowY: 'auto' }}>
         <Container style={{ display: 'flex', justifyContent: 'center' }}>
           <Image
             style={{ height: 60, width: 60, margin: 5 }}
@@ -67,7 +68,7 @@ const ContactPreview = (props) => {
             <input />
           </Form.Field>
           <Form.Field>
-            <label style={{ textAlign: 'left', color: 'grey' }} >{appDetails.FormMessageText || "What's up?"}</label>
+            <label style={{ textAlign: 'left', color: 'grey', overflowWrap: 'break-word' }} >{appDetails.FormMessageText || "What's up?"}</label>
             <input />
           </Form.Field>
         </Form>

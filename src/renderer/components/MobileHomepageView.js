@@ -37,7 +37,9 @@ const HomePreview = props => {
     homePageButton: {
       backgroundColor:
         /*HomeScreenButtonBackgroundColor*/ appDetails.HomeScreenButtonBackgroundColor ||
-        "rgba(250,249,249,0.3)" /*HomeScreenButtonBackgroundColor*/
+        "rgba(250,249,249,0.3)" /*HomeScreenButtonBackgroundColor*/,
+      overflowWrap: 'break-word',
+      width: '50%'
     },
     homePageFlex: {
       flex: 1,
@@ -49,14 +51,16 @@ const HomePreview = props => {
       textAlign: "center",
       color:
         /*HomeScreenHeaderColor*/ appDetails.HomeScreenLargeWelcomeColor ||
-        "#FFFFFF" /* HomeScreenHeaderColor*/
+        "#FFFFFF" /* HomeScreenHeaderColor*/,
+      overflowWrap: 'break-word'
     },
     homePageSubHeader: {
       fontSize: 20,
       textAlign: "center",
       color:
         /*HomeScreenSubHeaderColor*/ appDetails.HomeScreenDescriptionColor ||
-        "#FFFFFF" /*HomeScreenSubHeaderColor*/
+        "#FFFFFF" /*HomeScreenSubHeaderColor*/,
+      overflowWrap: 'break-word'
     },
     header: {
       top: 0
@@ -84,7 +88,8 @@ const HomePreview = props => {
         alignItems: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center"
+        backgroundPosition: "center",
+        height: '100%'
       }}
     >
       {/* <img src={`data:image/jpeg;base64,${userImg}`} /> */}
@@ -93,13 +98,13 @@ const HomePreview = props => {
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
         <Menu.Item position="left" icon="sidebar" />
-        <Menu.Item>
+        <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>
           {appDetails.HomeScreenHeaderText || "Header Text"}
         </Menu.Item>
         <Menu.Item position="right" icon="home" />
       </Menu>
 
-      <Container style={{ textAlign: "center" }}>
+      <Container style={{ textAlign: "center", overflowY: 'auto', height: '90%' }}>
         <p style={styles.homePageHeader}>
           {/*LargeWelcomeText*/}
           {appDetails.HomeScreenLargeWelcomeText || "Welcome Text"}

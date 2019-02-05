@@ -13,7 +13,7 @@ const GalleryPreview = props => {
   let userImage4 = userImage(appDetails.GalleryImage4Path);
   let userImage5 = userImage(appDetails.GalleryImage5Path);
 
-  
+
 
   const images = [
     {
@@ -74,7 +74,8 @@ const GalleryPreview = props => {
         alignItems: "center",
         backgroundSize: "cover",
         backgroundRepeat: "no-repeat",
-        backgroundPosition: "center"
+        backgroundPosition: "center",
+        height: '100%'
       }}
     >
       <Menu
@@ -82,7 +83,7 @@ const GalleryPreview = props => {
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
         <Menu.Item position="left" icon="sidebar" />
-        <Menu.Item>{appDetails.GalleryHeaderText || "Header Text"}</Menu.Item>
+        <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>{appDetails.GalleryHeaderText || "Header Text"}</Menu.Item>
         <Menu.Item position="right" icon="home" />
       </Menu>
 
