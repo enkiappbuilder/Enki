@@ -41,7 +41,15 @@ class ConfirmationPage extends Component {
         <img src = "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607"></img>
       </Coverflow> */}
 
-          <button onClick={this.handleExport}>export files, yeah!</button>
+          <div>
+            <Button
+              onClick={() => this.handleClick(
+              )}
+            >
+              Save To Mobile App
+        </Button>
+          </div>
+          <Button onClick={this.handleExport}>Export Project</Button>
         </Segment>
       </>
     )

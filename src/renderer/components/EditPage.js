@@ -4,13 +4,11 @@ import {
   Header,
   Segment,
   Card,
-  Grid,
-  Container
+  Grid
 } from "semantic-ui-react";
 import Forms from "./Forms";
 import UploadImage from "./UploadImageFormButton"
 import ColorPicker from "./ColorPicker"
-import phone from "./phone.png";
 import { connect } from 'react-redux'
 import { saveAppDetails } from '../store/appDetails'
 import HomePreview from "./MobileHomepageView";
@@ -44,8 +42,6 @@ class EditPage extends Component {
   handleChange(event, { value, name }) {
     this.setState({ [name]: value });
   }
-
-
 
   handleColorChange(commentName, color) {
     this.props.saveAppDetails({ [commentName]: color })
@@ -108,22 +104,13 @@ class EditPage extends Component {
 
               })}
             </Grid.Column>
-
             <Grid.Column>
-
               <Card style={{ height: '60vh', display: 'flex' }}>
                 {Preview}
-
               </Card>
-
-
             </Grid.Column>
           </Grid>
-
-
         </Segment>
-
-
       </>
     );
   }
