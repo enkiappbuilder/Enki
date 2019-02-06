@@ -61,7 +61,7 @@ class EditPage extends Component {
 
     return (
       <>
-        <Header style = {styles.headerStyles}> Edit Your {this.props.page} Page </Header>
+        <Header style={styles.headerStyles}> Edit Your {this.props.page} Page </Header>
         <Segment color='green'>
           <Grid columns={2} relaxed="very" celled="internally">
             <Grid.Column>
@@ -108,10 +108,10 @@ class EditPage extends Component {
             <Grid.Column>
 
               <Sticky>
-              <Card style={{ height: '70vh', display: 'flex', marginTop: '50px'}}>
+                <Card style={{ height: '70vh', display: 'flex', marginTop: '50px' }}>
 
-                {Preview}
-              </Card>
+                  {Preview}
+                </Card>
               </Sticky>
             </Grid.Column>
           </Grid>
@@ -135,7 +135,7 @@ const mapDispatchToProps = dispatch => {
 export default connect(mapStateToProps, mapDispatchToProps)(EditPage);
 
 const styles = {
-  headerStyles : {
+  headerStyles: {
     paddingLeft: '42px'
   }
 }

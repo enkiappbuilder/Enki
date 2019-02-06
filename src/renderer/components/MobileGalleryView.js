@@ -3,7 +3,7 @@ import { Container, Menu } from "semantic-ui-react";
 import { Carousel } from "react-responsive-carousel";
 
 import { Link } from "react-router-dom";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import userImage from "../../functions/userImage";
@@ -15,7 +15,7 @@ class GalleryPreview extends React.Component {
   }
 
   render() {
-    const appDetails = props.appDetails ? props.appDetails : props.stateDetails;
+    const appDetails = this.props.appDetails ? this.props.appDetails : this.props.stateDetails;
     const images = [
       {
         title: appDetails.GalleryTitleText1 || "Cyberpunk Street",
@@ -79,7 +79,7 @@ class GalleryPreview extends React.Component {
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
           backgroundPosition: "center",
-      height: '100%'
+          height: '100%'
         }}
       >
         <Menu
@@ -90,7 +90,7 @@ class GalleryPreview extends React.Component {
           <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>{appDetails.GalleryHeaderText || "Header Text"}</Menu.Item>
 
           <Menu.Item
-            onClick={()=>props.changePage("Home")}            
+            onClick={() => this.props.changePage("Home")}
             position="right"
             icon="home"
           />

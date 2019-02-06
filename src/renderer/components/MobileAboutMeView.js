@@ -5,7 +5,7 @@ import {
   Button,
   Menu,
 } from "semantic-ui-react";
-import {connect} from 'react-redux'
+import { connect } from 'react-redux'
 
 import userImage from '../../functions/userImage'
 
@@ -97,8 +97,8 @@ const AboutPreview = props => {
         <Menu.Item position="left" icon="sidebar" />
 
         <Menu.Item>{appDetails.AboutMeHeaderText || "Header Text"}</Menu.Item>
-        <Menu.Item position="right" icon="home" onClick={()=>props.changePage('Home')}/>
-
+        <Menu.Item position="right" icon="home" onClick={() => props.changePage('Home')} />
+      </Menu>
 
       <Container style={styles.flex}>
 
@@ -109,33 +109,36 @@ const AboutPreview = props => {
           }
           borderradius="20px"
         />
-        <Container style={{ textAlign: "center" }} />
-        <div style={styles.textBorder}>
-          <p style={styles.aboutMeHeader}>
-            {/*AboutMeHeader*/} {appDetails.AboutMeTitleText || "Title Text"}{" "}
-            {/*AboutMeHeader*/}
-          </p>
-          <p style={styles.text}>
-            {/*AboutMeDescText*/}
-            {appDetails.AboutMeDescText || defaultAboutMeDesc}
-            {/*AboutMeDescText*/}
-          </p>
-          
-          <Button
-            content=/*AboutMeButtonText*/ {
-              appDetails.AboutMeButtonText || "Contact"
-            } /*AboutMeButtonText*/
-            inverted
-            style={styles.AboutMePageButton}
-            onClick={()=>props.changePage("Contact")}
-          />
-          
-        </div>
-      </Container>
+        <Container style={{ textAlign: "center" }} >
+          <div style={styles.textBorder}>
+            <p style={styles.aboutMeHeader}>
+              {/*AboutMeHeader*/} {appDetails.AboutMeTitleText || "Title Text"}{" "}
+              {/*AboutMeHeader*/}
+            </p>
+            <p style={styles.text}>
+              {/*AboutMeDescText*/}
+              {appDetails.AboutMeDescText || defaultAboutMeDesc}
+              {/*AboutMeDescText*/}
+            </p>
 
+            <Button
+              content=/*AboutMeButtonText*/ {
+                appDetails.AboutMeButtonText || "Contact"
+              } /*AboutMeButtonText*/
+              inverted
+              style={styles.AboutMePageButton}
+              onClick={() => props.changePage("Contact")}
+            />
+
+          </div>
+        </Container>
+
+      </Container>
     </Container>
+
   );
-};
+}
+
 
 
 const mapStateToProps = (state) => {
