@@ -69,39 +69,44 @@ ipcMain.on('exportProject', createProject)
 
 // Create new project function
 async function createProject(event) {
-  event.sender.send('copying')
   const directory = dialog.showSaveDialog(mainWindow)
-  const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
 
-  const progressBar = new ProgressBar({
-    text: 'Please wait while Enki writes your app!',
-    detail: 'Copying...'
-  });
+  if (directory) {
 
-  progressBar
-    .on('completed', function() {
-      event.sender.send('copy-done')
-      console.info(`completed...`);
-      progressBar.detail = 'Your App is ready. Exiting...';
-    })
-    .on('aborted', function() {
-      console.info(`aborted...`);
+    event.sender.send('copying')
+
+    const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
+
+    const progressBar = new ProgressBar({
+      text: 'Please wait while Enki writes your app!',
+      detail: 'Copying...'
     });
 
-  await fs.mkdir(directory, err => {
-    if (err) return console.log(err)
-  })
+    progressBar
+      .on('completed', function () {
+        event.sender.send('copy-done')
+        console.info(`completed...`);
+        progressBar.detail = 'Your App is ready. Exiting...';
+      })
+      .on('aborted', function () {
+        console.info(`aborted...`);
+      });
 
-  await fs.copy(pathToCopyOfProject, directory,
-    function (err) {
-      if (err) {
-        console.error(err)
-        progressBar.setCompleted()
-      } else {
-        console.log('success!')
-        progressBar.setCompleted()
-      }
+    await fs.mkdir(directory, err => {
+      if (err) return console.log(err)
     })
+
+    await fs.copy(pathToCopyOfProject, directory,
+      function (err) {
+        if (err) {
+          console.error(err)
+          progressBar.setCompleted()
+        } else {
+          console.log('success!')
+          progressBar.setCompleted()
+        }
+      })
+  }
 }
 
 //dialog window for uploading image to project
@@ -110,27 +115,27 @@ ipcMain.on('uploadPhoto', (event, commentName) => uploadNewPhoto(event, commentN
 
 ipcMain.on('show-progressbar', showProgressbar)
 ipcMain.on('set-progressbar-completed', setProgressbarCompleted)
-ipcMain.on('copyExists',(event)=> event.sender.send('copy-done'))
+ipcMain.on('copyExists', (event) => event.sender.send('copy-done'))
 
 // Progress bar renders while files are being copied.
-function showProgressbar (event) {
+function showProgressbar(event) {
   event.sender.send('copying')
-	const progressBar = new ProgressBar({
+  const progressBar = new ProgressBar({
     text: 'Please wait while Enki writes your app!',
     detail: 'Copying...'
   });
 
-	progressBar
-    .on('completed', function() {
+  progressBar
+    .on('completed', function () {
       event.sender.send('copy-done')
       console.info(`completed...`);
       progressBar.detail = 'Your App is ready. Exiting...';
     })
-    .on('aborted', function() {
+    .on('aborted', function () {
       console.info(`aborted...`);
     });
 
-	// launch the task...
+  // launch the task...
   fs.copy(path.join(__dirname, '../../template/mobiletemp'), './copyOfProject/', function (err) {
     if (err) {
       console.error(err)
@@ -141,10 +146,10 @@ function showProgressbar (event) {
   })
 }
 
-function setProgressbarCompleted () {
-	if (progressBar) {
-		progressBar.setCompleted();
-	}
+function setProgressbarCompleted() {
+  if (progressBar) {
+    progressBar.setCompleted();
+  }
 }
 //function that allows us to upload a photo and save it in the copyOfProject assets folder, it will then replace the path in the desired mobile copyOfProject file so the new image is displayed.
 //example of calling this function
