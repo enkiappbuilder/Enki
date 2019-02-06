@@ -12,7 +12,8 @@ const defaultState = {
   HomeScreenDescriptionText: "Photographer and Designer",
   HomeScreenDescriptionColor: "white",
   HomeScreenButtonText: "About Me",
-  HomeScreenButtonBackgroundColor: "grey",
+  HomeScreenButtonBackgroundColor: 'rgba(250,249,249,0.3)',
+
 
 
   /*Gallery Screen*/

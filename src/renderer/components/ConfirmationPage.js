@@ -6,6 +6,7 @@ import { saveAppDetails } from "../store/appDetails";
 import LiveReact from "./LiveReact";
 import { ipcRenderer } from 'electron'
 
+
 class ConfirmationPage extends Component {
   constructor() {
     super();
@@ -47,6 +48,7 @@ class ConfirmationPage extends Component {
     ipcRenderer.send("exportProject");
   }
   render() {
+    console.log('this.props.appDetails:', this.props.appDetails);
     return (
       <>
         <Header style={{ marginLeft: 50 }}> Final Confirmation</Header>
