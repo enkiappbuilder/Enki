@@ -68,9 +68,25 @@ app.on('ready', () => {
 ipcMain.on('exportProject', createProject)
 
 // Create new project function
-async function createProject() {
+async function createProject(event) {
+  event.sender.send('copying')
   const directory = dialog.showSaveDialog(mainWindow)
   const pathToCopyOfProject = path.join(__dirname, '../../', 'copyOfProject')
+
+  const progressBar = new ProgressBar({
+    text: 'Please wait while Enki writes your app!',
+    detail: 'Copying...'
+  });
+
+  progressBar
+    .on('completed', function() {
+      event.sender.send('copy-done')
+      console.info(`completed...`);
+      progressBar.detail = 'Your App is ready. Exiting...';
+    })
+    .on('aborted', function() {
+      console.info(`aborted...`);
+    });
 
   await fs.mkdir(directory, err => {
     if (err) return console.log(err)
@@ -80,8 +96,10 @@ async function createProject() {
     function (err) {
       if (err) {
         console.error(err)
+        progressBar.setCompleted()
       } else {
         console.log('success!')
+        progressBar.setCompleted()
       }
     })
 }
