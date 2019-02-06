@@ -8,6 +8,7 @@ import {
 import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
+
 const AboutPreview = props => {
   const appDetails = props.appDetails ? props.appDetails : props.stateDetails;
   
@@ -94,7 +95,7 @@ const AboutPreview = props => {
         <Image
           style={{ objectFit: "cover" }}
           src={
-            /*AboutMeImg*/ "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607" /*AboutMeImg*/
+            /*AboutMeImg*/ "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /*AboutMeImg*/
           }
           borderradius="20px"
         />
@@ -106,7 +107,7 @@ const AboutPreview = props => {
           </p>
           <p style={styles.text}>
             {/*AboutMeDescText*/}
-            {appDetails.AboutMeDescText || defaultAboutMeDesc }
+            {appDetails.AboutMeDescText || defaultAboutMeDesc}
             {/*AboutMeDescText*/}
           </p>
           

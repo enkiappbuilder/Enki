@@ -19,7 +19,7 @@ export default class HomeScreen extends React.Component {
   };
 
   render() {
-    const myImg = require(/*HomeScreenBackgroundImage*/'../assets/images/sampleImages/ice.jpg'/*HomeScreenBackgroundImage*/)
+    const myImg = require(`../${/*HomeScreenBackgroundImage*/'assets/images/sampleImages/ice.jpg'/*HomeScreenBackgroundImage*/}`)
     return (
       <View style={styles.container}>
 
