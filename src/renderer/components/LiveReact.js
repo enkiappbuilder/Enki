@@ -15,7 +15,7 @@ class LiveReact extends Component {
     this.changePage = this.changePage.bind(this);
   }
 
-  changePage(newPage='Home') {
+  changePage(newPage = 'Home') {
     this.setState({
       currentPage: newPage
     });
@@ -23,16 +23,16 @@ class LiveReact extends Component {
   render() {
     const { currentPage } = this.state;
     let mobileComponent
-    if(currentPage === 'Home') mobileComponent = <HomePreview changePage={(newPage)=>this.changePage(newPage)}appDetails={this.props.appDetails}/>
-    if(currentPage === 'About') mobileComponent = <AboutPreview changePage={(newPage)=>this.changePage(newPage)}appDetails={this.props.appDetails}/>
-    if(currentPage === 'Contact') mobileComponent = <ContactPreview changePage={(newPage)=>this.changePage(newPage)}appDetails={this.props.appDetails}/>
-    if(currentPage === 'Gallery') mobileComponent = <GalleryPreview changePage={(newPage)=>this.changePage(newPage)}appDetails={this.props.appDetails}/>
+    if (currentPage === 'Home') mobileComponent = <HomePreview changePage={(newPage) => this.changePage(newPage)} appDetails={this.props.appDetails} />
+    if (currentPage === 'About') mobileComponent = <AboutPreview changePage={(newPage) => this.changePage(newPage)} appDetails={this.props.appDetails} />
+    if (currentPage === 'Contact') mobileComponent = <ContactPreview changePage={(newPage) => this.changePage(newPage)} appDetails={this.props.appDetails} />
+    if (currentPage === 'Gallery') mobileComponent = <GalleryPreview changePage={(newPage) => this.changePage(newPage)} appDetails={this.props.appDetails} />
 
     return (
       <div>
         {mobileComponent}
       </div>
-      
+
     );
   }
 }
