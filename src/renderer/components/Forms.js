@@ -9,7 +9,7 @@ const Forms = (props) => {
 
   return (
     <div>
-      <Form>
+      <Form style={{ padding: 5 }}>
         <Form.Field>
           <label>{title}</label>
           <Form.Input
