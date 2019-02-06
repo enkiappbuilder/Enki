@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "bootstrap": "^4.2.1",
+    "electron-progressbar": "^1.2.0",
     "fs-extra": "^7.0.1",
     "path": "^0.12.7",
     "react": "^16.7.0",

@@ -3,6 +3,7 @@ import { app, BrowserWindow, ipcMain, dialog } from 'electron'
 const fs = require('fs-extra')
 import * as path from 'path'
 import { format as formatUrl } from 'url'
+const ProgressBar = require('electron-progressbar')
 const { updateText } = require('../functions/rewrite')
 
 const isDevelopment = process.env.NODE_ENV !== 'production'
@@ -89,6 +90,43 @@ async function createProject() {
 
 ipcMain.on('uploadPhoto', (event, commentName) => uploadNewPhoto(event, commentName))
 
+ipcMain.on('show-progressbar', showProgressbar)
+ipcMain.on('set-progressbar-completed', setProgressbarCompleted)
+
+
+// Progress bar renders while files are being copied.
+function showProgressbar () {
+
+	const progressBar = new ProgressBar({
+    text: 'Please wait while Enki writes your app!',
+    detail: 'Copying...'
+  });
+
+	progressBar
+    .on('completed', function() {
+      console.info(`completed...`);
+      progressBar.detail = 'Your App is ready. Exiting...';
+    })
+    .on('aborted', function() {
+      console.info(`aborted...`);
+    });
+
+	// launch the task...
+  fs.copy(path.join(__dirname, '../../template/mobiletemp'), './copyOfProject/', function (err) {
+    if (err) {
+      console.error(err)
+    } else {
+      console.log('success!')
+      progressBar.setCompleted()
+    }
+  })
+}
+
+function setProgressbarCompleted () {
+	if (progressBar) {
+		progressBar.setCompleted();
+	}
+}
 //function that allows us to upload a photo and save it in the copyOfProject assets folder, it will then replace the path in the desired mobile copyOfProject file so the new image is displayed.
 //example of calling this function
 //--- uploadNewPhoto('screens/Gallery.js', 'text1')
