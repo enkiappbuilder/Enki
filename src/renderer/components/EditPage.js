@@ -51,6 +51,7 @@ class EditPage extends Component {
 
 
   render() {
+    console.log('this.state:', this.state);
     let Preview
     if (this.props.page === 'Home') Preview = <HomePreview appDetails={this.state} />
     if (this.props.page === 'About') Preview = <AboutPreview appDetails={this.state} />

@@ -18,6 +18,7 @@ export default class About extends React.Component {
   };
 
   render() {
+    const aboutImg = require(`../${/*AboutMeImage*/'assets/images/sampleImages/robot-dev.png'/*AboutMeImage*/}`)
     return (
       <View style={styles.container}>
         <Header
@@ -29,7 +30,7 @@ export default class About extends React.Component {
         <View style={styles.flex}>
           <Image
             style={styles.aboutMeImg}
-            source={{ uri: /*AboutMeImage*/ "https://cloud.fullstackacademy.com/Corey.jpg?mtime=20170626111607" /*AboutMeImage*/ }}
+            source={aboutImg}
             resizeMode="contain"
             borderRadius={20}
           />
@@ -76,7 +77,7 @@ const styles = StyleSheet.create({
   },
   aboutMeImg: {
     flex: 1,
-    alignSelf: 'stretch',
+    // alignSelf: 'stretch',
     margin: 20
   },
   aboutMeHeader: {
