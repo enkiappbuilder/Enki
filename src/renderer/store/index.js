@@ -7,6 +7,7 @@ import appDetails from './appDetails'
 import createStatus from './createStatus'
 import subMenu from './subMenu'
 import subMenuNav from './subMenuNav'
+import liveSideBar from './liveSideBar'
 // import composeWithDevTools from 'redux-devtools-extension'
 
 const reducer = combineReducers({
@@ -15,8 +16,8 @@ const reducer = combineReducers({
   templateChoice,
   createStatus,
   subMenu,
-  subMenuNav
-
+  subMenuNav,
+  liveSideBar
 })
 
 const middleware = applyMiddleware(thunkMiddleware, createLogger({ collapsed: false, }))

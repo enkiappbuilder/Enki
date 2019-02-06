@@ -4,6 +4,8 @@ import { Carousel } from "react-responsive-carousel";
 
 import { Link } from "react-router-dom";
 import { connect } from 'react-redux'
+import {liveSideBar} from "../store/liveSideBar"
+import {showliveMENU, hideliveMenu} from "../store/liveSideBar"
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
 import userImage from "../../functions/userImage";
@@ -86,7 +88,7 @@ class GalleryPreview extends React.Component {
           secondary
           style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
         >
-          <Menu.Item position="left" icon="sidebar" />
+          <Menu.Item position="left" icon="sidebar" onClick = {()=>this.props.showMENU()} />
           <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>{appDetails.GalleryHeaderText || "Header Text"}</Menu.Item>
 
           <Menu.Item
@@ -132,9 +134,17 @@ class GalleryPreview extends React.Component {
   }
 }
 
-const mapStateToProps = (state) => {
+
+const mapDispatchToProps = dispatch => {
   return {
-    stateDetails: state.appDetails
+    showMENU: () => dispatch(showliveMENU()),
+    hideMenu: () => dispatch(hideliveMenu()),
   }
 }
-export default connect(mapStateToProps)(GalleryPreview);
+const mapStateToProps = (state) => {
+  return {
+    stateDetails: state.appDetails,
+    sideBarStatus: state.liveSideBar
+  }
+}
+export default connect(mapStateToProps, mapDispatchToProps)(GalleryPreview);

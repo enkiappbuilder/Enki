@@ -55,7 +55,7 @@ class SubMenu extends Component {
           as={Menu}
           animation='overlay'
           direction='top'
-          visible={this.props.menuVisible}
+          visible={true}
           width="thin"
         >
           <Menu.Item onClick={() => this.props.showHelp()}>
