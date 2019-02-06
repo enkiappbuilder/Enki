@@ -9,6 +9,7 @@ import ContactPreview from "./MobileContactMeView";
 import Coverflow from "react-coverflow";
 import LiveReact from "./LiveReact";
 import { HashRouter as Router } from "react-router-dom";
+import {ipcRenderer} from 'electron'
 
 class ConfirmationPage extends Component {
   constructor() {
