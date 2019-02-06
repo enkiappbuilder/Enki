@@ -36,10 +36,10 @@ class ColorPicker extends React.Component {
     let title = name.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) { return str.toUpperCase(); })
 
     return (
-      <Form style={{ display: 'flex' }}>
+      <Form style={{ display: 'flex', padding: 5 }}>
         <Form.Field>
           <Accordion>
-            <Accordion.Title active={activeIndex === name} index={name} onClick={this.handleClick}>
+            <Accordion.Title style={{ margin: 0 }} active={activeIndex === name} index={name} onClick={this.handleClick}>
               {title}
               <Icon bordered name="square full" style={{ color: this.state.color, margin: 5 }} />
             </Accordion.Title>

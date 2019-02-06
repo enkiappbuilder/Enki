@@ -17,7 +17,7 @@ class LiveReact extends Component {
     this.changePage = this.changePage.bind(this);
   }
 
-  changePage(newPage='Home') {
+  changePage(newPage = 'Home') {
     this.setState({
       currentPage: newPage
     });

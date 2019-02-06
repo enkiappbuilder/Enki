@@ -7,7 +7,7 @@ import { showSideBar } from '../store/sideBar'
 import { connect } from 'react-redux'
 import { showMENU, hideMenu } from "../store/subMenu"
 import ConfirmationPage from './ConfirmationPage'
-
+import fs from 'fs-extra'
 // const homeDetails = ['AppName', 'HomeScreenButtonText', 'DescriptionText1', 'LargeWelcomeText']
 // const galleryDetails = []
 // const aboutDetails = ['AboutMeHeaderText', 'AboutMeImg', 'AboutMeHeader', 'AboutMeDescText', 'AboutMeButtonText']
@@ -58,10 +58,20 @@ class CreatePage extends Component {
     super()
     this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this)
+    this.state = {
+      copying: false,
+    }
   }
 
   componentDidMount() {
     this.props.showSideBar()
+    if (!fs.existsSync('./copyOfProject')) this.setState({copying:true})
+    ipcRenderer.on('copy-done', ()=> {
+      this.setState({copying:false})
+    })
+    ipcRenderer.on('copying', ()=>{
+      this.setState({copying:true})
+    })
   }
 
   handleChange() {
@@ -78,7 +88,11 @@ class CreatePage extends Component {
   }
   render() {
     const { pageView } = this.props
+    
+    if(this.state.copying) return (<Header style={{ margin:'30vh'}}>Please Wait For Your Files To Finish Writing</Header> )
+    
     return (
+      
       <div style={{ maxHeight: '100vh', maxWidth: '100vw', overflow: "scroll" }}>
         <Button color='green' onClick={() => this.handleChange()}>Start Customizing!</Button>
         {

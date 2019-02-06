@@ -92,11 +92,11 @@ ipcMain.on('uploadPhoto', (event, commentName) => uploadNewPhoto(event, commentN
 
 ipcMain.on('show-progressbar', showProgressbar)
 ipcMain.on('set-progressbar-completed', setProgressbarCompleted)
-
+ipcMain.on('copyExists',(event)=> event.sender.send('copy-done'))
 
 // Progress bar renders while files are being copied.
-function showProgressbar () {
-
+function showProgressbar (event) {
+  event.sender.send('copying')
 	const progressBar = new ProgressBar({
     text: 'Please wait while Enki writes your app!',
     detail: 'Copying...'
@@ -104,6 +104,7 @@ function showProgressbar () {
 
 	progressBar
     .on('completed', function() {
+      event.sender.send('copy-done')
       console.info(`completed...`);
       progressBar.detail = 'Your App is ready. Exiting...';
     })
