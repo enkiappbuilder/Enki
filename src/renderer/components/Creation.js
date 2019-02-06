@@ -59,15 +59,18 @@ class CreatePage extends Component {
     this.handleUpload = this.handleUpload.bind(this)
     this.handleChange = this.handleChange.bind(this)
     this.state = {
-      copying: true,
+      copying: false,
     }
   }
 
   componentDidMount() {
     this.props.showSideBar()
-    // if (fs.existsSync('./copyOfProject')) this.setState({copying:false})
+    if (!fs.existsSync('./copyOfProject')) this.setState({copying:true})
     ipcRenderer.on('copy-done', ()=> {
       this.setState({copying:false})
+    })
+    ipcRenderer.on('copying', ()=>{
+      this.setState({copying:true})
     })
   }
 
