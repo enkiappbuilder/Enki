@@ -10,6 +10,7 @@ import ModalPreview from './PreviewModal'
 import copy from '../../functions/fsCopy.js'
 import { enableCreate } from "../store/createStatus";
 import { toggleEdit } from "../store/sideBar"
+import { ipcMain, ipcRenderer } from "electron";
 const fs = require('fs-extra')
 
 const artistTemplatePreview =
@@ -38,9 +39,8 @@ class Templates extends Component {
     if (fs.existsSync('./copyOfProject')) {
       alert('Current Project Exists! Redirecting to create Page! To start another project, please delete in creation page!')
     } else {
-      copy('../../template/mobiletemp')
+      ipcRenderer.send('show-progressbar')
       this.props.toggleEdit(true)
-      alert('COPY MADE')
     }
   }
 
