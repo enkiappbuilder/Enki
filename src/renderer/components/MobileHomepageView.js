@@ -1,12 +1,13 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { Container, Image, Button, Text, Header, Form, Menu, Item } from 'semantic-ui-react'
+import { Container, Image, Button, Text, Header, Form, Menu, Item,} from 'semantic-ui-react'
 import myImg from '../../../template/mobiletemp/assets/images/sampleImages/ice.jpg'
+import {Link} from 'react-router-dom'
 
 
 
 const HomePreview = (props) => {
-  const {appDetails}  = props;
+  const appDetails = props.appDetails ? props.appDetails : props.stateDetails
 
   const styles = {
     homePageButton: {
@@ -67,11 +68,13 @@ const HomePreview = (props) => {
       <Container style={{ textAlign: 'center' }}>
         <p style={styles.homePageHeader}>{/*LargeWelcomeText*/}{appDetails.HomeScreenLargeWelcomeText || 'Welcome Text'}{/*LargeWelcomeText*/}</p>
         <p style={styles.homePageSubHeader}>{/*DescriptionText1*/}{appDetails.HomeScreenDescriptionText || 'Photographer and designer.'}{/*DescriptionText1*/}</p>
+
         <Button
           // onPress={() => this.props.navigation.navigate('About')}
           content= /*HomescreenButtonText*/ {appDetails.HomeScreenButtonText || 'About Me'} /*HomescreenButtonText*/
           inverted
           style={styles.homePageButton}
+          onClick={()=>props.changePage('About')}
         />
       </Container>
 
@@ -83,6 +86,10 @@ const HomePreview = (props) => {
 }
 
 
+const mapStateToProps = (state) => {
+  return {
+    stateDetails: state.appDetails
+  }
+}
 
-
-export default HomePreview
+export default connect(mapStateToProps)(HomePreview)

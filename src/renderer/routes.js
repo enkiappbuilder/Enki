@@ -9,9 +9,9 @@ class Routes extends Component {
     return (
       <Switch>
         <Route exact path="/" component={LandingPage} />
-        <Route exact path="/templates" component={Templates} />
-        <Route exact path="/create" component={SubMenu} />
-        <Route exact path='/edit' component={EditPage}/>
+        <Route  path="/templates" component={Templates} />
+        <Route  path="/create" component={SubMenu} />
+        <Route  path='/edit' component={EditPage}/>
       </Switch>
     )
   }

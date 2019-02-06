@@ -5,10 +5,13 @@ import {
   Button,
   Menu,
 } from "semantic-ui-react";
+import {Link} from 'react-router-dom'
+import {connect} from 'react-redux'
 
 const AboutPreview = props => {
-  const { appDetails } = props;
-  console.log('appDetails:', appDetails);
+  const appDetails = props.appDetails ? props.appDetails : props.stateDetails;
+  
+
   const defaultAboutMeDesc =
     "This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah! ";
   const styles = {
@@ -85,7 +88,7 @@ const AboutPreview = props => {
       >
         <Menu.Item position="left" icon="sidebar" />
         <Menu.Item>{appDetails.AboutMeHeaderText || "Header Text"}</Menu.Item>
-        <Menu.Item position="right" icon="home" />
+        <Menu.Item position="right" icon="home" onClick={()=>props.changePage('Home')}/>
       </Menu>
       <Container style={styles.flex}>
         <Image
@@ -106,6 +109,7 @@ const AboutPreview = props => {
             {appDetails.AboutMeDescText || defaultAboutMeDesc }
             {/*AboutMeDescText*/}
           </p>
+          
           <Button
             // onPress={() => this.props.navigation.navigate('Contact')}
             content=/*AboutMeButtonText*/ {
@@ -113,17 +117,19 @@ const AboutPreview = props => {
             } /*AboutMeButtonText*/
             inverted
             style={styles.AboutMePageButton}
+            onClick={()=>props.changePage("Contact")}
           />
+          
         </div>
       </Container>
     </Container>
   );
 };
 
-// const mapStateToProps = state => {
-//   return {
-//     appDetails: state.appDetails
-//   };
-// };
+const mapStateToProps = (state) => {
+  return {
+    stateDetails: state.appDetails
+  }
+}
 
-export default AboutPreview;
+export default connect(mapStateToProps)(AboutPreview);
