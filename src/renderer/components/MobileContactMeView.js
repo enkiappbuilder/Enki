@@ -2,6 +2,9 @@ import React from "react";
 import { Container, Button, Form, Menu, Image } from "semantic-ui-react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
+import {liveSideBar} from "../store/liveSideBar"
+import {showliveMENU, hideliveMenu} from "../store/liveSideBar"
+
 
 const ContactPreview = props => {
   const appDetails = props.appDetails ? props.appDetails : props.stateDetails;
@@ -39,7 +42,7 @@ const ContactPreview = props => {
         secondary
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
-        <Menu.Item position='left' icon='sidebar' />
+        <Menu.Item position='left' icon='sidebar' onClick = {()=>props.showMENU()} />
         <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>{appDetails.ContactScreenHeaderText || 'Header Text'}</Menu.Item>
         <Menu.Item position='right' icon='home' onClick={() => props.changePage("Home")} />
       </Menu>
@@ -94,10 +97,18 @@ const ContactPreview = props => {
   );
 };
 
+const mapDispatchToProps = dispatch => {
+  return {
+    showMENU: () => dispatch(showliveMENU()),
+    hideMenu: () => dispatch(hideliveMenu()),
+  }
+}
+
 const mapStateToProps = state => {
   return {
-    stateDetails: state.appDetails
+    stateDetails: state.appDetails,
+    sideBarStatus: state.liveSideBar
   };
 };
 
-export default connect(mapStateToProps)(ContactPreview);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactPreview);

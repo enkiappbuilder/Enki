@@ -15,6 +15,7 @@ const defaultState = {
   HomeScreenButtonBackgroundColor: 'rgba(250,249,249,0.3)',
 
 
+
   /*Gallery Screen*/
   GalleryHeaderText: "Header Text",
 

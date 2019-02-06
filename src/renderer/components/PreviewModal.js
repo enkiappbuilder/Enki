@@ -34,7 +34,7 @@ class ModalPreview extends React.Component {
           <div style={{ display: 'flex', justifyContent: 'space-around' }} >
             {this.props.images.map(image => {
               return (
-                <div>
+                <div key={image}>
                   <Image src={image} />
                 </div>
               )

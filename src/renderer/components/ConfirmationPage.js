@@ -1,15 +1,11 @@
 import React, { Component } from "react";
-import { Button, Segment, Header } from "semantic-ui-react";
+import { Button, Segment, Header, Container } from "semantic-ui-react";
 import { connect } from "react-redux";
 import { updateText } from "../../functions/rewrite";
 import { saveAppDetails } from "../store/appDetails";
-import HomePreview from "./MobileHomepageView";
-import AboutPreview from "./MobileAboutMeView";
-import ContactPreview from "./MobileContactMeView";
-import Coverflow from "react-coverflow";
 import LiveReact from "./LiveReact";
-import { HashRouter as Router } from "react-router-dom";
-import {ipcRenderer} from 'electron'
+import { ipcRenderer } from 'electron'
+
 
 class ConfirmationPage extends Component {
   constructor() {
@@ -55,16 +51,19 @@ class ConfirmationPage extends Component {
     console.log('this.props.appDetails:', this.props.appDetails);
     return (
       <>
-        <Header> Final Confirmation</Header>
-        <Segment color="green">
-          <LiveReact newPath={this.newPath} />
+        <Header style={{ marginLeft: 50 }}> Final Confirmation</Header>
+        <Segment style={{ width: '90%' }} color='green' >
+          <Container style={{
+            display: 'flex', justifyContent: 'center', flexDirection: 'row', alignItems: 'center', padding: 0
 
-          <div>
-            <Button onClick={() => this.handleClick()}>
-              Save To Mobile App
-            </Button>
-          </div>
-          <Button onClick={this.handleExport}>Export Project</Button>
+          }}>
+            <div style={{ margin: 50, flex: 1, textAlign: 'center' }}>View your mobile app and see if you'd like to make any changes. When you're ready, click export project to receive your project files!</div>
+            <LiveReact style={{ flex: 1, margin: 20 }} newPath={this.newPath
+            } />
+            <div style={{ display: 'flex', justifyContent: 'center', flex: 1, margin: 20 }}>
+              <Button onClick={this.handleExport}>Export Project</Button>
+            </div>
+          </Container>
         </Segment>
       </>
     );

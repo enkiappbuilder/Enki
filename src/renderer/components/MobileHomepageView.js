@@ -2,14 +2,11 @@ import React from "react";
 import { connect } from "react-redux";
 import {
   Container,
-  Image,
   Button,
-  Text,
-  Header,
-  Form,
-  Menu,
-  Item
+  Menu
 } from "semantic-ui-react";
+import {liveSideBar} from "../store/liveSideBar"
+import {showliveMENU, hideliveMenu} from "../store/liveSideBar"
 import myImg from "../../../template/mobiletemp/assets/images/sampleImages/ice.jpg";
 import userImage from '../../functions/userImage'
 import fs from "fs-extra";
@@ -40,7 +37,8 @@ const HomePreview = (props) => {
         /*HomeScreenButtonBackgroundColor*/ appDetails.HomeScreenButtonBackgroundColor ||
         "rgba(250,249,249,0.3)" /*HomeScreenButtonBackgroundColor*/,
       overflowWrap: 'break-word',
-      width: '50%'
+      width: '50%',
+      alignItems: 'center'
     },
     homePageFlex: {
       flex: 1,
@@ -50,10 +48,12 @@ const HomePreview = (props) => {
     homePageHeader: {
       fontSize: 49,
       textAlign: "center",
+      border: '20 red solid',
       color:
         /*HomeScreenHeaderColor*/ appDetails.HomeScreenLargeWelcomeColor ||
         "#FFFFFF" /* HomeScreenHeaderColor*/,
-      overflowWrap: 'break-word'
+      overflowWrap: 'break-word',
+      margin: 0
     },
     homePageSubHeader: {
       fontSize: 20,
@@ -98,14 +98,14 @@ const HomePreview = (props) => {
         secondary
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
-        <Menu.Item position="left" icon="sidebar" />
+        <Menu.Item position="left" icon="sidebar" onClick = {()=>props.showMENU()}/>
         <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>
           {appDetails.HomeScreenHeaderText || "Header Text"}
         </Menu.Item>
         <Menu.Item position="right" icon="home" />
       </Menu>
 
-      <Container style={{ textAlign: "center", overflowY: 'auto', height: '90%' }}>
+      <Container style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', textAlign: "center", overflowY: 'auto', height: '90%' }}>
         <p style={styles.homePageHeader}>
           {/*LargeWelcomeText*/}
           {appDetails.HomeScreenLargeWelcomeText || "Welcome Text"}
@@ -116,25 +116,33 @@ const HomePreview = (props) => {
           {appDetails.HomeScreenDescriptionText || "Photographer and designer."}
           {/*DescriptionText1*/}
         </p>
-        <Button
-          // onPress={() => this.props.navigation.navigate('About')}
-          content=/*HomescreenButtonText*/ {
-            appDetails.HomeScreenButtonText || "About Me"
-          } /*HomescreenButtonText*/
-          inverted
-          style={styles.homePageButton}
-          onClick={()=>props.changePage('About')}
-        />
+        <div>
+          <Button
+            // onPress={() => this.props.navigation.navigate('About')}
+            content=/*HomescreenButtonText*/ {
+              appDetails.HomeScreenButtonText || "About Me"
+            } /*HomescreenButtonText*/
+            inverted
+            style={styles.homePageButton}
+            onClick={() => props.changePage('About')}
+          />
+        </div>
       </Container>
     </Container>
   );
 };
-
-
-const mapStateToProps = (state) => {
+const mapDispatchToProps = dispatch => {
   return {
-    stateDetails: state.appDetails
+    showMENU: () => dispatch(showliveMENU()),
+    hideMenu: () => dispatch(hideliveMenu()),
   }
 }
 
-export default connect(mapStateToProps)(HomePreview)
+const mapStateToProps = (state) => {
+  return {
+    stateDetails: state.appDetails,
+    sideBarStatus: state.liveSideBar
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HomePreview)
