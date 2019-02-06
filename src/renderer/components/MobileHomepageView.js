@@ -1,10 +1,3 @@
-<<<<<<< HEAD
-import React from 'react'
-import { connect } from 'react-redux'
-import { Container, Image, Button, Text, Header, Form, Menu, Item,} from 'semantic-ui-react'
-import myImg from '../../../template/mobiletemp/assets/images/sampleImages/ice.jpg'
-import {Link} from 'react-router-dom'
-=======
 import React from "react";
 import { connect } from "react-redux";
 import {
@@ -18,32 +11,28 @@ import {
   Item
 } from "semantic-ui-react";
 import myImg from "../../../template/mobiletemp/assets/images/sampleImages/ice.jpg";
->>>>>>> master
 
 import fs from "fs-extra";
 // import { url } from 'inspector';
 
-const HomePreview = props => {
-  const { appDetails } = props;
 
-<<<<<<< HEAD
 const HomePreview = (props) => {
   const appDetails = props.appDetails ? props.appDetails : props.stateDetails
-=======
+
   let userImg = null;
 
   // 'assets/images/' || 'assets/images/image.jpg'
   // let imageToFind = appDetails.HomeScreenBackgroundImage ||
-  let path = null;
+  // let path = null;
   if (appDetails.HomeScreenBackgroundImage) {
-    path = appDetails.HomeScreenBackgroundImage;
+    const path = appDetails.HomeScreenBackgroundImage;
     userImg = fs.readFileSync(`copyOfProject/${path}`, { encoding: "base64" });
   }
 
   let image = `url(${myImg})`;
-  if (userImg) image = `url(data:image/jpeg;base64,${userImg})`;
->>>>>>> master
-
+  // if (userImg) image = `url(data:image/jpeg;base64,${userImg})`;
+  if (userImg) image = `url(${userImage(appDetails.HomeScreenBackgroundImage)}`
+  console.log('image:', image);
   const styles = {
     homePageButton: {
       backgroundColor:
@@ -110,12 +99,6 @@ const HomePreview = (props) => {
         <Menu.Item position="right" icon="home" />
       </Menu>
 
-<<<<<<< HEAD
-      <Container style={{ textAlign: 'center' }}>
-        <p style={styles.homePageHeader}>{/*LargeWelcomeText*/}{appDetails.HomeScreenLargeWelcomeText || 'Welcome Text'}{/*LargeWelcomeText*/}</p>
-        <p style={styles.homePageSubHeader}>{/*DescriptionText1*/}{appDetails.HomeScreenDescriptionText || 'Photographer and designer.'}{/*DescriptionText1*/}</p>
-
-=======
       <Container style={{ textAlign: "center" }}>
         <p style={styles.homePageHeader}>
           {/*LargeWelcomeText*/}
@@ -127,7 +110,6 @@ const HomePreview = (props) => {
           {appDetails.HomeScreenDescriptionText || "Photographer and designer."}
           {/*DescriptionText1*/}
         </p>
->>>>>>> master
         <Button
           // onPress={() => this.props.navigation.navigate('About')}
           content=/*HomescreenButtonText*/ {
@@ -142,10 +124,6 @@ const HomePreview = (props) => {
   );
 };
 
-<<<<<<< HEAD
-  )
-}
-
 
 const mapStateToProps = (state) => {
   return {
@@ -154,6 +132,3 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(HomePreview)
-=======
-export default HomePreview;
->>>>>>> master
