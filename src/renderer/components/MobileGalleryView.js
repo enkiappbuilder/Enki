@@ -1,10 +1,12 @@
 import React from "react";
 import { Container, Menu } from "semantic-ui-react";
 import { Carousel } from "react-responsive-carousel";
+
 import { Link } from "react-router-dom";
 import {connect} from 'react-redux'
 
 import "react-responsive-carousel/lib/styles/carousel.min.css";
+import userImage from "../../functions/userImage";
 
 class GalleryPreview extends React.Component {
   constructor(props) {
@@ -76,7 +78,8 @@ class GalleryPreview extends React.Component {
           alignItems: "center",
           backgroundSize: "cover",
           backgroundRepeat: "no-repeat",
-          backgroundPosition: "center"
+          backgroundPosition: "center",
+      height: '100%'
         }}
       >
         <Menu
@@ -84,7 +87,7 @@ class GalleryPreview extends React.Component {
           style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
         >
           <Menu.Item position="left" icon="sidebar" />
-          <Menu.Item>{appDetails.GalleryHeaderText || "Header Text"}</Menu.Item>
+          <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>{appDetails.GalleryHeaderText || "Header Text"}</Menu.Item>
 
           <Menu.Item
             onClick={()=>props.changePage("Home")}            

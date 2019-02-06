@@ -37,7 +37,7 @@ class SubMenu extends Component {
       alert('DELETING PROJECT, press ok to start.')
       rimraf.sync('copyOfProject')
       this.props.toggleEdit(false)
-      alert('Project has been deleted! Going back to templates page!')
+      alert('Project has been deleted! Going back to homepage!')
     } catch (err) {
       console.log('DELETE ERROR', err)
     }
@@ -78,7 +78,7 @@ class SubMenu extends Component {
               Confirm Your Changes
           </Button>
           </Menu.Item>
-          <Menu.Item as={Link} to='/templates'>
+          <Menu.Item as={Link} to='/'>
             <Button onClick={() => this.deleteProject()} color='red'> Delete Project </Button>
           </Menu.Item>
         </Sidebar>

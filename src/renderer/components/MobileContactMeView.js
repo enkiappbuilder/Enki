@@ -24,12 +24,13 @@ const ContactPreview = props => {
     },
     container: {
       flex: 1,
-      color: "#fff",
-      backgroundColor: appDetails.ContactScreenBackgroundColor || "#000000",
-      alignItems: "center",
-      backgroundSize: "cover",
-      backgroundRepeat: "no-repeat",
-      backgroundPosition: "center"
+      color: '#fff',
+      backgroundColor: appDetails.ContactScreenBackgroundColor || '#000000',
+      alignItems: 'center',
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no-repeat',
+      backgroundPosition: 'center',
+      height: '100%'
     }
   };
   return (
@@ -38,19 +39,13 @@ const ContactPreview = props => {
         secondary
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
-        <Menu.Item position="left" icon="sidebar" />
-        <Menu.Item>
-          {appDetails.ContactScreenHeaderText || "Header Text"}
-        </Menu.Item>
-        <Menu.Item
-          onClick={() => props.changePage("Home")}
-          position="right"
-          icon="home"
-        />
+        <Menu.Item position='left' icon='sidebar' />
+        <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>{appDetails.ContactScreenHeaderText || 'Header Text'}</Menu.Item>
+        <Menu.Item position='right' icon='home' onClick={() => props.changePage("Home")} />
       </Menu>
 
-      <Container style={{ textAlign: "center" }}>
-        <Container style={{ display: "flex", justifyContent: "center" }}>
+      <Container style={{ textAlign: 'center', height: '90%', overflowY: 'auto' }}>
+        <Container style={{ display: 'flex', justifyContent: 'center' }}>
           <Image
             style={{ height: 60, width: 60, margin: 5 }}
             src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiA/PjwhRE9DVFlQRSBzdmcgIFBVQkxJQyAnLS8vVzNDLy9EVEQgU1ZHIDEuMS8vRU4nICAnaHR0cDovL3d3dy53My5vcmcvR3JhcGhpY3MvU1ZHLzEuMS9EVEQvc3ZnMTEuZHRkJz48c3ZnIGVuYWJsZS1iYWNrZ3JvdW5kPSJuZXcgMCAwIDQ4IDQ4IiBpZD0iTGF5ZXJfMSIgdmVyc2lvbj0iMS4xIiB2aWV3Qm94PSIwIDAgNDggNDgiIHhtbDpzcGFjZT0icHJlc2VydmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiPjxjaXJjbGUgY3g9IjI0IiBjeT0iMjQiIGZpbGw9IiMxQ0I3RUIiIHI9IjI0Ii8+PGc+PGc+PHBhdGggZD0iTTM2LjgsMTUuNGMtMC45LDAuNS0yLDAuOC0zLDAuOWMxLjEtMC43LDEuOS0xLjgsMi4zLTMuMWMtMSwwLjYtMi4xLDEuMS0zLjQsMS40Yy0xLTEuMS0yLjMtMS44LTMuOC0xLjggICAgYy0yLjksMC01LjMsMi41LTUuMyw1LjdjMCwwLjQsMCwwLjksMC4xLDEuM2MtNC40LTAuMi04LjMtMi41LTEwLjktNS45Yy0wLjUsMC44LTAuNywxLjgtMC43LDIuOWMwLDIsMC45LDMuNywyLjMsNC43ICAgIGMtMC45LDAtMS43LTAuMy0yLjQtMC43YzAsMCwwLDAuMSwwLDAuMWMwLDIuNywxLjgsNSw0LjIsNS42Yy0wLjQsMC4xLTAuOSwwLjItMS40LDAuMmMtMC4zLDAtMC43LDAtMS0wLjEgICAgYzAuNywyLjMsMi42LDMuOSw0LjksMy45Yy0xLjgsMS41LTQuMSwyLjQtNi41LDIuNGMtMC40LDAtMC44LDAtMS4zLTAuMWMyLjMsMS42LDUuMSwyLjYsOC4xLDIuNmM5LjcsMCwxNS04LjYsMTUtMTYuMSAgICBjMC0wLjIsMC0wLjUsMC0wLjdDMzUuMiwxNy42LDM2LjEsMTYuNiwzNi44LDE1LjR6IiBmaWxsPSIjRkZGRkZGIi8+PC9nPjwvZz48L3N2Zz4="
@@ -81,9 +76,9 @@ const ContactPreview = props => {
             <input />
           </Form.Field>
           <Form.Field>
-            <label style={{ textAlign: "left", color: "grey" }}>
-              {appDetails.FormMessageText || "What's up?"}
-            </label>
+
+            <label style={{ textAlign: 'left', color: 'grey', overflowWrap: 'break-word' }} >{appDetails.FormMessageText || "What's up?"}</label>
+
             <input />
           </Form.Field>
         </Form>

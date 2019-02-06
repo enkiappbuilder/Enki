@@ -5,13 +5,13 @@ import {
   Button,
   Menu,
 } from "semantic-ui-react";
-import {Link} from 'react-router-dom'
 import {connect} from 'react-redux'
 
+import userImage from '../../functions/userImage'
 
 const AboutPreview = props => {
   const appDetails = props.appDetails ? props.appDetails : props.stateDetails;
-  
+  let UserAboutImg = userImage(appDetails.AboutMeImage)
 
   const defaultAboutMeDesc =
     "This is just some filler lorem ipsum, no not really, but this is an about page that should be something about you! Now make up your mind and say something about yourself! Probably something good and not bad! Yeah! ";
@@ -22,7 +22,9 @@ const AboutPreview = props => {
         "rgba(250,249,249,0.1)" /*AboutMeButtonBackgroundColor*/,
       marginBottom: 20,
       alignSelf: "center",
-      textAlign: "center"
+      textAlign: "center",
+      overflowWrap: 'break-word',
+      width: '50%'
     },
     container: {
       flex: 1,
@@ -40,12 +42,12 @@ const AboutPreview = props => {
       backgroundColor:
         /*AboutMeTextBackgroundColor*/ appDetails.AboutMeDescBackgroundColor ||
         "#0e0f0f" /*AboutMeTextBackgroundColor*/,
-      textAlign: "center"
+      textAlign: "center",
+      margin: 10
     },
     flex: {
-      flex: 1,
-      alignItems: "center",
-      justifyContent: "center"
+      overflowY: 'auto',
+      height: '90%'
     },
     aboutMeImg: {
       flex: 1,
@@ -60,27 +62,32 @@ const AboutPreview = props => {
         "white" /*AboutMeHeaderTextColor*/,
       textAlign: "center",
       fontSize: 35,
-      margin: 5
+      margin: 5,
+      overflowWrap: 'break-word'
     },
     text: {
       margin: 10,
       color:
         /*AboutMeDescTextColor*/ appDetails.AboutMeDescColor ||
         "white" /*AboutMeDescTextColor*/,
-      textAlign: "center"
+      textAlign: "center",
+      overflowWrap: 'break-word'
     }
   };
 
   return (
     <Container
+      fluid
       style={{
+        height: '300',
         alignItems: "center",
         flex: 1,
         color: "#fff",
         alignItems: "center",
         backgroundColor:
           /*AboutMeBackgroundColor*/ appDetails.AboutMeBackGroundColor ||
-          "#0e0f0f" /*AboutMeBackgroundColor*/
+          "#0e0f0f" /*AboutMeBackgroundColor*/,
+        height: '100%'
       }}
     >
       <Menu
@@ -88,14 +95,17 @@ const AboutPreview = props => {
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
         <Menu.Item position="left" icon="sidebar" />
+
         <Menu.Item>{appDetails.AboutMeHeaderText || "Header Text"}</Menu.Item>
         <Menu.Item position="right" icon="home" onClick={()=>props.changePage('Home')}/>
-      </Menu>
+
+
       <Container style={styles.flex}>
+
         <Image
-          style={{ objectFit: "cover" }}
+          style={{ flex: 1, alignSelf: 'stretch', padding: 20, height: "auto", width: 'auto' }}
           src={
-            /*AboutMeImg*/ "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /*AboutMeImg*/
+            UserAboutImg || /*AboutMeImg*/ "https://images.pexels.com/photos/1704488/pexels-photo-1704488.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940" /*AboutMeImg*/
           }
           borderradius="20px"
         />
@@ -112,7 +122,6 @@ const AboutPreview = props => {
           </p>
           
           <Button
-            // onPress={() => this.props.navigation.navigate('Contact')}
             content=/*AboutMeButtonText*/ {
               appDetails.AboutMeButtonText || "Contact"
             } /*AboutMeButtonText*/
@@ -123,9 +132,11 @@ const AboutPreview = props => {
           
         </div>
       </Container>
+
     </Container>
   );
 };
+
 
 const mapStateToProps = (state) => {
   return {
@@ -134,3 +145,4 @@ const mapStateToProps = (state) => {
 }
 
 export default connect(mapStateToProps)(AboutPreview);
+

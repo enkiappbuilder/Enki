@@ -4,7 +4,8 @@ import {
   Header,
   Segment,
   Card,
-  Grid
+  Grid,
+  Sticky
 } from "semantic-ui-react";
 import Forms from "./Forms";
 import UploadImage from "./UploadImageFormButton"
@@ -60,7 +61,7 @@ class EditPage extends Component {
 
     return (
       <>
-        <Header> Edit Your {this.props.page} Page </Header>
+        <Header style = {styles.headerStyles}> Edit Your {this.props.page} Page </Header>
         <Segment color='green'>
           <Grid columns={2} relaxed="very" celled="internally">
             <Grid.Column>
@@ -105,9 +106,13 @@ class EditPage extends Component {
               })}
             </Grid.Column>
             <Grid.Column>
-              <Card style={{ height: '60vh', display: 'flex' }}>
+
+              <Sticky>
+              <Card style={{ height: '70vh', display: 'flex', marginTop: '50px'}}>
+
                 {Preview}
               </Card>
+              </Sticky>
             </Grid.Column>
           </Grid>
         </Segment>
@@ -128,3 +133,9 @@ const mapDispatchToProps = dispatch => {
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(EditPage);
+
+const styles = {
+  headerStyles : {
+    paddingLeft: '42px'
+  }
+}

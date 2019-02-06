@@ -8,11 +8,11 @@ const defaultState = {
   HomeScreenBackgroundImage: "",
   HomeScreenHeaderText: "Joe",
   HomeScreenLargeWelcomeText: "Welcome",
-  HomeScreenLargeWelcomeColor: "",
+  HomeScreenLargeWelcomeColor: "white",
   HomeScreenDescriptionText: "Photographer and Designer",
-  HomeScreenDescriptionColor: "",
+  HomeScreenDescriptionColor: "white",
   HomeScreenButtonText: "About Me",
-  HomeScreenButtonBackgroundColor: "",
+  HomeScreenButtonBackgroundColor: "light-grey",
 
 
   /*Gallery Screen*/
@@ -38,24 +38,24 @@ const defaultState = {
   GalleryDescriptionText5: "This photo was taken on a rainy Sunday. I'm glad I braved the weather to get the shot!",
   GalleryImage5Path: "",
 
-  GalleryBackgroundColor: "",
-  GalleryPhotoTitleColor: "",
-  GalleryPhotoDescriptionColor: "",
+  GalleryBackgroundColor: "#000000",
+  GalleryPhotoTitleColor: "white",
+  GalleryPhotoDescriptionColor: "white",
 
 
   /*About me Screen*/
 
-  AboutMeBackGroundColor: "",
+  AboutMeBackGroundColor: "#0e0f0f",
   AboutMeHeaderText: "Header Text",
   AboutMeImage: "",
   AboutMeTitleText: "Title Text",
-  AboutMeTitleColor: "",
+  AboutMeTitleColor: "white",
   AboutMeDescText: defaultDesc,
-  AboutMeDescColor: "",
-  AboutMeDescBackgroundColor: "",
-  AboutMeBorderColor: "",
+  AboutMeDescColor: "white",
+  AboutMeDescBackgroundColor: "#0e0f0f",
+  AboutMeBorderColor: "blue",
   AboutMeButtonText: "Contact",
-  AboutMeButtonBackgroundColor: "",
+  AboutMeButtonBackgroundColor: "#0e0f0f",
 
   /*Contact me Screen*/
 
@@ -67,7 +67,7 @@ const defaultState = {
   FormMessageText: "Whats Up?",
 
   ContactScreenSubmitButtonBackgroundColor: "",
-  ContactScreenBackgroundColor: "",
+  ContactScreenBackgroundColor: "#000000",
 
 };
 
