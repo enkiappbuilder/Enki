@@ -96,7 +96,7 @@ ipcMain.on('copyExists',(event)=> event.sender.send('copy-done'))
 
 // Progress bar renders while files are being copied.
 function showProgressbar (event) {
-
+  event.sender.send('copying')
 	const progressBar = new ProgressBar({
     text: 'Please wait while Enki writes your app!',
     detail: 'Copying...'
