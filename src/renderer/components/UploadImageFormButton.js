@@ -7,12 +7,12 @@ const UploadImage = (props) => {
   let title = name.replace(/([A-Z])/g, ' $1').replace(/^./, function (str) { return str.toUpperCase(); })
 
   return (
-    <Form style = {styles.imageUpload}>
+    <Form style={styles.imageUpload}>
       <Form.Field >
         <span>
-          <label style={{ margin: 10, fontWeight: 'bold' }}>{title}   </label>
+          <label style={{ marginLeft: 0, marginRight: 5, fontWeight: 'bold' }}>{title}   </label>
           <Button
-          color = 'blue'
+            color='blue'
             onClick={() => props.handleUpload(props.name)}
           >
             Upload image
@@ -29,5 +29,6 @@ export default UploadImage
 const styles = {
   imageUpload: {
     display: 'flex',
+    padding: 5
   }
 }

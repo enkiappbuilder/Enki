@@ -47,7 +47,7 @@ const AboutPreview = props => {
     },
     flex: {
       overflowY: 'auto',
-      height: '90%'
+      height: '88%'
     },
     aboutMeImg: {
       flex: 1,

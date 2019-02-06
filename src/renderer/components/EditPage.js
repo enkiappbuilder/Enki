@@ -63,8 +63,8 @@ class EditPage extends Component {
       <>
         <Header style={styles.headerStyles}> Edit Your {this.props.page} Page </Header>
         <Segment color='green'>
-          <Grid columns={2} relaxed="very" celled="internally">
-            <Grid.Column>
+          <Grid padded="vertically" columns={2} relaxed="very" celled="internally">
+            <Grid.Column width={7} style={{ border: '1px black solid', margin: 1 }}>
 
               {stateArray.filter(field => this.props.details.includes(field)).map((field, i) => {
 
@@ -105,10 +105,10 @@ class EditPage extends Component {
 
               })}
             </Grid.Column>
-            <Grid.Column>
+            <Grid.Column width={5}>
 
-              <Sticky>
-                <Card style={{ height: '70vh', display: 'flex', marginTop: '50px' }}>
+              <Sticky >
+                <Card style={{ height: '70vh', marginTop: '50px', marginLeft: 100 }}>
 
                   {Preview}
                 </Card>
