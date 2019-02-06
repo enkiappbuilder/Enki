@@ -16,8 +16,14 @@ class GalleryPreview extends React.Component {
     this.state = {};
   }
 
+  
   render() {
     const appDetails = this.props.appDetails ? this.props.appDetails : this.props.stateDetails;
+    let userImage1 = userImage(appDetails.GalleryImage1Path);
+    let userImage2 = userImage(appDetails.GalleryImage2Path);
+    let userImage3 = userImage(appDetails.GalleryImage3Path);
+    let userImage4 = userImage(appDetails.GalleryImage4Path);
+    let userImage5 = userImage(appDetails.GalleryImage5Path);
     const images = [
       {
         title: appDetails.GalleryTitleText1 || "Cyberpunk Street",
@@ -25,7 +31,7 @@ class GalleryPreview extends React.Component {
           appDetails.GalleryDescriptionText1 ||
           /*GalleryDescriptionText1*/ "My photo description. This was taken in 2014 on a Nikon D810 with long exposure." /*GalleryDescriptionText1*/,
         location:
-          appDetails.GalleryImage1Path ||
+          userImage1 ||
           /*GalleryImage1Path*/ require("../../../template/mobiletemp//assets/images/sampleImages/cyberpunkStreet.jpg") /*GalleryImage1Path*/
       },
       {
@@ -34,7 +40,7 @@ class GalleryPreview extends React.Component {
           appDetails.GalleryDescriptionText2 ||
           /*GalleryDescriptionText2*/ "This image is taken in RAW and converted to JPEG with Capture NX 2." /*GalleryDescriptionText2*/,
         location:
-          appDetails.GalleryImage2Path ||
+          userImage2 ||
           /*GalleryImage2Path*/ require("../../../template/mobiletemp//assets/images/sampleImages/forest.jpg") /*GalleryImage2Path*/
       },
       {
@@ -44,7 +50,7 @@ class GalleryPreview extends React.Component {
           appDetails.GalleryDescriptionText3 ||
           /*GalleryDescriptionText3*/ "Abstract icy winter, taken with Nikon D800. " /*GalleryDescriptionText3*/,
         location:
-          appDetails.GalleryImage3Path ||
+          userImage3 ||
           /*GalleryImage3Path*/ require("../../../template/mobiletemp//assets/images/sampleImages/ice.jpg") /*GalleryImage3Path*/
       },
       {
@@ -55,7 +61,7 @@ class GalleryPreview extends React.Component {
           appDetails.GalleryDescriptionText4 ||
           /*GalleryDescriptionText4*/ "Unique lantern street in Japan." /*GalleryDescriptionText4*/,
         location:
-          appDetails.GalleryImage4Path ||
+          userImage4 ||
           /*GalleryImage4Path*/ require("../../../template/mobiletemp//assets/images/sampleImages/lanternStreet.jpg") /*GalleryImage4Path*/
       },
       {
@@ -66,7 +72,7 @@ class GalleryPreview extends React.Component {
           appDetails.GalleryDescriptionText5 ||
           /*GalleryDescriptionText5*/ "This photo was taken on a rainy Sunday. I'm glad I braved the weather to get the shot!" /*GalleryDescriptionText5*/,
         location:
-          appDetails.GalleryImage5Path ||
+          userImage5 ||
           /*GalleryImage5Path*/ require("../../../template/mobiletemp//assets/images/sampleImages/rainOnStreet.jpg") /*GalleryImage5Path*/
       }
     ];
