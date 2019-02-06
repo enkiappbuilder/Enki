@@ -5,6 +5,8 @@ import {
   Button,
   Menu
 } from "semantic-ui-react";
+import {liveSideBar} from "../store/liveSideBar"
+import {showliveMENU, hideliveMenu} from "../store/liveSideBar"
 import myImg from "../../../template/mobiletemp/assets/images/sampleImages/ice.jpg";
 import userImage from '../../functions/userImage'
 import fs from "fs-extra";
@@ -96,7 +98,7 @@ const HomePreview = (props) => {
         secondary
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
-        <Menu.Item position="left" icon="sidebar" />
+        <Menu.Item position="left" icon="sidebar" onClick = {()=>props.showMENU()}/>
         <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>
           {appDetails.HomeScreenHeaderText || "Header Text"}
         </Menu.Item>
@@ -129,12 +131,18 @@ const HomePreview = (props) => {
     </Container>
   );
 };
-
-
-const mapStateToProps = (state) => {
+const mapDispatchToProps = dispatch => {
   return {
-    stateDetails: state.appDetails
+    showMENU: () => dispatch(showliveMENU()),
+    hideMenu: () => dispatch(hideliveMenu()),
   }
 }
 
-export default connect(mapStateToProps)(HomePreview)
+const mapStateToProps = (state) => {
+  return {
+    stateDetails: state.appDetails,
+    sideBarStatus: state.liveSideBar
+  }
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(HomePreview)

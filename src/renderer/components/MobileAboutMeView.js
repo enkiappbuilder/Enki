@@ -6,7 +6,8 @@ import {
   Menu,
 } from "semantic-ui-react";
 import { connect } from 'react-redux'
-
+import {liveSideBar} from "../store/liveSideBar"
+import {showliveMENU, hideliveMenu} from "../store/liveSideBar"
 import userImage from '../../functions/userImage'
 
 const AboutPreview = props => {
@@ -94,7 +95,7 @@ const AboutPreview = props => {
         secondary
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
-        <Menu.Item position="left" icon="sidebar" />
+        <Menu.Item position="left" icon="sidebar" onClick = {()=>props.showMENU()}/>
 
         <Menu.Item>{appDetails.AboutMeHeaderText || "Header Text"}</Menu.Item>
         <Menu.Item position="right" icon="home" onClick={() => props.changePage('Home')} />
@@ -139,13 +140,20 @@ const AboutPreview = props => {
   );
 }
 
+const mapDispatchToProps = dispatch => {
+  return {
+    showMENU: () => dispatch(showliveMENU()),
+    hideMenu: () => dispatch(hideliveMenu()),
+  }
+}
 
 
 const mapStateToProps = (state) => {
   return {
-    stateDetails: state.appDetails
+    stateDetails: state.appDetails,
+    sideBarStatus: state.liveSideBar
   }
 }
 
-export default connect(mapStateToProps)(AboutPreview);
+export default connect(mapStateToProps, mapDispatchToProps)(AboutPreview);
 
