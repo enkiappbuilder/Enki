@@ -92,7 +92,7 @@ ipcMain.on('uploadPhoto', (event, commentName) => uploadNewPhoto(event, commentN
 
 ipcMain.on('show-progressbar', showProgressbar)
 ipcMain.on('set-progressbar-completed', setProgressbarCompleted)
-
+ipcMain.on('copyExists',(event)=> event.sender.send('copy-done'))
 
 // Progress bar renders while files are being copied.
 function showProgressbar (event) {

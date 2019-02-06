@@ -65,7 +65,7 @@ class CreatePage extends Component {
 
   componentDidMount() {
     this.props.showSideBar()
-    if (fs.existsSync('./copyOfProject')) this.setState({copying:false})
+    // if (fs.existsSync('./copyOfProject')) this.setState({copying:false})
     ipcRenderer.on('copy-done', ()=> {
       this.setState({copying:false})
     })

@@ -38,6 +38,7 @@ class Templates extends Component {
   createTemplate() {
     if (fs.existsSync('./copyOfProject')) {
       alert('Current Project Exists! Redirecting to create Page! To start another project, please delete in creation page!')
+      ipcRenderer.send('copyExists')
     } else {
       ipcRenderer.send('show-progressbar')
       this.props.toggleEdit(true)
