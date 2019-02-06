@@ -5,10 +5,12 @@ import {
   Button,
   Menu,
 } from "semantic-ui-react";
+import {connect} from 'react-redux'
+
 import userImage from '../../functions/userImage'
 
 const AboutPreview = props => {
-  const { appDetails } = props;
+  const appDetails = props.appDetails ? props.appDetails : props.stateDetails;
   let UserAboutImg = userImage(appDetails.AboutMeImage)
 
   const defaultAboutMeDesc =
@@ -93,9 +95,10 @@ const AboutPreview = props => {
         style={{ color: "#132029", backgroundColor: "rgba(250,249,249,0.8)" }}
       >
         <Menu.Item position="left" icon="sidebar" />
-        <Menu.Item style={{ maxWidth: '20ch', overflowWrap: 'break-word' }}>{appDetails.AboutMeHeaderText || "Header Text"}</Menu.Item>
-        <Menu.Item position="right" icon="home" />
-      </Menu>
+
+        <Menu.Item>{appDetails.AboutMeHeaderText || "Header Text"}</Menu.Item>
+        <Menu.Item position="right" icon="home" onClick={()=>props.changePage('Home')}/>
+
 
       <Container style={styles.flex}>
 
@@ -117,13 +120,16 @@ const AboutPreview = props => {
             {appDetails.AboutMeDescText || defaultAboutMeDesc}
             {/*AboutMeDescText*/}
           </p>
+          
           <Button
             content=/*AboutMeButtonText*/ {
               appDetails.AboutMeButtonText || "Contact"
             } /*AboutMeButtonText*/
             inverted
             style={styles.AboutMePageButton}
+            onClick={()=>props.changePage("Contact")}
           />
+          
         </div>
       </Container>
 
@@ -131,4 +137,12 @@ const AboutPreview = props => {
   );
 };
 
-export default AboutPreview;
+
+const mapStateToProps = (state) => {
+  return {
+    stateDetails: state.appDetails
+  }
+}
+
+export default connect(mapStateToProps)(AboutPreview);
+

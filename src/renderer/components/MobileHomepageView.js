@@ -15,8 +15,9 @@ import userImage from '../../functions/userImage'
 import fs from "fs-extra";
 // import { url } from 'inspector';
 
-const HomePreview = props => {
-  const { appDetails } = props;
+
+const HomePreview = (props) => {
+  const appDetails = props.appDetails ? props.appDetails : props.stateDetails
 
   let userImg = null;
 
@@ -122,10 +123,18 @@ const HomePreview = props => {
           } /*HomescreenButtonText*/
           inverted
           style={styles.homePageButton}
+          onClick={()=>props.changePage('About')}
         />
       </Container>
     </Container>
   );
 };
 
-export default HomePreview;
+
+const mapStateToProps = (state) => {
+  return {
+    stateDetails: state.appDetails
+  }
+}
+
+export default connect(mapStateToProps)(HomePreview)
