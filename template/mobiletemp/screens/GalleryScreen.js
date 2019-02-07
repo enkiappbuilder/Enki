@@ -40,7 +40,7 @@ const images = [
   {
     title: /*GalleryTitleText4*/'Lantern Street'/*GalleryTitleText4*/,
     description: /*GalleryDescriptionText4*/"Unique lantern street in Japan."/*GalleryDescriptionText4*/,
-    location: require(`../${/*GalleryImage4Path*/require('assets/images/sampleImages/lanternStreet.jpg')/*GalleryImage4Path*/}`)
+    location: require(`../${/*GalleryImage4Path*/'assets/images/sampleImages/lanternStreet.jpg'/*GalleryImage4Path*/}`)
   },
   {
     title: /*GalleryTitleText5*/"Rainy Street"/*GalleryTitleText5*/,
